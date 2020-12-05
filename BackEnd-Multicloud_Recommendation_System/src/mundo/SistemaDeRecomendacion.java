@@ -27,7 +27,6 @@ public class SistemaDeRecomendacion {
     private ArrayList<ServicioCloud> listaDeServiciosCienciasBiologicas;
     private ArrayList<ServicioCloud> listaDeServiciosIndustria;
     private ArrayList<ServicioCloud> listaDeServiciosTecnología;
-    
  	private ArrayList<ServicioCloud> listaDeServiciosRecomendados;
 
 
@@ -74,6 +73,22 @@ public class SistemaDeRecomendacion {
 	}
 
 
+	public void incluirServiciosGenerales() {
+		
+	}
+	
+	/*
+	 * Agrega al arreglo de recomendación los servicios dependientes elegidos por el cliente
+	 * @param serviciosDependientes Un arreglo con el código del servicio (101 compute services, 102 container support, 103 SQL database)
+	 * @param proveedor de los servicios elegido por el cliente
+	 * @example Cliente tipo: Sector Ventas : serviciosDependientes[101,103] proveedor[AWS,AZURE] (ESCOGIDO POR LOS PILARES)
+	 * @example Cliente tipo: Tecnología : serviciosDependientes[101,102,103] proveedor[AWS,AWS,AZURE] (ESCOGIDO POR LOS PILARES)
+	 */
+	
+	public void incluirServiciosDependientes(Integer[] serviciosDependientes, Proveedor[] proveedor ) {
+		
+	}
+	
 
 	public Proveedor[] getProveedoresCloud() {
 		return listaDeProveedoresCloud;	
