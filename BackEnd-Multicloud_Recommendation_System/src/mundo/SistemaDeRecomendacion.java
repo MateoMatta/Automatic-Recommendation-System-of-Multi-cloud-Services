@@ -20,8 +20,15 @@ public class SistemaDeRecomendacion {
 	//TERMINAR VARIABLES RELACIONADAS A LA REALIZACION DE LAS PREGUNTAS
 
 	private int[][] tablaComparacionDeServiciosConPilares;
-
-	private ArrayList<ServicioCloud> listaDeServiciosRecomendados;
+	
+	
+    private ArrayList<ServicioCloud> listaDeServiciosSectorVentas;
+    private ArrayList<ServicioCloud> listaDeServiciosSectorFinanciero;
+    private ArrayList<ServicioCloud> listaDeServiciosCienciasBiologicas;
+    private ArrayList<ServicioCloud> listaDeServiciosIndustria;
+    private ArrayList<ServicioCloud> listaDeServiciosTecnología;
+    
+ 	private ArrayList<ServicioCloud> listaDeServiciosRecomendados;
 
 
 	public SistemaDeRecomendacion() {
