@@ -22,6 +22,9 @@ public class Preguntas {
 
 	}
 
+
+	
+	
 	/**
 	 * Este metodo importa el CSV de sector, le asigna a la variable PrguntasSector el tamano de la matriz y finalmente
 	 * llena toda la matriz con el formato 
@@ -65,6 +68,7 @@ public class Preguntas {
 			preguntasAplicación[i] = br.readLine().split(",");
 		}
 	}
+	
 	/**
 	 * Este metodo importa el CSV de pilares, le asigna a la variable PreguntasPilares el tamano de la matriz y finalmente
 	 * llena toda la matriz con el FORMATO
@@ -76,8 +80,6 @@ public class Preguntas {
 	 * @param urlSector URL
 	 * @throws Exception
 	 */
-	
-	
 	public void mostrarPreguntasPilares(String urlPilares) throws Exception {
 		br = new BufferedReader(new FileReader(urlPilares));
 			preguntasPilares = new String[22][2];
@@ -93,15 +95,12 @@ public class Preguntas {
 	 * SistemaDeRecomendación.Preguntas.setRespuestasSector, aqui se interpretan
 	 * esas respuestas
 	 */
-
 	/**
 	 * Este metodo toma las respuestas provenientes de la interface ya asignadas en la variable RespuestasSector
 	 * Evalua cuantos true tiene cada sector y lo asigna en variabls posteriormente busca el Mayor puntaje
 	 * Si hay empate entonces se supone que el cliente tiene caracteristicas avanzadas y se le recomienda como si fuera tecnologico
 	 * @return
 	 */
-	
-	
 	public String interpretarRespuestasSector() {
 		int ventas = 0;
 		int financiero = 0;
@@ -151,8 +150,83 @@ public class Preguntas {
 
 	}
 	
-	 
+	public void interpretarRespuestasAplicacion() {
+		if(sector.equals("Negocios con alto uso de tecnologia")){
+			serviciosElegidos = new ServicioCloud[1];
+			if(respuestasAplicaciones[0] == true) {
+				if(respuestasAplicaciones[1] == true) {
+					serviciosElegidos[0] = new ServicioCloud("Kubernetes Managed Service", "NN", 0, 0, 0, 0, 0);
+					
+				}else {
+					serviciosElegidos[0] = new ServicioCloud("Container Support", "NN", 0, 0, 0, 0, 0);
+				}
+			}else {
+				serviciosElegidos[0] = new ServicioCloud("Compute Services", "NN", 0, 0, 0, 0, 0);
+			}
+		}else {
+			serviciosElegidos = new ServicioCloud[2];
+			if(respuestasAplicaciones[0] == true) {
+				serviciosElegidos[0] = new ServicioCloud("NoSQL Database", "NN", 0, 0, 0, 0, 0);
+			} else {
+				serviciosElegidos[0] = new ServicioCloud("SQL Database", "NN", 0, 0, 0, 0, 0);
+			}
+			if(respuestasAplicaciones[1] == true) {
+				if(respuestasAplicaciones[2] == true) {
+					serviciosElegidos[0] = new ServicioCloud("Kubernetes Managed Service", "NN", 0, 0, 0, 0, 0);
+				}else {
+					serviciosElegidos[0] = new ServicioCloud("Container Support", "NN", 0, 0, 0, 0, 0);
+				}
+			}else {
+				serviciosElegidos[0] = new ServicioCloud("Compute Services", "NN", 0, 0, 0, 0, 0);
+			}
+		}
+		
+	}
+	
+	
+	public void interpretarRespuestasPilares(boolean[] respuestasPreguntasPilares) {
+		int excelenciaOperativa=0;
+		int seguridad=0;
+		int fiabilidad=0;
+		int eficienciaRendimiento=0;
+		int optimizacionCostos=0;
+		
+		for (int i = 0; i < respuestasPreguntasPilares.length; i++) {
+			if(respuestasPreguntasPilares[i]==true) {
+				if(i>=0 && i<=4) {
+					excelenciaOperativa +=1;
+				}else if(i>=5 && i<=9) {
+					seguridad +=1;
+				}else if(i>=10 && i<=13) {
+					if(i==10) {
+						fiabilidad +=2;
+					}else {
+						fiabilidad +=1;
+					}
+				}else if(i>=14 && i<=17) {
+					if(i==14) {
+						eficienciaRendimiento +=2;
+					}else {
+						eficienciaRendimiento +=1;
+					}
+				}else if(i>=18 && i<=21) {
+					if(i==18) {
+						optimizacionCostos +=2;
+					}else {
+						optimizacionCostos +=1;
+					}
+				}
+			}
+		}
+	  pilaresCliente = new Pilar[5];
+	  pilaresCliente[0] = new Pilar("Excelencia operativa", excelenciaOperativa);
+	  pilaresCliente[1] = new Pilar("Seguridad", seguridad);
+	  pilaresCliente[2] = new Pilar("Fiabilidad", fiabilidad);
+	  pilaresCliente[3] = new Pilar("Eficiencia del rendimiento", eficienciaRendimiento);
+	  pilaresCliente[4] = new Pilar("Optimizacion de costos", optimizacionCostos);
 
+	}
+	
 	public String getSector() {
 		return sector;
 	}
