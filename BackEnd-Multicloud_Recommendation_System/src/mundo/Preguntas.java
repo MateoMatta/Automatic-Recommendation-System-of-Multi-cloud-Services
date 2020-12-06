@@ -10,7 +10,7 @@ public class Preguntas {
 	private String sector;
 
 	private String[][] preguntasSector;
-	private String[][] preguntasAplicación;
+	private String[][] preguntasAplicacion;
 	private String[][] preguntasPilares;
 
 	private boolean[] respuestasSector;
@@ -60,12 +60,12 @@ public class Preguntas {
 	public void mostrarPreguntasAplicacion(String urlAplicacion) throws Exception {
 		br = new BufferedReader(new FileReader(urlAplicacion));
 		if(sector.equals("Negocios con alto uso de tecnologia")) {
-			preguntasAplicación = new String[2][2];
+			preguntasAplicacion = new String[2][2];
 		}else {
-			preguntasAplicación = new String[3][2];
+			preguntasAplicacion = new String[3][2];
 		}
-		for (int i = 0; i < preguntasAplicación.length; i++) {
-			preguntasAplicación[i] = br.readLine().split(",");
+		for (int i = 0; i < preguntasAplicacion.length; i++) {
+			preguntasAplicacion[i] = br.readLine().split(",");
 		}
 	}
 	
@@ -84,8 +84,8 @@ public class Preguntas {
 		br = new BufferedReader(new FileReader(urlPilares));
 			preguntasPilares = new String[22][2];
 		
-		for (int i = 0; i < preguntasAplicación.length; i++) {
-			preguntasAplicación[i] = br.readLine().split(",");
+		for (int i = 0; i < preguntasPilares.length; i++) {
+			preguntasPilares[i] = br.readLine().split(",");
 		}
 	}
 	
@@ -267,4 +267,35 @@ public class Preguntas {
 		this.pilaresCliente = pilaresCliente;
 	}
 
+
+	public String[][] getPreguntasSector() {
+		return preguntasSector;
+	}
+
+
+	public void setPreguntasSector(String[][] preguntasSector) {
+		this.preguntasSector = preguntasSector;
+	}
+
+	public String[][] getPreguntasAplicacion() {
+		return preguntasAplicacion;
+	}
+
+
+	public void setPreguntasAplicacion(String[][] preguntasAplicacion) {
+		this.preguntasAplicacion = preguntasAplicacion;
+	}
+
+
+	public String[][] getPreguntasPilares() {
+		return preguntasPilares;
+	}
+
+
+	public void setPreguntasPilares(String[][] preguntasPilares) {
+		this.preguntasPilares = preguntasPilares;
+	}
+
+	
+	
 }
