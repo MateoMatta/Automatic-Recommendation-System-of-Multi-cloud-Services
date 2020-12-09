@@ -138,7 +138,7 @@ public class Preguntas {
 		}else if(industria > ventas && industria > financiero && industria > ciencias && industria > tecnologia ) {
 			setSector("Industria y fabricacion");
 			respuesta="Industria y fabricacion";
-		}else if(tecnologia > ventas && tecnologia > financiero && tecnologia > ciencias && tecnologia > industria ) {
+		}else if(tecnologia >=1 ) {
 			setSector("Negocios con alto uso de tecnologia");
 			respuesta="Negocios con alto uso de tecnologia";
 		}else {
@@ -150,9 +150,11 @@ public class Preguntas {
 
 	}
 	
+	// 2
 	public void interpretarRespuestasAplicacion() {
 		if(sector.equals("Negocios con alto uso de tecnologia")){
 			serviciosElegidos = new ServicioCloud[1];
+			//Si soy Alto uso de tech solo voy a preguntar si es kubernetes o support
 			if(respuestasAplicaciones[0] == true) {
 				if(respuestasAplicaciones[1] == true) {
 					serviciosElegidos[0] = new ServicioCloud("Kubernetes Managed Service", "NN", 0, 0, 0, 0, 0);
@@ -161,9 +163,10 @@ public class Preguntas {
 					serviciosElegidos[0] = new ServicioCloud("Container Support", "NN", 0, 0, 0, 0, 0);
 				}
 			}else {
-				serviciosElegidos[0] = new ServicioCloud("Compute Services", "NN", 0, 0, 0, 0, 0);
+				serviciosElegidos[1] = new ServicioCloud("Compute Services", "NN", 0, 0, 0, 0, 0);
 			}
 		}else {
+			//Si no es alto uso de tech, significa que es cualquiera de los otros, que todos son iguales
 			serviciosElegidos = new ServicioCloud[2];
 			if(respuestasAplicaciones[0] == true) {
 				serviciosElegidos[0] = new ServicioCloud("NoSQL Database", "NN", 0, 0, 0, 0, 0);
