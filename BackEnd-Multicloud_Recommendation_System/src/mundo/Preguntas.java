@@ -18,15 +18,69 @@ public class Preguntas {
 	private ServicioCloud[] serviciosElegidos;
 	private Pilar[] pilaresCliente;
 
-	public Preguntas() {
+	public Preguntas() throws Exception {
+		// Importacion del CSV del sector a la variable PreguntasSector
+		mostrarPreguntasSector(SistemaDeRecomendacion.URL_ARCHIVO_DE_PREGUNTAS_DEL_SECTOR);
+		// Resultado de las respuestas a las preguntas del sector, hechas dsede la interfaz grafica. 
+		//Mientras se integra el front con este back, hare un arreglo de prueba quemado
+		respuestasSector = new boolean[preguntasSector.length];
+		for (int i = 0; i < respuestasSector.length; i++) {
+			respuestasSector[i] =false;
+		}
+		respuestasSector[0] = false;
+		respuestasSector[1] = false;
+		respuestasSector[2] = false;
+		respuestasSector[3] = true;
+		respuestasSector[4] = true;
+		//-----------------------------------
+
+		// Categorizacion de sector dadas las preguntas de perfilamiento
+		sector = interpretarRespuestasSector();
+		System.out.println(sector + "");
+
+
+		// Preguntas sobre la aplicacion y los servicios dado un sector previamente definido
+		if(sector.equals("Negocios con alto uso de tecnologia"))
+		{
+			mostrarPreguntasAplicacion(SistemaDeRecomendacion.URL_ARCHIVO_DE_PREGUNTAS_DEL_SECTOR_TECNOLOGICO);		
+
+		}else
+		{
+			mostrarPreguntasAplicacion(SistemaDeRecomendacion.URL_ARCHIVO_DE_PREGUNTAS_DE_DEMAS_SECTORES);			
+		}
+
+		for (int i = 0; i < preguntasAplicacion.length; i++) {
+			System.out.println(preguntasAplicacion[i][0] + " - " + preguntasAplicacion[i][1] );
+
+		}
+
+		respuestasAplicaciones = new boolean[preguntasAplicacion.length];
+		//QUEMADOOOOOOOOOOOOOOOOOOOOO. Pues de llos booleans de las respuestas dadas en el front end
+		for (int i = 0; i < respuestasAplicaciones.length; i++) {
+			respuestasAplicaciones[i] =false;
+		}
+		//Supongamos que del sector de ventas, eligio bases de datos |SQL|, estara con microservicios usando asÃ­ instancias y  no usara Kubernetes
+		respuestasAplicaciones[0] = false;
+		respuestasAplicaciones[1] = true;
+		respuestasAplicaciones[2] = false;   
+		//------------------------------
+		interpretarRespuestasAplicacion();
+		//Se obtienen aqui los serviciosElegidos
+		
+		//-------------------------
+		//Ahora se obtendra el top de pilares correspondiente al cliente
+		
+		
+		
+
 
 	}
 
 
-	
-	
+
+
 	/**
-	 * Este metodo importa el CSV de sector, le asigna a la variable PrguntasSector el tamano de la matriz y finalmente
+	 * Este metodo importa el CSV de sector, le asigna a la variable PreguntasSector el tamano de la matriz y finalmente
 	 * llena toda la matriz con el formato 
 	 * 
 	 * FORMATO
@@ -40,12 +94,12 @@ public class Preguntas {
 		br = new BufferedReader(new FileReader(urlSector));
 		preguntasSector = new String[22][2];
 		for (int i = 0; i < preguntasSector.length; i++) {
-			preguntasSector[i] = br.readLine().split(",");
+			preguntasSector[i] = br.readLine().split(",");			
 		}
 
 	}
-	
-	
+
+
 	/**
 	 * Este metodo importa el CSV de Aplicacion, le asigna a la variable PreguntasAplicacion el tamano de la matriz y finalmente
 	 * llena toda la matriz con el FORMATO, este llenado depende directamente de la variable SECTOR 
@@ -68,7 +122,7 @@ public class Preguntas {
 			preguntasAplicacion[i] = br.readLine().split(",");
 		}
 	}
-	
+
 	/**
 	 * Este metodo importa el CSV de pilares, le asigna a la variable PreguntasPilares el tamano de la matriz y finalmente
 	 * llena toda la matriz con el FORMATO
@@ -82,17 +136,17 @@ public class Preguntas {
 	 */
 	public void mostrarPreguntasPilares(String urlPilares) throws Exception {
 		br = new BufferedReader(new FileReader(urlPilares));
-			preguntasPilares = new String[22][2];
-		
+		preguntasPilares = new String[22][2];
+
 		for (int i = 0; i < preguntasPilares.length; i++) {
 			preguntasPilares[i] = br.readLine().split(",");
 		}
 	}
-	
+
 
 	/*
 	 * En la interfaz se llama a
-	 * SistemaDeRecomendación.Preguntas.setRespuestasSector, aqui se interpretan
+	 * SistemaDeRecomendacion.Preguntas.setRespuestasSector, aqui se interpretan
 	 * esas respuestas
 	 */
 	/**
@@ -145,11 +199,11 @@ public class Preguntas {
 			setSector("Negocios con alto uso de tecnologia");
 			respuesta="Negocios con alto uso de tecnologia";
 		}
-		
+
 		return respuesta;
 
 	}
-	
+
 	// 2
 	public void interpretarRespuestasAplicacion() {
 		if(sector.equals("Negocios con alto uso de tecnologia")){
@@ -158,7 +212,7 @@ public class Preguntas {
 			if(respuestasAplicaciones[0] == true) {
 				if(respuestasAplicaciones[1] == true) {
 					serviciosElegidos[0] = new ServicioCloud("Kubernetes Managed Service", "NN", 0, 0, 0, 0, 0);
-					
+
 				}else {
 					serviciosElegidos[0] = new ServicioCloud("Container Support", "NN", 0, 0, 0, 0, 0);
 				}
@@ -183,17 +237,17 @@ public class Preguntas {
 				serviciosElegidos[0] = new ServicioCloud("Compute Services", "NN", 0, 0, 0, 0, 0);
 			}
 		}
-		
+
 	}
-	
-	
+
+
 	public void interpretarRespuestasPilares(boolean[] respuestasPreguntasPilares) {
 		int excelenciaOperativa=0;
 		int seguridad=0;
 		int fiabilidad=0;
 		int eficienciaRendimiento=0;
 		int optimizacionCostos=0;
-		
+
 		for (int i = 0; i < respuestasPreguntasPilares.length; i++) {
 			if(respuestasPreguntasPilares[i]==true) {
 				if(i>=0 && i<=4) {
@@ -221,15 +275,15 @@ public class Preguntas {
 				}
 			}
 		}
-	  pilaresCliente = new Pilar[5];
-	  pilaresCliente[0] = new Pilar("Excelencia operativa", excelenciaOperativa);
-	  pilaresCliente[1] = new Pilar("Seguridad", seguridad);
-	  pilaresCliente[2] = new Pilar("Fiabilidad", fiabilidad);
-	  pilaresCliente[3] = new Pilar("Eficiencia del rendimiento", eficienciaRendimiento);
-	  pilaresCliente[4] = new Pilar("Optimizacion de costos", optimizacionCostos);
+		pilaresCliente = new Pilar[5];
+		pilaresCliente[0] = new Pilar("Excelencia operativa", excelenciaOperativa);
+		pilaresCliente[1] = new Pilar("Seguridad", seguridad);
+		pilaresCliente[2] = new Pilar("Fiabilidad", fiabilidad);
+		pilaresCliente[3] = new Pilar("Eficiencia del rendimiento", eficienciaRendimiento);
+		pilaresCliente[4] = new Pilar("Optimizacion de costos", optimizacionCostos);
 
 	}
-	
+
 	public String getSector() {
 		return sector;
 	}
@@ -299,6 +353,25 @@ public class Preguntas {
 		this.preguntasPilares = preguntasPilares;
 	}
 
-	
-	
+	public static void main(String[] args) {
+		try {
+			Preguntas p = new Preguntas();
+
+
+
+
+
+
+
+
+
+
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+
 }

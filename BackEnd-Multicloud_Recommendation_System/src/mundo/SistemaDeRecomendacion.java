@@ -11,6 +11,10 @@ public class SistemaDeRecomendacion {
 	public static String[] PROVEEDORES_CLOUD = { "Azure", "AWS", "GCP" };
 
 	public static String URL_ARCHIVO_DE_DATOS_COMPARATIVA_DE_SERVICIOS = "./docs/PilaresDeServiciosDeProveedores.csv";
+	public static String URL_ARCHIVO_DE_PREGUNTAS_DEL_SECTOR = "./docs/Preguntas CSV/1preguntasSector.csv";
+	public static String URL_ARCHIVO_DE_PREGUNTAS_DE_DEMAS_SECTORES = "./docs/Preguntas CSV/2preguntasAplicacionDemasSectores.csv";
+	public static String URL_ARCHIVO_DE_PREGUNTAS_DEL_SECTOR_TECNOLOGICO = "./docs/Preguntas CSV/2preguntasAplicacionSectorTecnologico.csv";
+	public static String URL_ARCHIVO_DE_PREGUNTAS_DE_LOS_PILARES = "./docs/Preguntas CSV/3preguntasPilares.csv";
 
 	private Proveedor[] listaDeProveedoresCloud;
 
@@ -24,7 +28,7 @@ public class SistemaDeRecomendacion {
 	private ArrayList<ServicioCloud> listaDeServiciosSectorFinanciero;
 	private ArrayList<ServicioCloud> listaDeServiciosCienciasBiologicas;
 	private ArrayList<ServicioCloud> listaDeServiciosIndustria;
-	private ArrayList<ServicioCloud> listaDeServiciosTecnología;
+	private ArrayList<ServicioCloud> listaDeServiciosTecnologia;
 	private ArrayList<ServicioCloud> listaDeServiciosRecomendados;
 
 	public SistemaDeRecomendacion() {
@@ -71,10 +75,10 @@ public class SistemaDeRecomendacion {
 	}
 
 	/*
-	 * Agrega al arreglo de recomendación los servicios dependientes elegidos por el
+	 * Agrega al arreglo de recomendaciï¿½n los servicios dependientes elegidos por el
 	 * cliente
 	 * 
-	 * @param serviciosDependientes Un arreglo con el código del servicio (101
+	 * @param serviciosDependientes Un arreglo con el cï¿½digo del servicio (101
 	 * compute services, 102 container support, 103 SQL database)
 	 * 
 	 * @param proveedor de los servicios elegido por el cliente
@@ -82,7 +86,7 @@ public class SistemaDeRecomendacion {
 	 * @example Cliente tipo: Sector Ventas : serviciosDependientes[101,103]
 	 * proveedor[AWS,AZURE] (ESCOGIDO POR LOS PILARES)
 	 * 
-	 * @example Cliente tipo: Tecnología : serviciosDependientes[101,102,103]
+	 * @example Cliente tipo: Tecnologï¿½a : serviciosDependientes[101,102,103]
 	 * proveedor[AWS,AWS,AZURE] (ESCOGIDO POR LOS PILARES)
 	 */
 
@@ -488,7 +492,7 @@ public class SistemaDeRecomendacion {
 		System.out.println("");
 		System.out.println("");
 
-		System.out.println("Recomendación de tecnologías Multi-Cloud Computing - Test");
+		System.out.println("Recomendaciï¿½n de tecnologï¿½as Multi-Cloud Computing - Test");
 		System.out.println("");
 
 		for (int i = 0; i < sis.listaDeServiciosRecomendados.size(); i++) {

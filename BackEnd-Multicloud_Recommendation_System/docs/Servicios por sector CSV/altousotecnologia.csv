@@ -1,0 +1,37 @@
+﻿NombreDeProveedor,,,,,,,,,,,,,,,,,,
+,Azure,AWS,GCP,,,,,,,,,,,,,,,
+TipoDeServicio,NombreDeServicioAzure,NombreDeServicioAWS,NombreDeServicioGCP,valorCosAz,valorEOAz,valorEfAz,valorFiaAz,valorSegAz,valorCosAws,valorEOAws,valorEfAws,valorFiaAws,valorSegAws,valorCosGcp,valorEOGcp,valorEfGcp,valorFiaGcp,valorSegGcp
+Compute Services,Virtual Machines,Elastic Compute Cloud (EC2),Compute Engine,0,0,0,0,1,0,0,1,1,0,1,0,0,0,0
+Object Storage,Azure Blob Storage,Amazon Simple Storage (S3),Cloud Storage,1,0,0,0,1,0,0,1,1,0,1,1,0,0,0
+Analytics,Azure Stream Analytics,Amazon Kinesis,Cloud Dataflow,0,1,0,0,1,0,1,0,1,0,1,0,1,0,0
+Serverless Computing,Azure Functions,AWS Lambda,Cloud functions,0,1,0,0,0,0,1,0,1,0,1,0,1,0,0
+Container Support,Azure Container Service ,Amazon Elastic Container Service (EC2),Container Engine,0,1,0,0,1,0,1,0,1,0,1,0,0,0,0
+Content Delivery ,Azure CDN,Amazon CloudFront,Cloud CDN,0,1,0,0,0,0,0,1,1,0,1,0,0,0,0
+SQL Database Options,Azure SQL Database,Amazon Aurora,Cloud Spanner,1,0,0,0,0,0,1,0,1,1,0,0,1,1,0
+NoSQL Database Options,Azure Cosmos DB,Amazon DynamoDB,Cloud Datastore,0,0,0,1,1,0,1,1,0,0,1,0,0,0,0
+DNS Services,Azure DNS,Amazon Route 53,Cloud DNS,0,0,1,0,0,0,1,0,1,1,1,0,0,1,0
+Traffic Routing & Failover Services,Azure Traffic Manager,Amazon Route 53,Cloud Traffic Director,0,0,0,1,0,0,1,0,0,0,0,0,1,0,0
+Directory Services,Active Directory Domain Services,AWS Directory Service,-,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Kubernetes Managed Service,Azure Kubernetes Service (AKS),Elastic Kubernetes Service (EKS),Kubernetes Engine,0,0,1,0,0,0,0,0,1,0,1,1,0,1,1
+Cache Storage,Azure Redis Cache,ElastiCache,Cloud Memorystore,0,0,0,1,1,1,1,0,1,0,0,0,1,0,0
+Managed Data Warehouse,SQL Data Warehouse,Redshift,Big Query,1,0,1,1,0,0,1,0,1,0,0,0,0,0,1
+Identities Administration ,Azure Active Directory B2C,Cognito,Cloud Identity Platform,1,0,1,0,1,0,0,0,1,1,0,1,1,1,0
+Application Tests in Devices,AppCenter,Device Farm,Cloud Test Lab,0,0,0,1,1,0,1,1,0,0,1,0,0,0,0
+Git Repositories,Azure Repos,AWS Code Commit,Cloud Source Repositories,0,1,0,0,1,0,0,0,1,0,1,0,1,0,0
+Applications and Artifacts Construction,Visual Studio Team Services,CodeBuild,Cloud Build,1,0,1,0,0,0,0,0,0,0,1,0,1,0,1
+CI/CD,Azure DevOps,CodeDeploy,Cloud Deployment Manager,1,0,0,1,0,1,1,0,1,1,0,0,0,1,0
+Pipelines Services,Azure Pipelines,CodePipeline,.,0,0,1,1,1,0,0,1,0,0,0,0,0,0,-1
+Queues Services,Azure Queue Storage,Simple Queue Service (SQS),Cloud Pub/Sub,1,0,0,1,0,0,1,0,0,1,0,0,0,0,0
+Payment Services,-,Amazon Dev Pay,Google Pay API,0,0,0,0,0,0,1,0,1,1,1,0,1,0,0
+Big Data Analysis Platform ,Azure Databricks,Amazon EMR,Cloud Dataproc,0,0,1,0,0,0,1,0,1,1,1,0,0,0,0
+Storing and Processing Data Streams,Stream Analytics,Amazon Kinesis,Pub/Sub,1,0,0,0,0,0,1,0,1,1,0,1,0,1,0
+Data Workflows Orchestration,Data Factory,AWS Glue,Cloud Composer,1,1,1,0,1,1,0,1,0,0,1,0,1,0,1
+Managed Service for Machine Learning,Azure Machine Learning Studio,SageMaker,Cloud Machine Learning Engine,1,0,1,1,0,1,1,1,0,1,0,1,0,1,0
+Speech Recognition and Conversation Interface,Bing Speech API/Speaker Recognition API,Amazon Lex,Dialogflow Enterprise Edition,0,1,1,0,1,0,1,0,1,0,1,1,0,1,0
+Text to Speech,Bing Speech API,Amazon Polly,Text-To-Speech,0,1,1,0,1,0,1,0,0,1,0,1,1,1,1
+Images and video Processing,Computer Vision,Amazon Rekognition,Cloud Vision,1,0,1,0,1,1,0,0,1,0,0,1,1,0,1
+Natural Language Processing,Language Understanding Intelligent Service (LUIS),Amazon Comprehend,Cloud Natural Language,1,0,0,1,0,1,0,1,1,0,1,1,0,1,1
+Internet of Things (IoT),Azure IoT Hub,AWS IoT Core,Cloud IoT Core,1,1,1,0,1,0,1,1,0,0,0,0,1,1,0
+Blockchain,Azure Blockchain Service,Amazon Managed Blockchain,-,1,0,0,1,1,0,1,1,0,0,0,0,0,0,0
+Dedicated Videogames Servers,PlayFab,GameLift/Lumberyard,Game Servers,1,0,1,0,0,0,1,0,0,1,0,1,0,1,0
+Augmented and Virtual Reality ,Mixed Reality,Amazon Sumerian,-,0,1,1,0,0,0,0,1,0,0,0,0,0,0,0
