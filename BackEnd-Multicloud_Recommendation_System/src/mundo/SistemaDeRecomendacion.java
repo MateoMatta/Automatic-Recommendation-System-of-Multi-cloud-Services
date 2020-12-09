@@ -124,7 +124,10 @@ public class SistemaDeRecomendacion {
 		this.cliente = cliente;
 	}
 
-	//
+	 /**
+	  * En este punto deberia tener un parametro que le pase el URL del archivo, dependiendo del tipo de negocio del usuario
+	  * @throws Exception
+	  */
 	public void construirTablaDeComparacionDeServicios() throws Exception {
 		int cantidadDeServicios = -1;
 
@@ -217,7 +220,8 @@ public class SistemaDeRecomendacion {
 	//
 	// }
 
-	/** Algoritmos */
+
+	
 	public void seleccionRecomendadaDeServiciosCloud(int[][] matrizDePilaresDeServicios) {
 		boolean servicioYaRecomendado = false;
 
