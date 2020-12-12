@@ -1,8 +1,0 @@
-﻿NombreDeProveedor,,,,,,,,,,,,,,,,,,
-Azure,AWS,GCP,,,,,,,,,,,,,,,,
-TipoDeServicio,NombreDeServicioAzure,a,NombreDeServicioGCP,valorCosAz,valorEOAz,valorEfAz,valorFiaAz,valorSegAz,valorCosAws,valorEOAws,valorEfAws,valorFiaAws,valorSegAws,valorCosGcp,valorEOGcp,valorEfGcp,valorFiaGcp,valorSegGcp
-Compute Services,Virtual Machines,Elastic Compute Cloud (EC2),Compute Engine,0,1,0,0,1,0,0,1,1,0,1,0,0,1,0
-Object Storage,Azure Blob Storage,Amazon Simple Storage (S3),Cloud Storage,1,0,0,1,0,0,1,1,0,0,0,0,1,0,0
-Analytics,Azure Stream Analytics,Amazon Kinesis,Cloud Dataflow,0,1,1,0,0,0,0,1,1,0,1,1,0,0,0
-Mobile Apps Analytics,HockeyApp,Mobile Analytics,-,0,1,1,0,0,0,0,1,1,0,0,0,0,0,0
-Compliance,Azure Trust Center,AWS CloudHSM,Google Cloud Platform Security,0,1,0,0,1,0,1,0,0,0,1,1,0,0,0

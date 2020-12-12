@@ -1,24 +1,24 @@
-﻿NombreDeProveedor,,,,,,,,,,,,,,,,,,
-,Azure,AWS,GCP,,,,,,,,,,,,,,,
-TipoDeServicio,NombreDeServicioAzure,NombreDeServicioAWS,NombreDeServicioGCP,valorCosAz,valorEOAz,valorEfAz,valorFiaAz,valorSegAz,valorCosAws,valorEOAws,valorEfAws,valorFiaAws,valorSegAws,valorCosGcp,valorEOGcp,valorEfGcp,valorFiaGcp,valorSegGcp
-Compute Services,Virtual Machines,Elastic Compute Cloud (EC2),Compute Engine,0,0,0,0,1,0,0,1,1,0,1,0,0,0,0
-Object Storage,Azure Blob Storage,Amazon Simple Storage (S3),Cloud Storage,1,0,0,0,1,0,0,1,1,0,1,1,0,0,0
-Analytics,Azure Stream Analytics,Amazon Kinesis,Cloud Dataflow,0,1,0,0,1,0,1,0,1,0,1,0,1,0,0
-Serverless Computing,Azure Functions,AWS Lambda,Cloud functions,0,1,0,0,0,0,1,0,1,0,1,0,1,0,0
-Container Support,Azure Container Service ,Amazon Elastic Container Service (EC2),Container Engine,0,1,0,0,1,0,1,0,1,0,1,0,0,0,0
-Content Delivery ,Azure CDN,Amazon CloudFront,Cloud CDN,0,1,0,0,0,0,0,1,1,0,1,0,0,0,0
-SQL Database Options,Azure SQL Database,Amazon Aurora,Cloud Spanner,1,0,0,0,0,0,1,0,1,1,0,0,1,1,0
-NoSQL Database Options,Azure Cosmos DB,Amazon DynamoDB,Cloud Datastore,0,0,0,1,1,0,1,1,0,0,1,0,0,0,0
-DNS Services,Azure DNS,Amazon Route 53,Cloud DNS,0,0,1,0,0,0,1,0,1,1,1,0,0,1,0
-Traffic Routing & Failover Services,Azure Traffic Manager,Amazon Route 53,Cloud Traffic Director,0,0,0,1,0,0,1,0,0,0,0,0,1,0,0
-Kubernetes Managed Service,Azure Kubernetes Service (AKS),Elastic Kubernetes Service (EKS),Kubernetes Engine,0,0,1,0,0,0,0,0,1,0,1,1,0,1,1
-Managed Data Warehouse,SQL Data Warehouse,Redshift,Big Query,1,0,1,1,0,0,1,0,1,0,0,0,0,0,1
-Identities Administration ,Azure Active Directory B2C,Cognito,Cloud Identity Platform,1,0,1,0,1,0,0,0,1,1,0,1,1,1,0
-Queues Services,Azure Queue Storage,Simple Queue Service (SQS),Cloud Pub/Sub,1,0,0,1,0,0,1,0,0,1,0,0,0,0,0
-Payment Services,-,Amazon Dev Pay,Google Pay API,0,0,0,0,0,0,1,0,1,1,1,0,1,0,0
-Big Data Analysis Platform ,Azure Databricks,Amazon EMR,Cloud Dataproc,0,0,1,0,0,0,1,0,1,1,1,0,0,0,0
-Storing and Processing Data Streams,Stream Analytics,Amazon Kinesis,Pub/Sub,1,0,0,0,0,0,1,0,1,1,0,1,0,1,0
-Data Workflows Orchestration,Data Factory,AWS Glue,Cloud Composer,1,1,1,0,1,1,0,1,0,0,1,0,1,0,1
-Speech Recognition and Conversation Interface,Bing Speech API/Speaker Recognition API,Amazon Lex,Dialogflow Enterprise Edition,0,1,1,0,1,0,1,0,1,0,1,1,0,1,0
-Images and video Processing,Computer Vision,Amazon Rekognition,Cloud Vision,1,0,1,0,1,1,0,0,1,0,0,1,1,0,1
-Natural Language Processing,Language Understanding Intelligent Service (LUIS),Amazon Comprehend,Cloud Natural Language,1,0,0,1,0,1,0,1,1,0,1,1,0,1,1
+﻿NombreDeProveedor;;;;;;;;;;;;;;;;;;
+;Azure;AWS;GCP;;;;;;;;;;;;;;;
+TipoDeServicio;NombreDeServicioAzure;NombreDeServicioAWS;NombreDeServicioGCP;valorCosAz;valorEOAz;valorEfAz;valorFiaAz;valorSegAz;valorCosAws;valorEOAws;valorEfAws;valorFiaAws;valorSegAws;valorCosGcp;valorEOGcp;valorEfGcp;valorFiaGcp;valorSegGcp
+Compute Services;Virtual Machines;Elastic Compute Cloud (EC2);Compute Engine;0;0;0;0;1;0;0;1;1;0;1;0;0;0;0
+Object Storage;Azure Blob Storage;Amazon Simple Storage (S3);Cloud Storage;1;0;0;0;1;0;0;1;1;0;1;1;0;0;0
+Analytics;Azure Stream Analytics;Amazon Kinesis;Cloud Dataflow;0;1;0;0;1;0;1;0;1;0;1;0;1;0;0
+Serverless Computing;Azure Functions;AWS Lambda;Cloud functions;0;1;0;0;0;0;1;0;1;0;1;0;1;0;0
+Container Support;Azure Container Service ;Amazon Elastic Container Service (EC2);Container Engine;0;1;0;0;1;0;1;0;1;0;1;0;0;0;0
+Content Delivery ;Azure CDN;Amazon CloudFront;Cloud CDN;0;1;0;0;0;0;0;1;1;0;1;0;0;0;0
+SQL Database Options;Azure SQL Database;Amazon Aurora;Cloud Spanner;1;0;0;0;0;0;1;0;1;1;0;0;1;1;0
+NoSQL Database Options;Azure Cosmos DB;Amazon DynamoDB;Cloud Datastore;0;0;0;1;1;0;1;1;0;0;1;0;0;0;0
+DNS Services;Azure DNS;Amazon Route 53;Cloud DNS;0;0;1;0;0;0;1;0;1;1;1;0;0;1;0
+Traffic Routing & Failover Services;Azure Traffic Manager;Amazon Route 53;Cloud Traffic Director;0;0;0;1;0;0;1;0;0;0;0;0;1;0;0
+Kubernetes Managed Service;Azure Kubernetes Service (AKS);Elastic Kubernetes Service (EKS);Kubernetes Engine;0;0;1;0;0;0;0;0;1;0;1;1;0;1;1
+Managed Data Warehouse;SQL Data Warehouse;Redshift;Big Query;1;0;1;1;0;0;1;0;1;0;0;0;0;0;1
+Identities Administration ;Azure Active Directory B2C;Cognito;Cloud Identity Platform;1;0;1;0;1;0;0;0;1;1;0;0;1;1;0
+Queues Services;Azure Queue Storage;Simple Queue Service (SQS);Cloud Pub/Sub;1;0;0;1;0;0;1;0;0;1;0;1;0;1;0
+Payment Services;-;Amazon Dev Pay;Google Pay API;0;0;0;0;0;0;1;0;1;1;1;0;1;0;0
+Big Data Analysis Platform ;Azure Databricks;Amazon EMR;Cloud Dataproc;0;0;1;0;0;0;1;0;1;1;1;0;0;0;0
+Storing and Processing Data Streams;Stream Analytics;Amazon Kinesis;Pub/Sub;1;0;0;0;0;0;1;0;1;1;0;1;0;1;0
+Data Workflows Orchestration;Data Factory;AWS Glue;Cloud Composer;1;1;1;0;1;1;0;1;0;0;1;0;1;0;1
+Speech Recognition and Conversation Interface;Bing Speech API/Speaker Recognition API;Amazon Lex;Dialogflow Enterprise Edition;0;1;1;0;1;0;1;0;1;0;1;1;0;1;0
+Images and video Processing;Computer Vision;Amazon Rekognition;Cloud Vision;1;0;1;0;1;1;0;0;1;0;0;1;1;0;1
+Natural Language Processing;Language Understanding Intelligent Service (LUIS);Amazon Comprehend;Cloud Natural Language;1;0;0;1;0;1;0;1;1;0;1;1;0;1;1
