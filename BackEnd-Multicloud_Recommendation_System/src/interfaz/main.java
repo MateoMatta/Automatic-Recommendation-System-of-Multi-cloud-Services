@@ -1,18 +1,20 @@
 package interfaz;
 	
-import javafx.application.Application;
-import javafx.stage.Stage;
-import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
+import javafx.application.*;
+import javafx.fxml.*;
+import javafx.stage.*;
+import javafx.scene.*;
+import javafx.scene.layout.*;
 
 
 public class main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			BorderPane root = new BorderPane();
-			Scene scene = new Scene(root,400,400);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			Parent  root = FXMLLoader.load(getClass().getResource("Interfaz.fxml"));
+			Scene scene = new Scene(root);
+			scene.getStylesheets().add(STYLESHEET_MODENA);
+			primaryStage.setTitle("Sistema de recomendación de servicios Multi-Cloud");
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch(Exception e) {

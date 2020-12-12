@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="640.0">
+         <image>
+            <Image url="@../../images/multicloud3.png" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="trueSecondQ" layoutX="35.0" layoutY="9.0" opacity="0.62" prefHeight="380.0" prefWidth="565.0" style="-fx-background-color: black;">
+         <children>
+            <Text fill="WHITE" layoutX="475.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Si" textAlignment="JUSTIFY" wrappingWidth="16.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="514.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No" textAlignment="JUSTIFY" wrappingWidth="22.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+         </children></AnchorPane>
+      <Button fx:id="nextButtonIniciales" layoutX="333.0" layoutY="338.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Continuar" />
+      <Text fx:id="textTipoDePregunta" fill="WHITE" layoutX="233.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preguntas Iniciales" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <RadioButton fx:id="true1Init" layoutX="510.0" layoutY="98.0" mnemonicParsing="false" />
+      <Text fx:id="pregunta1txt" fill="WHITE" layoutX="58.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pregunta 1" textAlignment="JUSTIFY" wrappingWidth="437.150390625">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fx:id="pregunta2txt" fill="WHITE" layoutX="58.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pregunta 2" textAlignment="JUSTIFY" wrappingWidth="437.150390625">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fx:id="pregunta3txt" fill="WHITE" layoutX="58.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pregunta 3" textAlignment="JUSTIFY" wrappingWidth="437.150390625">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fx:id="pregunta4txt" fill="WHITE" layoutX="58.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pregunta 4" textAlignment="JUSTIFY" wrappingWidth="437.150390625">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fx:id="pregunta5txt" fill="WHITE" layoutX="58.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pregunta 5" textAlignment="JUSTIFY" wrappingWidth="437.150390625">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fx:id="pregunta6txt" fill="WHITE" layoutX="58.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pregunta 6" textAlignment="JUSTIFY" wrappingWidth="437.150390625">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Button fx:id="backButtonIniciales" layoutX="235.0" layoutY="338.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Atras" />
+      <RadioButton fx:id="false1Init" layoutX="550.0" layoutY="98.0" mnemonicParsing="false" />
+      <RadioButton fx:id="true2Init" layoutX="509.0" layoutY="138.0" mnemonicParsing="false" />
+      <RadioButton fx:id="false2Init" layoutX="549.0" layoutY="138.0" mnemonicParsing="false" />
+      <RadioButton fx:id="true3Init" layoutX="509.0" layoutY="178.0" mnemonicParsing="false" />
+      <RadioButton fx:id="false3Init" layoutX="549.0" layoutY="178.0" mnemonicParsing="false" />
+      <RadioButton fx:id="true4Init" layoutX="509.0" layoutY="218.0" mnemonicParsing="false" />
+      <RadioButton fx:id="false4init" layoutX="549.0" layoutY="218.0" mnemonicParsing="false" />
+      <RadioButton fx:id="true5Init" layoutX="509.0" layoutY="258.0" mnemonicParsing="false" />
+      <RadioButton fx:id="false5Init" layoutX="549.0" layoutY="258.0" mnemonicParsing="false" />
+      <RadioButton fx:id="true6Init" layoutX="509.0" layoutY="298.0" mnemonicParsing="false" />
+      <RadioButton fx:id="false6Init" layoutX="549.0" layoutY="298.0" mnemonicParsing="false" />
+   </children>
+</AnchorPane>
