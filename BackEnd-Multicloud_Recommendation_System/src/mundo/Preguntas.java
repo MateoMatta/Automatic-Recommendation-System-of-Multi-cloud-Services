@@ -6,8 +6,11 @@ import java.io.InputStreamReader;
 
 public class Preguntas {
 
-	private BufferedReader br;
+	private BufferedReader buffer;
+	
 	private String sector;
+	private ServicioCloud[] serviciosElegidos;
+	private Pilar[] pilaresCliente;
 
 	private String[][] preguntasSector;
 	private String[][] preguntasAplicacion;
@@ -15,8 +18,8 @@ public class Preguntas {
 
 	private boolean[] respuestasSector;
 	private boolean[] respuestasAplicaciones;
-	private ServicioCloud[] serviciosElegidos;
-	private Pilar[] pilaresCliente;
+	private boolean[] respuestasPreguntasPilares;
+
 
 	public Preguntas() throws Exception {
 		// Importacion del CSV del sector a la variable PreguntasSector
@@ -36,7 +39,7 @@ public class Preguntas {
 
 		// Categorizacion de sector dadas las preguntas de perfilamiento
 		sector = interpretarRespuestasSector();
-		System.out.println(sector + "");
+		System.out.println(sector + "\n");
 
 
 		// Preguntas sobre la aplicacion y los servicios dado un sector previamente definido
@@ -49,11 +52,12 @@ public class Preguntas {
 			mostrarPreguntasAplicacion(SistemaDeRecomendacion.URL_ARCHIVO_DE_PREGUNTAS_DE_DEMAS_SECTORES);			
 		}
 
+
 		for (int i = 0; i < preguntasAplicacion.length; i++) {
 			System.out.println(preguntasAplicacion[i][0] + " - " + preguntasAplicacion[i][1] );
-
 		}
 
+		System.out.println("\n--------------------");
 		respuestasAplicaciones = new boolean[preguntasAplicacion.length];
 		//QUEMADOOOOOOOOOOOOOOOOOOOOO. Pues de llos booleans de las respuestas dadas en el front end
 		for (int i = 0; i < respuestasAplicaciones.length; i++) {
@@ -63,14 +67,65 @@ public class Preguntas {
 		respuestasAplicaciones[0] = false;
 		respuestasAplicaciones[1] = true;
 		respuestasAplicaciones[2] = false;   
+
 		//------------------------------
 		interpretarRespuestasAplicacion();
 		//Se obtienen aqui los serviciosElegidos
-		
+		//Resultado: serviciosElegdos [SQL, Cómputo, kube]
+		for (int i = 0; i < serviciosElegidos.length; i++) {
+
+			System.out.println( serviciosElegidos[i].getTipoDeServicio() );
+			//			System.out.println("\n");
+			//			System.out.println(serviciosElegidos[1].getTipoDeServicio() + " hey");
+			//			System.out.println(serviciosElegidos.length + " uy");
+		}
+
+		System.out.println("\n--------------------");
 		//-------------------------
+
 		//Ahora se obtendra el top de pilares correspondiente al cliente
+			
+		
+		mostrarPreguntasPilares(SistemaDeRecomendacion.URL_ARCHIVO_DE_PREGUNTAS_DE_LOS_PILARES);
+
+		respuestasPreguntasPilares = new boolean[preguntasPilares.length];
+
 		
 		
+		for (int i = 0; i < respuestasPreguntasPilares.length; i++) {
+			respuestasPreguntasPilares[i] = true;
+			
+		}
+		// 22 Preguntas
+		
+		// 4/5
+		respuestasPreguntasPilares[0] = false;
+		
+		// 5/5
+		//YA Seguridad
+
+		// 3/5
+		respuestasPreguntasPilares[11] = false;
+		respuestasPreguntasPilares[12] = false;
+		
+		// 2/5
+		respuestasPreguntasPilares[15] = false;
+		respuestasPreguntasPilares[16] = false;
+		respuestasPreguntasPilares[17] = false;
+		
+		// 1/5
+		respuestasPreguntasPilares[18] = false;
+		respuestasPreguntasPilares[19] = false;
+		respuestasPreguntasPilares[20] = false;
+		
+		interpretarRespuestasPilares();
+		
+		for (int i = 0; i < pilaresCliente.length; i++) {
+//			System.out.println(pilaresCliente.length + "");
+			System.out.println(pilaresCliente[i].getNombreDelPilar() + " - " + pilaresCliente[i].getValorDelPilar());
+			
+		}
+		// pilares resultado: 4,5,3,2,1
 		
 
 
@@ -84,17 +139,17 @@ public class Preguntas {
 	 * llena toda la matriz con el formato 
 	 * 
 	 * FORMATO
-	 * | Sector | Pregunta  |
+	 * | Sector | Pregunta  | 
 	 * | Sector | Pregunta  |
 	 * 
 	 * @param urlSector URL
 	 * @throws Exception
 	 */
 	public void mostrarPreguntasSector(String urlSector) throws Exception {
-		br = new BufferedReader(new FileReader(urlSector));
+		buffer = new BufferedReader(new FileReader(urlSector));
 		preguntasSector = new String[22][2];
 		for (int i = 0; i < preguntasSector.length; i++) {
-			preguntasSector[i] = br.readLine().split(",");			
+			preguntasSector[i] = buffer.readLine().split(",");			
 		}
 
 	}
@@ -112,14 +167,14 @@ public class Preguntas {
 	 * @throws Exception
 	 */
 	public void mostrarPreguntasAplicacion(String urlAplicacion) throws Exception {
-		br = new BufferedReader(new FileReader(urlAplicacion));
+		buffer = new BufferedReader(new FileReader(urlAplicacion));
 		if(sector.equals("Negocios con alto uso de tecnologia")) {
 			preguntasAplicacion = new String[2][2];
 		}else {
 			preguntasAplicacion = new String[3][2];
 		}
 		for (int i = 0; i < preguntasAplicacion.length; i++) {
-			preguntasAplicacion[i] = br.readLine().split(",");
+			preguntasAplicacion[i] = buffer.readLine().split(",");
 		}
 	}
 
@@ -135,11 +190,11 @@ public class Preguntas {
 	 * @throws Exception
 	 */
 	public void mostrarPreguntasPilares(String urlPilares) throws Exception {
-		br = new BufferedReader(new FileReader(urlPilares));
+		buffer = new BufferedReader(new FileReader(urlPilares));
 		preguntasPilares = new String[22][2];
 
 		for (int i = 0; i < preguntasPilares.length; i++) {
-			preguntasPilares[i] = br.readLine().split(",");
+			preguntasPilares[i] = buffer.readLine().split(",");
 		}
 	}
 
@@ -206,6 +261,8 @@ public class Preguntas {
 
 	// 2
 	public void interpretarRespuestasAplicacion() {
+
+		//		System.out.println(sector + " ESTE");
 		if(sector.equals("Negocios con alto uso de tecnologia")){
 			serviciosElegidos = new ServicioCloud[1];
 			//Si soy Alto uso de tech solo voy a preguntar si es kubernetes o support
@@ -217,31 +274,40 @@ public class Preguntas {
 					serviciosElegidos[0] = new ServicioCloud("Container Support", "NN", 0, 0, 0, 0, 0);
 				}
 			}else {
-				serviciosElegidos[1] = new ServicioCloud("Compute Services", "NN", 0, 0, 0, 0, 0);
+				serviciosElegidos[0] = new ServicioCloud("Compute Services", "NN", 0, 0, 0, 0, 0);
 			}
 		}else {
+			//			respuestasAplicaciones[0] = false;
+			//			respuestasAplicaciones[1] = true;
+			//			respuestasAplicaciones[2] = false;   
+			//Supongamos que del sector de ventas, eligio bases de datos |SQL|, estara con microservicios usando así instancias y  no usara Kubernetes
+
+
 			//Si no es alto uso de tech, significa que es cualquiera de los otros, que todos son iguales
+			//BD
 			serviciosElegidos = new ServicioCloud[2];
 			if(respuestasAplicaciones[0] == true) {
 				serviciosElegidos[0] = new ServicioCloud("NoSQL Database", "NN", 0, 0, 0, 0, 0);
 			} else {
 				serviciosElegidos[0] = new ServicioCloud("SQL Database", "NN", 0, 0, 0, 0, 0);
 			}
+			//Computo
 			if(respuestasAplicaciones[1] == true) {
 				if(respuestasAplicaciones[2] == true) {
-					serviciosElegidos[0] = new ServicioCloud("Kubernetes Managed Service", "NN", 0, 0, 0, 0, 0);
+					serviciosElegidos[1] = new ServicioCloud("Kubernetes Managed Service", "NN", 0, 0, 0, 0, 0);
 				}else {
-					serviciosElegidos[0] = new ServicioCloud("Container Support", "NN", 0, 0, 0, 0, 0);
+					serviciosElegidos[1] = new ServicioCloud("Container Support", "NN", 0, 0, 0, 0, 0);
 				}
 			}else {
-				serviciosElegidos[0] = new ServicioCloud("Compute Services", "NN", 0, 0, 0, 0, 0);
+				serviciosElegidos[1] = new ServicioCloud("Compute Services", "NN", 0, 0, 0, 0, 0);
 			}
 		}
 
 	}
 
 
-	public void interpretarRespuestasPilares(boolean[] respuestasPreguntasPilares) {
+	public void interpretarRespuestasPilares() {
+		
 		int excelenciaOperativa=0;
 		int seguridad=0;
 		int fiabilidad=0;
@@ -353,25 +419,29 @@ public class Preguntas {
 		this.preguntasPilares = preguntasPilares;
 	}
 
-	public static void main(String[] args) {
-		try {
-			Preguntas p = new Preguntas();
 
-
-
-
-
-
-
-
-
-
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-	}
-
+	
+	
+//
+//	public static void main(String[] args) {
+//		try {
+//			Preguntas p = new Preguntas();
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//
+//	}
+//
 
 }

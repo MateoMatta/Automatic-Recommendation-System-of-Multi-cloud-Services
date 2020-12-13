@@ -10,7 +10,11 @@ public class SistemaDeRecomendacion {
 
 	public static String[] PROVEEDORES_CLOUD = { "Azure", "AWS", "GCP" };
 
-	public static String URL_ARCHIVO_DE_DATOS_COMPARATIVA_DE_SERVICIOS = "./docs/PilaresDeServiciosDeProveedores.csv";
+	public static String URL_ARCHIVO_DE_DATOS_COMPARATIVA_DE_SERVICIOS = "./docs/Servicios por sector CSV/sectorventas.csv";
+//	public static String URL_ARCHIVO_DE_DATOS_COMPARATIVA_DE_SERVICIOS = "./docs/PilaresDeServiciosDeProveedores.csv";
+//	public static String URL_ARCHIVO_DE_DATOS_COMPARATIVA_DE_SERVICIOS = "./docs/PilaresDeServiciosDeProveedores.csv";
+//	public static String URL_ARCHIVO_DE_DATOS_COMPARATIVA_DE_SERVICIOS = "./docs/PilaresDeServiciosDeProveedores.csv";
+//	public static String URL_ARCHIVO_DE_DATOS_COMPARATIVA_DE_SERVICIOS = "./docs/PilaresDeServiciosDeProveedores.csv";
 	public static String URL_ARCHIVO_DE_PREGUNTAS_DEL_SECTOR = "./docs/Preguntas CSV/1preguntasSector.csv";
 	public static String URL_ARCHIVO_DE_PREGUNTAS_DE_DEMAS_SECTORES = "./docs/Preguntas CSV/2preguntasAplicacionDemasSectores.csv";
 	public static String URL_ARCHIVO_DE_PREGUNTAS_DEL_SECTOR_TECNOLOGICO = "./docs/Preguntas CSV/2preguntasAplicacionSectorTecnologico.csv";
@@ -19,6 +23,8 @@ public class SistemaDeRecomendacion {
 	private Proveedor[] listaDeProveedoresCloud;
 
 	private Cliente cliente;
+
+	private Preguntas preguntasParaLaRecomendacion;
 
 	// TERMINAR VARIABLES RELACIONADAS A LA REALIZACION DE LAS PREGUNTAS
 
@@ -31,17 +37,28 @@ public class SistemaDeRecomendacion {
 	private ArrayList<ServicioCloud> listaDeServiciosTecnologia;
 	private ArrayList<ServicioCloud> listaDeServiciosRecomendados;
 
-	public SistemaDeRecomendacion() {
+	public SistemaDeRecomendacion() throws Exception {
 		super();
+
 		listaDeProveedoresCloud = new Proveedor[3];
 
-		cliente = new Cliente();
+		preguntasParaLaRecomendacion = new Preguntas();
+
+		cliente = new Cliente( preguntasParaLaRecomendacion.getPilaresCliente(),
+				preguntasParaLaRecomendacion.getServiciosElegidos(),
+				preguntasParaLaRecomendacion.getSector() );
 
 		try {
 			construirTablaDeComparacionDeServicios();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		for (int i = 0; i < 5; i++) {
+			System.out.println(cliente.getTopDePilaresDelCliente()[i].getValorDelPilar());
+			
+		}
+		
 
 		// 1. Perfilacion de eleccion de pilares del usuario
 		// I) Preguntas - DATOS QUEMADOS DEL TOP DE PILARES
@@ -93,16 +110,16 @@ public class SistemaDeRecomendacion {
 	public void incluirServiciosDependientes(Integer[] serviciosDependientes, Proveedor[] proveedor) {
 
 	}
-	
+
 	public String asignarSectorCliente() {
 		String sector = "";
-		
-		
-		
-		
+
+
+
+
 		return sector;
 	}
-	
+
 
 	public Proveedor[] getProveedoresCloud() {
 		return listaDeProveedoresCloud;
@@ -128,10 +145,10 @@ public class SistemaDeRecomendacion {
 		this.cliente = cliente;
 	}
 
-	 /**
-	  * En este punto deberia tener un parametro que le pase el URL del archivo, dependiendo del tipo de negocio del usuario
-	  * @throws Exception
-	  */
+	/**
+	 * En este punto deberia tener un parametro que le pase el URL del archivo, dependiendo del tipo de negocio del usuario
+	 * @throws Exception
+	 */
 	public void construirTablaDeComparacionDeServicios() throws Exception {
 		int cantidadDeServicios = -1;
 
@@ -225,14 +242,14 @@ public class SistemaDeRecomendacion {
 	// }
 
 
-	
+
 	public void seleccionRecomendadaDeServiciosCloud(int[][] matrizDePilaresDeServicios) {
 		boolean servicioYaRecomendado = false;
 
 		Pilar[] topEleccionDePilares = cliente.getTopDePilaresDelCliente();
 
 		for (int i = 0; i < matrizDePilaresDeServicios.length; i += 5) {
-			System.out.println(i + " Ojo ahi");
+//			System.out.println(i + " Ojo ahi");
 
 			servicioYaRecomendado = false;
 			int posicionCloudRecomendado = -1;
@@ -266,285 +283,124 @@ public class SistemaDeRecomendacion {
 					if (cantidadDeProveedoresQueCuentanConElPilar == 1) {
 						listaDeServiciosRecomendados.add(new ServicioCloud(
 								listaDeProveedoresCloud[posicionCloudRecomendado].getListaDeServicios().get(i / 5)
-										.getTipoDeServicio(),
+								.getTipoDeServicio(),
 								listaDeProveedoresCloud[posicionCloudRecomendado].getListaDeServicios().get(i / 5)
-										.getNombreDeServicio(),
+								.getNombreDeServicio(),
 								listaDeProveedoresCloud[posicionCloudRecomendado].getListaDeServicios().get(i / 5)
-										.getPilares()[0].getValorDelPilar(),
+								.getPilares()[0].getValorDelPilar(),
 								listaDeProveedoresCloud[posicionCloudRecomendado].getListaDeServicios().get(i / 5)
-										.getPilares()[1].getValorDelPilar(),
+								.getPilares()[1].getValorDelPilar(),
 								listaDeProveedoresCloud[posicionCloudRecomendado].getListaDeServicios().get(i / 5)
-										.getPilares()[2].getValorDelPilar(),
+								.getPilares()[2].getValorDelPilar(),
 								listaDeProveedoresCloud[posicionCloudRecomendado].getListaDeServicios().get(i / 5)
-										.getPilares()[3].getValorDelPilar(),
+								.getPilares()[3].getValorDelPilar(),
 								listaDeProveedoresCloud[posicionCloudRecomendado].getListaDeServicios().get(i / 5)
-										.getPilares()[4].getValorDelPilar()));
+								.getPilares()[4].getValorDelPilar()));
 						servicioYaRecomendado = true;
 						indiceDeTop = 0;
-//						posicionCloudRecomendado = -1;
+						//						posicionCloudRecomendado = -1;
 						break;
 					} else {
 
 						indiceDeTop++;
 						j = -1;
-//						posicionCloudRecomendado = -1;
+//						// servicios especiales, 101,102,103, 104
+						//						posicionCloudRecomendado = -1;
 					}
 
-					// if(k==2 && cantidadDeProveedoresQueCuentanConElPilar == 0)
-					// {
-					// indiceDeTop++;
-					// }
 
-					// if(k!=2)
-					// {
-					// //No se hace nada. Entonces se itera de nuevo para trabajar
-					// //con el siguiente pilar del top
-					// posicionCloudRecomendado = -1;
-					//
-					//
-					// if(cantidadDeProveedoresQueCuentanConElPilar > 1)
-					// {
-					// if(k==2)
-					// {
-					//
-					// }
-					// //Seria el proveedor ya previamente escogido en la tercera iteracion, el
-					// unico
-					// posicionCloudRecomendado = k;
-					// listaDeServiciosRecomendados.add(new
-					// ServicioCloud(listaDeProveedoresCloud[posicionCloudRecomendado].getListaDeServicios().get(i/5).getTipoDeServicio(),
-					// listaDeProveedoresCloud[posicionCloudRecomendado].getListaDeServicios().get(i/5).getNombreDeServicio(),
-					// listaDeProveedoresCloud[posicionCloudRecomendado].getListaDeServicios().get(i/5).getPilares()[0].getValorDelPilar(),
-					// listaDeProveedoresCloud[posicionCloudRecomendado].getListaDeServicios().get(i/5).getPilares()[1].getValorDelPilar(),
-					// listaDeProveedoresCloud[posicionCloudRecomendado].getListaDeServicios().get(i/5).getPilares()[2].getValorDelPilar(),
-					// listaDeProveedoresCloud[posicionCloudRecomendado].getListaDeServicios().get(i/5).getPilares()[3].getValorDelPilar(),
-					// listaDeProveedoresCloud[posicionCloudRecomendado].getListaDeServicios().get(i/5).getPilares()[4].getValorDelPilar()));
-					// servicioYaRecomendado =true ;
-					//// posicionCloudRecomendado = -1;
-					//// indiceDeTop = 0;
-					//
-					//// break;
-					//
-					// }
-					//
-					//
-					//
-					// }
-
-					// nombreDePilar = ServicioCloud.PILARES_DE_CRITERIOS_DE_SELECCION[j];
 
 				}
 
-//				else
-//				{
-////					indiceDeTop++;
-//				}
 
-				// else if(cantidadDeProveedoresQueCuentanConElPilar == 3)
-				// {
-				//
-				// }
-				// if(matrizDePilaresDeServicios[i][j] == 1 )
-				// {
-				// proveedoresQueCuentanConElPilar[j] = 1;
-				// cantidadDeProveedoresQueCuentanConElPilar++;
-				// }
 
 			}
 
-			// if(cantidadDeProveedoresQueCuentanConElPilar == 0)
-			// {
-			//
-			//
-			// }else if(cantidadDeProveedoresQueCuentanConElPilar == 1)
-			// {
-			//
-			// }else if(cantidadDeProveedoresQueCuentanConElPilar == 2)
-			// {
-			//
-			// }else if(cantidadDeProveedoresQueCuentanConElPilar == 3)
-			// {
-			//
-			// }
+	
 
 		}
 
 	}
-	// public void seleccionRecomendadaDeServiciosCloud(int[][]
-	// matrizDePilaresDeServicios)
-	// {
-	//
-	// for (int i = 0; i < matrizDePilaresDeServicios.length; i+=5) {
-	//
-	//
-	// int posicionCloudRecomendado=-1;
-	// int cantidadDeProveedoresQueCuentanConElPilar =0;
-	// String[] proveedoresQueCuentanConElPilar = new
-	// String[SistemaDeRecomendacion.PROVEEDORES_CLOUD.length];
-	//
-	//
-	//
-	// String nombreDePilar = "";
-	// for (int j = 0; j < ServicioCloud.PILARES_DE_CRITERIOS_DE_SELECCION.length;
-	// j++) {
-	//
-	//// nombreDePilar = ServicioCloud.PILARES_DE_CRITERIOS_DE_SELECCION[j];
-	//
-	// for (int k = 0; k < PROVEEDORES_CLOUD.length; k++) {
-	//
-	// if(matrizDePilaresDeServicios[i+j][k] == 1)
-	// {
-	// proveedoresQueCuentanConElPilar[j] += k+",";
-	// cantidadDeProveedoresQueCuentanConElPilar++;
-	// posicionCloudRecomendado = k;
-	// }
-	// }
-	//
-	// if(cantidadDeProveedoresQueCuentanConElPilar == 0)
-	// {
-	// //No se hace nada. Entonces se itera de nuevo para trabajar
-	// //con el siguiente pilar del top
-	// posicionCloudRecomendado = -1;
-	//
-	// }else if(cantidadDeProveedoresQueCuentanConElPilar == 1)
-	// {
-	// //Seria el proveedor ya previamente escogido en la tercera iteracion, el
-	// unico
-	//// posicionCloudRecomendado = k;
-	// listaDeServiciosRecomendados.add(new
-	// ServicioCloud(listaDeProveedoresCloud[posicionCloudRecomendado].getListaDeServicios().get(i/5).getTipoDeServicio(),
-	// listaDeProveedoresCloud[posicionCloudRecomendado].getListaDeServicios().get(i/5).getNombreDeServicio(),
-	// listaDeProveedoresCloud[posicionCloudRecomendado].getListaDeServicios().get(i/5).getPilares()[0].getValorDelPilar(),
-	// listaDeProveedoresCloud[posicionCloudRecomendado].getListaDeServicios().get(i/5).getPilares()[1].getValorDelPilar(),
-	// listaDeProveedoresCloud[posicionCloudRecomendado].getListaDeServicios().get(i/5).getPilares()[2].getValorDelPilar(),
-	// listaDeProveedoresCloud[posicionCloudRecomendado].getListaDeServicios().get(i/5).getPilares()[3].getValorDelPilar(),
-	// listaDeProveedoresCloud[posicionCloudRecomendado].getListaDeServicios().get(i/5).getPilares()[4].getValorDelPilar()));
-	// break;
-	//
-	// }else if(cantidadDeProveedoresQueCuentanConElPilar > 1)
-	// {
-	// posicionCloudRecomendado = -1;
-	// for (int k = 0; k < proveedoresQueCuentanConElPilar.length; k++) {
-	// String[] posProveedoresQueCuentanConElPilar =
-	// proveedoresQueCuentanConElPilar[j].split(",");
-	//
-	//// if()
-	// }
-	// if(cantidadDeProveedoresQueCuentanConElPilar > 2)
-	// {
-	//
-	// }else
-	// {
-	//
-	// }
-	//
-	// }
-	//// else if(cantidadDeProveedoresQueCuentanConElPilar == 3)
-	//// {
-	////
-	//// }
-	// // if(matrizDePilaresDeServicios[i][j] == 1 )
-	// // {
-	// // proveedoresQueCuentanConElPilar[j] = 1;
-	// // cantidadDeProveedoresQueCuentanConElPilar++;
-	// // }
-	//
-	// }
-	//
-	//// if(cantidadDeProveedoresQueCuentanConElPilar == 0)
-	//// {
-	////
-	////
-	//// }else if(cantidadDeProveedoresQueCuentanConElPilar == 1)
-	//// {
-	////
-	//// }else if(cantidadDeProveedoresQueCuentanConElPilar == 2)
-	//// {
-	////
-	//// }else if(cantidadDeProveedoresQueCuentanConElPilar == 3)
-	//// {
-	////
-	//// }
-	//
-	//
-	// }
-	//
-	//
-	// }
 
-	// public int
 
 	/** Carta Trampa */
 
 	public static void main(String[] args) {
 
-		SistemaDeRecomendacion sis = new SistemaDeRecomendacion();
+		try {
 
-		System.out.println("Top de pilares");
+			SistemaDeRecomendacion sis = new SistemaDeRecomendacion();
 
-		System.out.println("");
+			System.out.println("Top de pilares");
 
-		for (int i = 0; i < 5; i++) {
+			System.out.println("");
 
-			System.out.println("" + sis.getCliente().getTopDePilaresDelCliente()[i].getNombreDelPilar());
+			for (int i = 0; i < 5; i++) {
+
+				System.out.println("" + sis.getCliente().getTopDePilaresDelCliente()[i].getNombreDelPilar());
+			}
+
+			System.out.println("");
+			System.out.println("");
+
+			System.out.println("Recomendacion de tecnologias Multi-Cloud Computing - Test");
+			System.out.println("");
+
+			for (int i = 0; i < sis.listaDeServiciosRecomendados.size(); i++) {
+				System.out.println(sis.listaDeServiciosRecomendados.get(i).getNombreDeServicio());
+
+			}
+
+			// for (int i = 0; i < args.length; i++) {
+			// System.out.println( "hhey" +
+			// sis.topEleccionDePilares[i].getNombreDelPilar());
+			// }
+			//
+			//
+			//
+			// for (int i = 0; i < sis.getCliente().getTopDePilaresDelCliente().length; i++)
+			// {
+			//
+			// System.out.println(sis.getCliente().getTopDePilaresDelCliente()[i]);
+			// }
+			////
+			// System.out.println(sis.tablaComparacionDeServiciosConPilares[0][0] + " - " +
+			// sis.tablaComparacionDeServiciosConPilares[0][1] + " - " +
+			// sis.tablaComparacionDeServiciosConPilares[0][2]);
+			// System.out.println(sis.tablaComparacionDeServiciosConPilares[1][0] + " - " +
+			// sis.tablaComparacionDeServiciosConPilares[1][1] + " - " +
+			// sis.tablaComparacionDeServiciosConPilares[1][2]);
+			// System.out.println(sis.tablaComparacionDeServiciosConPilares[2][0] + " - " +
+			// sis.tablaComparacionDeServiciosConPilares[2][1] + " - " +
+			// sis.tablaComparacionDeServiciosConPilares[2][2]);
+			// System.out.println(sis.tablaComparacionDeServiciosConPilares[3][0] + " - " +
+			// sis.tablaComparacionDeServiciosConPilares[3][1] + " - " +
+			// sis.tablaComparacionDeServiciosConPilares[3][2]);
+			// System.out.println(sis.tablaComparacionDeServiciosConPilares[4][0] + " - " +
+			// sis.tablaComparacionDeServiciosConPilares[4][1] + " - " +
+			// sis.tablaComparacionDeServiciosConPilares[4][2] + "\n");
+			//
+			// System.out.println(sis.tablaComparacionDeServiciosConPilares[5][0] + " - " +
+			// sis.tablaComparacionDeServiciosConPilares[5][1] + " - " +
+			// sis.tablaComparacionDeServiciosConPilares[5][2]);
+			// System.out.println(sis.tablaComparacionDeServiciosConPilares[6][0] + " - " +
+			// sis.tablaComparacionDeServiciosConPilares[6][1] + " - " +
+			// sis.tablaComparacionDeServiciosConPilares[6][2]);
+			// System.out.println(sis.tablaComparacionDeServiciosConPilares[7][0] + " - " +
+			// sis.tablaComparacionDeServiciosConPilares[7][1] + " - " +
+			// sis.tablaComparacionDeServiciosConPilares[7][2]);
+			// System.out.println(sis.tablaComparacionDeServiciosConPilares[8][0] + " - " +
+			// sis.tablaComparacionDeServiciosConPilares[8][1] + " - " +
+			// sis.tablaComparacionDeServiciosConPilares[8][2]);
+			// System.out.println(sis.tablaComparacionDeServiciosConPilares[9][0] + " - " +
+			// sis.tablaComparacionDeServiciosConPilares[9][1] + " - " +
+			// sis.tablaComparacionDeServiciosConPilares[9][2] + "\n");
+			//
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			// TODO: handle exception
 		}
-
-		System.out.println("");
-		System.out.println("");
-
-		System.out.println("Recomendaci�n de tecnolog�as Multi-Cloud Computing - Test");
-		System.out.println("");
-
-		for (int i = 0; i < sis.listaDeServiciosRecomendados.size(); i++) {
-			System.out.println(sis.listaDeServiciosRecomendados.get(i).getNombreDeServicio());
-
-		}
-
-		// for (int i = 0; i < args.length; i++) {
-		// System.out.println( "hhey" +
-		// sis.topEleccionDePilares[i].getNombreDelPilar());
-		// }
-		//
-		//
-		//
-		// for (int i = 0; i < sis.getCliente().getTopDePilaresDelCliente().length; i++)
-		// {
-		//
-		// System.out.println(sis.getCliente().getTopDePilaresDelCliente()[i]);
-		// }
-		////
-		// System.out.println(sis.tablaComparacionDeServiciosConPilares[0][0] + " - " +
-		// sis.tablaComparacionDeServiciosConPilares[0][1] + " - " +
-		// sis.tablaComparacionDeServiciosConPilares[0][2]);
-		// System.out.println(sis.tablaComparacionDeServiciosConPilares[1][0] + " - " +
-		// sis.tablaComparacionDeServiciosConPilares[1][1] + " - " +
-		// sis.tablaComparacionDeServiciosConPilares[1][2]);
-		// System.out.println(sis.tablaComparacionDeServiciosConPilares[2][0] + " - " +
-		// sis.tablaComparacionDeServiciosConPilares[2][1] + " - " +
-		// sis.tablaComparacionDeServiciosConPilares[2][2]);
-		// System.out.println(sis.tablaComparacionDeServiciosConPilares[3][0] + " - " +
-		// sis.tablaComparacionDeServiciosConPilares[3][1] + " - " +
-		// sis.tablaComparacionDeServiciosConPilares[3][2]);
-		// System.out.println(sis.tablaComparacionDeServiciosConPilares[4][0] + " - " +
-		// sis.tablaComparacionDeServiciosConPilares[4][1] + " - " +
-		// sis.tablaComparacionDeServiciosConPilares[4][2] + "\n");
-		//
-		// System.out.println(sis.tablaComparacionDeServiciosConPilares[5][0] + " - " +
-		// sis.tablaComparacionDeServiciosConPilares[5][1] + " - " +
-		// sis.tablaComparacionDeServiciosConPilares[5][2]);
-		// System.out.println(sis.tablaComparacionDeServiciosConPilares[6][0] + " - " +
-		// sis.tablaComparacionDeServiciosConPilares[6][1] + " - " +
-		// sis.tablaComparacionDeServiciosConPilares[6][2]);
-		// System.out.println(sis.tablaComparacionDeServiciosConPilares[7][0] + " - " +
-		// sis.tablaComparacionDeServiciosConPilares[7][1] + " - " +
-		// sis.tablaComparacionDeServiciosConPilares[7][2]);
-		// System.out.println(sis.tablaComparacionDeServiciosConPilares[8][0] + " - " +
-		// sis.tablaComparacionDeServiciosConPilares[8][1] + " - " +
-		// sis.tablaComparacionDeServiciosConPilares[8][2]);
-		// System.out.println(sis.tablaComparacionDeServiciosConPilares[9][0] + " - " +
-		// sis.tablaComparacionDeServiciosConPilares[9][1] + " - " +
-		// sis.tablaComparacionDeServiciosConPilares[9][2] + "\n");
-		//
 
 	}
 
