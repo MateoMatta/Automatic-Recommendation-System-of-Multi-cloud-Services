@@ -11,10 +11,10 @@ public class SistemaDeRecomendacion {
 	public static String[] PROVEEDORES_CLOUD = { "Azure", "AWS", "GCP" };
 
 	public static String URL_ARCHIVO_DE_DATOS_COMPARATIVA_DE_SERVICIOS = "./docs/Servicios por sector CSV/sectorventas.csv";
-//	public static String URL_ARCHIVO_DE_DATOS_COMPARATIVA_DE_SERVICIOS = "./docs/PilaresDeServiciosDeProveedores.csv";
-//	public static String URL_ARCHIVO_DE_DATOS_COMPARATIVA_DE_SERVICIOS = "./docs/PilaresDeServiciosDeProveedores.csv";
-//	public static String URL_ARCHIVO_DE_DATOS_COMPARATIVA_DE_SERVICIOS = "./docs/PilaresDeServiciosDeProveedores.csv";
-//	public static String URL_ARCHIVO_DE_DATOS_COMPARATIVA_DE_SERVICIOS = "./docs/PilaresDeServiciosDeProveedores.csv";
+	//	public static String URL_ARCHIVO_DE_DATOS_COMPARATIVA_DE_SERVICIOS = "./docs/PilaresDeServiciosDeProveedores.csv";
+	//	public static String URL_ARCHIVO_DE_DATOS_COMPARATIVA_DE_SERVICIOS = "./docs/PilaresDeServiciosDeProveedores.csv";
+	//	public static String URL_ARCHIVO_DE_DATOS_COMPARATIVA_DE_SERVICIOS = "./docs/PilaresDeServiciosDeProveedores.csv";
+	//	public static String URL_ARCHIVO_DE_DATOS_COMPARATIVA_DE_SERVICIOS = "./docs/PilaresDeServiciosDeProveedores.csv";
 	public static String URL_ARCHIVO_DE_PREGUNTAS_DEL_SECTOR = "./docs/Preguntas CSV/1preguntasSector.csv";
 	public static String URL_ARCHIVO_DE_PREGUNTAS_DE_DEMAS_SECTORES = "./docs/Preguntas CSV/2preguntasAplicacionDemasSectores.csv";
 	public static String URL_ARCHIVO_DE_PREGUNTAS_DEL_SECTOR_TECNOLOGICO = "./docs/Preguntas CSV/2preguntasAplicacionSectorTecnologico.csv";
@@ -36,6 +36,8 @@ public class SistemaDeRecomendacion {
 	private ArrayList<ServicioCloud> listaDeServiciosIndustria;
 	private ArrayList<ServicioCloud> listaDeServiciosTecnologia;
 	private ArrayList<ServicioCloud> listaDeServiciosRecomendados;
+	private ArrayList<String> listaDeProveedoresRelacionadosParaLosServiciosGenerales;
+
 
 	public SistemaDeRecomendacion() throws Exception {
 		super();
@@ -53,12 +55,13 @@ public class SistemaDeRecomendacion {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
+		System.out.println("\n");
 		for (int i = 0; i < 5; i++) {
-			System.out.println(cliente.getTopDePilaresDelCliente()[i].getValorDelPilar());
-			
+			System.out.println(cliente.getTopDePilaresDelCliente()[i].getValorDelPilar()+ " : " + cliente.getTopDePilaresDelCliente()[i].getNombreDelPilar()  );
+
 		}
-		
+
 
 		// 1. Perfilacion de eleccion de pilares del usuario
 		// I) Preguntas - DATOS QUEMADOS DEL TOP DE PILARES
@@ -186,61 +189,6 @@ public class SistemaDeRecomendacion {
 	}
 
 	// /** Algoritmos*/
-	//
-	// public void seleccionRecomendadaDeServiciosCloud(int[][]
-	// matrizDePilaresDeServicios)
-	// {
-	// int cantidadDeServicios = (matrizDePilaresDeServicios.length/5);
-	//
-	// for (int i = 0; i < cantidadDeServicios; i++) {
-	//
-	//
-	// for (int j = 0; j < ServicioCloud.NUMERO_DE_PILARES; j++) {
-	//
-	// int posicionCloudRecomendado=-1;
-	// int cantidadDeProveedoresQueCuentanConElPilar =0;
-	// int[] proveedoresQueCuentanConElPilar = new
-	// int[SistemaDeRecomendacion.PROVEEDORES_CLOUD.length];
-	//
-	// for (int k = 0; k < PROVEEDORES_CLOUD.length; k++) {
-	//
-	// }
-	//
-	// if(matrizDePilaresDeServicios[i][j] == 1)
-	// {
-	//
-	//
-	// }
-	//
-	//// if(matrizDePilaresDeServicios[i][j] == 1 )
-	//// {
-	//// proveedoresQueCuentanConElPilar[j] = 1;
-	//// cantidadDeProveedoresQueCuentanConElPilar++;
-	//// }
-	//
-	// }
-	//
-	// if(cantidadDeProveedoresQueCuentanConElPilar == 0)
-	// {
-	//
-	//
-	// }else if(cantidadDeProveedoresQueCuentanConElPilar == 1)
-	// {
-	//
-	// }else if(cantidadDeProveedoresQueCuentanConElPilar == 2)
-	// {
-	//
-	// }else if(cantidadDeProveedoresQueCuentanConElPilar == 3)
-	// {
-	//
-	// }
-	//
-	//
-	// }
-	//
-	//
-	// }
-
 
 
 	public void seleccionRecomendadaDeServiciosCloud(int[][] matrizDePilaresDeServicios) {
@@ -249,7 +197,7 @@ public class SistemaDeRecomendacion {
 		Pilar[] topEleccionDePilares = cliente.getTopDePilaresDelCliente();
 
 		for (int i = 0; i < matrizDePilaresDeServicios.length; i += 5) {
-//			System.out.println(i + " Ojo ahi");
+			//			System.out.println(i + " Ojo ahi");
 
 			servicioYaRecomendado = false;
 			int posicionCloudRecomendado = -1;
@@ -259,19 +207,17 @@ public class SistemaDeRecomendacion {
 			// String[SistemaDeRecomendacion.PROVEEDORES_CLOUD.length];
 
 			// String nombreDePilar = "";
-			for (int j = 0; j < ServicioCloud.PILARES_DE_CRITERIOS_DE_SELECCION.length && !servicioYaRecomendado; j++) {
+			for (int j = 0; j < ServicioCloud.PILARES_DE_CRITERIOS_DE_SELECCION.length && !servicioYaRecomendado; j++)
+			{
 				cantidadDeProveedoresQueCuentanConElPilar = 0;
 				posicionCloudRecomendado = -1;
 
-				// posicionCloudRecomendado = -1;
-				// cantidadDeProveedoresQueCuentanConElPilar =0;
+
 				if (topEleccionDePilares[indiceDeTop].getNombreDelPilar()
 						.equals(ServicioCloud.PILARES_DE_CRITERIOS_DE_SELECCION[j])) {
 					for (int k = 0; k < PROVEEDORES_CLOUD.length; k++) {
 
 						// Se cuenta cuantos proveedores tienen el pilar buscado actualmente del top
-
-						// acaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 
 						if (matrizDePilaresDeServicios[i + j][k] == 1) {
 							cantidadDeProveedoresQueCuentanConElPilar++;
@@ -298,32 +244,29 @@ public class SistemaDeRecomendacion {
 								.getPilares()[4].getValorDelPilar()));
 						servicioYaRecomendado = true;
 						indiceDeTop = 0;
-						//						posicionCloudRecomendado = -1;
 						break;
 					} else {
 
-						indiceDeTop++;
-						j = -1;
-//						// servicios especiales, 101,102,103, 104
-						//						posicionCloudRecomendado = -1;
-					}
 
+						indiceDeTop++;
+						j= -1;
+
+						//						// servicios especiales: 100,101,102,103
+					}
 
 
 				}
 
 
-
 			}
 
-	
 
 		}
+
 
 	}
 
 
-	/** Carta Trampa */
 
 	public static void main(String[] args) {
 
@@ -334,13 +277,12 @@ public class SistemaDeRecomendacion {
 			System.out.println("Top de pilares");
 
 			System.out.println("");
+			//
+			//			for (int i = 0; i < 5; i++) {
+			//
+			//				System.out.println("" + sis.getCliente().getTopDePilaresDelCliente()[i].getNombreDelPilar());
+			//			}
 
-			for (int i = 0; i < 5; i++) {
-
-				System.out.println("" + sis.getCliente().getTopDePilaresDelCliente()[i].getNombreDelPilar());
-			}
-
-			System.out.println("");
 			System.out.println("");
 
 			System.out.println("Recomendacion de tecnologias Multi-Cloud Computing - Test");
@@ -399,7 +341,6 @@ public class SistemaDeRecomendacion {
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			// TODO: handle exception
 		}
 
 	}

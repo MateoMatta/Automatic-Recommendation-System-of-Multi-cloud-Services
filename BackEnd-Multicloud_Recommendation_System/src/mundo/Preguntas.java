@@ -341,12 +341,15 @@ public class Preguntas {
 				}
 			}
 		}
+		
+
+		
 		pilaresCliente = new Pilar[5];
-		pilaresCliente[0] = new Pilar("Excelencia operativa", excelenciaOperativa);
-		pilaresCliente[1] = new Pilar("Seguridad", seguridad);
-		pilaresCliente[2] = new Pilar("Fiabilidad", fiabilidad);
-		pilaresCliente[3] = new Pilar("Eficiencia del rendimiento", eficienciaRendimiento);
-		pilaresCliente[4] = new Pilar("Optimizacion de costos", optimizacionCostos);
+		pilaresCliente[0] = new Pilar( ServicioCloud.PILARES_DE_CRITERIOS_DE_SELECCION[1], excelenciaOperativa);
+		pilaresCliente[1] = new Pilar( ServicioCloud.PILARES_DE_CRITERIOS_DE_SELECCION[4], seguridad);
+		pilaresCliente[2] = new Pilar( ServicioCloud.PILARES_DE_CRITERIOS_DE_SELECCION[3], fiabilidad);
+		pilaresCliente[3] = new Pilar( ServicioCloud.PILARES_DE_CRITERIOS_DE_SELECCION[2], eficienciaRendimiento);
+		pilaresCliente[4] = new Pilar( ServicioCloud.PILARES_DE_CRITERIOS_DE_SELECCION[0], optimizacionCostos);
 
 	}
 
