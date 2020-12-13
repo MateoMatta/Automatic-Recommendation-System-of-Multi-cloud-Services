@@ -37,6 +37,9 @@ public class SistemaDeRecomendacion {
 	private ArrayList<ServicioCloud> listaDeServiciosTecnologia;
 	private ArrayList<ServicioCloud> listaDeServiciosRecomendados;
 
+	
+	
+	
 	public SistemaDeRecomendacion() throws Exception {
 		super();
 
@@ -324,6 +327,8 @@ public class SistemaDeRecomendacion {
 
 
 	/** Carta Trampa */
+	
+	
 
 	public static void main(String[] args) {
 
@@ -402,6 +407,14 @@ public class SistemaDeRecomendacion {
 			// TODO: handle exception
 		}
 
+	}
+
+	public Preguntas getPreguntasParaLaRecomendacion() {
+		return preguntasParaLaRecomendacion;
+	}
+
+	public void setPreguntasParaLaRecomendacion(Preguntas preguntasParaLaRecomendacion) {
+		this.preguntasParaLaRecomendacion = preguntasParaLaRecomendacion;
 	}
 
 }
