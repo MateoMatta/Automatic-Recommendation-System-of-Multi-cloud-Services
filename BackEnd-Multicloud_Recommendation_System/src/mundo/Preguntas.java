@@ -358,14 +358,6 @@ public class Preguntas {
 			Preguntas p = new Preguntas();
 
 
-
-
-
-
-
-
-
-
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
