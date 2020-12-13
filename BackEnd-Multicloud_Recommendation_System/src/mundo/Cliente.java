@@ -10,10 +10,11 @@ public class Cliente {
 	private ServicioCloud[] serviciosSeleccionados;
 	private Pilar[] topDePilaresDelCliente;
 
-	public Cliente() {
+	public Cliente(Pilar[] pilaresEvaluadosDelCliente, ServicioCloud[] serviciosEvaluados, String sectorEvaluado) {
 		super();
 
 		topDePilaresDelCliente = new Pilar[ServicioCloud.PILARES_DE_CRITERIOS_DE_SELECCION.length];
+		topDePilaresDelCliente = pilaresEvaluadosDelCliente;
 
 		// VALORES QUEMADOS DEL
 		// CLIENTE------------------------------------------------------------------
@@ -21,11 +22,11 @@ public class Cliente {
 		// ---------------------------------------------------------------------------
 		// preguntasDePerfilacionDePilares()
 
-		topDePilaresDelCliente[0] = new Pilar(ServicioCloud.PILARES_DE_CRITERIOS_DE_SELECCION[0], 6);
-		topDePilaresDelCliente[1] = new Pilar(ServicioCloud.PILARES_DE_CRITERIOS_DE_SELECCION[1], 9);
-		topDePilaresDelCliente[2] = new Pilar(ServicioCloud.PILARES_DE_CRITERIOS_DE_SELECCION[2], 2);
-		topDePilaresDelCliente[3] = new Pilar(ServicioCloud.PILARES_DE_CRITERIOS_DE_SELECCION[3], 12);
-		topDePilaresDelCliente[4] = new Pilar(ServicioCloud.PILARES_DE_CRITERIOS_DE_SELECCION[4], 1);
+//	BORRAR	topDePilaresDelCliente[0] = new Pilar(ServicioCloud.PILARES_DE_CRITERIOS_DE_SELECCION[0], 6);
+//		topDePilaresDelCliente[1] = new Pilar(ServicioCloud.PILARES_DE_CRITERIOS_DE_SELECCION[1], 9);
+//		topDePilaresDelCliente[2] = new Pilar(ServicioCloud.PILARES_DE_CRITERIOS_DE_SELECCION[2], 2);
+//		topDePilaresDelCliente[3] = new Pilar(ServicioCloud.PILARES_DE_CRITERIOS_DE_SELECCION[3], 12);
+//		topDePilaresDelCliente[4] = new Pilar(ServicioCloud.PILARES_DE_CRITERIOS_DE_SELECCION[4], 1);
 
 		ordenarElTopDePilares();
 	}
