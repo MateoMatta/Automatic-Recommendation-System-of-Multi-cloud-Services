@@ -11,10 +11,8 @@ public class InterfazView extends View {
 
 	@Override
 	public void init(Main main) {
-		System.out.println("Antes del init");
 		super.init(main);
 		startButton.setOnAction((evt)->{
-			System.out.println("Se hace click!");
 			try {
 				main.initAction();
 			} catch (Exception e) {

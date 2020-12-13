@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfaz.PreguntasGeneralView">
    <children>
       <ImageView fitHeight="400.0" fitWidth="640.0">
          <image>
@@ -28,7 +28,7 @@
                </font>
             </Text>
          </children></AnchorPane>
-      <Button fx:id="nextButtonIniciales" layoutX="333.0" layoutY="338.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Continuar" />
+      <Button fx:id="nextButtonIniciales" layoutX="333.0" layoutY="338.0" mnemonicParsing="false"  text="Continuar" />
       <Text fx:id="textTipoDePregunta" fill="WHITE" layoutX="233.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preguntas Iniciales" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="18.0" />
@@ -65,7 +65,7 @@
             <Font size="14.0" />
          </font>
       </Text>
-      <Button fx:id="backButtonIniciales" layoutX="235.0" layoutY="338.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Atras" />
+      <Button fx:id="backButtonIniciales" layoutX="235.0" layoutY="338.0" mnemonicParsing="false"  text="Atras" />
       <RadioButton fx:id="false1Init" layoutX="550.0" layoutY="98.0" mnemonicParsing="false" />
       <RadioButton fx:id="true2Init" layoutX="509.0" layoutY="138.0" mnemonicParsing="false" />
       <RadioButton fx:id="false2Init" layoutX="549.0" layoutY="138.0" mnemonicParsing="false" />

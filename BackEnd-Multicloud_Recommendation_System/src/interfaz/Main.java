@@ -20,9 +20,10 @@ public class Main extends Application {
 
 	private InterfazView interfazView;
 	private PreguntasView preguntasView;
+	private PreguntasGeneralView preguntasInicialesView;
+	private ResultadosView resultadosView;
 	
 	private SistemaDeRecomendacion sistema;
-
 	
 	private static String INTERFAZ_VIEW = "Interfaz.fxml";
 	private static String PREGUNTAS_VIEW = "Preguntas.fxml";
@@ -43,8 +44,6 @@ public class Main extends Application {
 		FXMLLoader loader = new FXMLLoader(new File("src/interfaz/"+INTERFAZ_VIEW).toURI().toURL());
 		InputStream stream = getClass().getResourceAsStream(INTERFAZ_VIEW);
 		Pane pane = loader.load(stream);
-		System.out.println("Este es el pane"+pane.toString());
-		System.out.println("Este es el controller"+loader.getController().toString());
 		interfazView = loader.getController();
 		
 		interfazView.setPane(pane);
@@ -60,9 +59,13 @@ public class Main extends Application {
 		sistema = new SistemaDeRecomendacion();
 	}
 
+    public void goBackAction() {
+		
+	}
+	
 	public void initAction() throws Exception {
 		interfazView.show(false);
-
+		
 		if (preguntasView == null) {
 			FXMLLoader loader = new FXMLLoader(new File("src/interfaz/"+PREGUNTAS_VIEW).toURI().toURL());
 			InputStream stream = getClass().getResourceAsStream(PREGUNTAS_VIEW);
@@ -77,7 +80,6 @@ public class Main extends Application {
 				preguntasView.setPane(pane);
 				preguntasView.setStage(stage);
 				preguntasView.init(this);
-	//			searchAndUpdate("");
 				preguntasView.show(true);
 
 			} catch (IOException e) {
@@ -90,7 +92,34 @@ public class Main extends Application {
 
 	}
 
-	
+	public void initActionSecond() throws Exception {
+		preguntasView.show(false);
+
+		if (preguntasInicialesView == null) {
+			FXMLLoader loader = new FXMLLoader(new File("src/interfaz/"+PREGUNTAS_INICIALES_VIEW).toURI().toURL());
+			InputStream stream = getClass().getResourceAsStream(PREGUNTAS_INICIALES_VIEW);
+			Pane pane;
+			try {
+				pane = loader.load(stream);
+				preguntasInicialesView = loader.getController();
+				Scene scene = new Scene(pane);
+				Stage stage = new Stage();
+				stage.setScene(scene);
+
+				preguntasInicialesView.setPane(pane);
+				preguntasInicialesView.setStage(stage);
+				preguntasInicialesView.init(this);
+				preguntasInicialesView.show(true);
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+		} else {
+			preguntasInicialesView.show(true);
+		}
+
+	}
 
 	@FXML
 	protected void handleSumitButtonAction(ActionEvent event) {
@@ -100,4 +129,6 @@ public class Main extends Application {
 	public static void main(String[] args) {
 		launch(args);
 	}
+
+	
 }
