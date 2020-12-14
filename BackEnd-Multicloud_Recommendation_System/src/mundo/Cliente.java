@@ -15,6 +15,10 @@ public class Cliente {
 
 		topDePilaresDelCliente = new Pilar[ServicioCloud.PILARES_DE_CRITERIOS_DE_SELECCION.length];
 		topDePilaresDelCliente = pilaresEvaluadosDelCliente;
+		
+		serviciosSeleccionados = serviciosEvaluados;
+		
+		sector = sectorEvaluado;
 
 		// VALORES QUEMADOS DEL
 		// CLIENTE------------------------------------------------------------------
