@@ -118,6 +118,9 @@ public class SistemaDeRecomendacion {
 		for (int i = 0; i < listaDeServiciosRecomendados.size(); i++) {
 			System.out.println(" 	OTROS" + listaDeServiciosRecomendados.get(i).getTipoDeServicio()+  "	Celebralo Curramba!: " + listaDeServiciosRecomendados.get(i).getNombreDeServicio());
 		}
+		
+		
+		System.out.println("COMPUTO: "+ posicionDeProveedorDeComputoSeleccionado + " y BD: " + posicionDeProveedorDeBaseDeDatosSeleccionado);
 		//		for (int i = 0; i < PROVEEDORES_CLOUD.length; i++) {
 		//			
 		//			System.out.println("Estos son: " + cliente.get(i).getTipoDeServicio());
@@ -268,9 +271,14 @@ public class SistemaDeRecomendacion {
 
 						// Se cuenta cuantos proveedores tienen el pilar buscado actualmente del top
 
-						if (matrizDePilaresDeServicios[i + j][k] == 100) {
+						if (matrizDePilaresDeServicios[i + j][k] == ServicioCloud.SERVICIO_GENERAL) {
 							
 							for (int l = 0; l < PROVEEDORES_CLOUD.length; l++) {
+								
+								if(matrizDePilaresDeServicios[i + j][l] == ServicioCloud.SERVICIO_GENERAL)
+								{
+									
+								
 								listaDeServiciosRecomendados.add(new ServicioCloud(
 										listaDeProveedoresCloud[l].getListaDeServicios().get(i / 5)
 										.getTipoDeServicio(),
@@ -288,15 +296,21 @@ public class SistemaDeRecomendacion {
 										.getPilares()[4].getValorDelPilar()));
 								servicioYaRecomendado = true;
 								indiceDeTop = 0;
+								}
 //								break;
+								
 							}
 							
 							break;
 							
 //							cantidadDeProveedoresQueCuentanConElPilar++;
 //							posicionCloudRecomendado = k;
-						}else if (matrizDePilaresDeServicios[i + j][k] == 101 || matrizDePilaresDeServicios[i + j][k] == 102) {
+						}else if (matrizDePilaresDeServicios[i + j][k] == ServicioCloud.DEPENDIENTE_DE_COMPUTE_SERVICES 
+								|| matrizDePilaresDeServicios[i + j][k] == ServicioCloud.DEPENDIENTE_DE_CONTAINER_SUPPORT) {
 							
+							if(k== posicionDeProveedorDeComputoSeleccionado)
+							{
+								
 
 								listaDeServiciosRecomendados.add(new ServicioCloud(
 										listaDeProveedoresCloud[posicionDeProveedorDeComputoSeleccionado].getListaDeServicios().get(i / 5)
@@ -313,11 +327,12 @@ public class SistemaDeRecomendacion {
 										.getPilares()[3].getValorDelPilar(),
 										listaDeProveedoresCloud[posicionDeProveedorDeComputoSeleccionado].getListaDeServicios().get(i / 5)
 										.getPilares()[4].getValorDelPilar()));
+							}
 								servicioYaRecomendado = true;
 								indiceDeTop = 0;
 								break;
 
-						}else if (matrizDePilaresDeServicios[i + j][k] == 103) {							
+						}else if (matrizDePilaresDeServicios[i + j][k] == ServicioCloud.DEPENDIENTE_DE_DATABASE) {							
 
 							listaDeServiciosRecomendados.add(new ServicioCloud(
 									listaDeProveedoresCloud[posicionDeProveedorDeBaseDeDatosSeleccionado].getListaDeServicios().get(i / 5)
@@ -535,46 +550,55 @@ public class SistemaDeRecomendacion {
 	}
 
 
-
-	public static void main(String[] args) {
-
-		try {
-
-			SistemaDeRecomendacion sis = new SistemaDeRecomendacion();
-
-			System.out.println("Top de pilares");
-
-			System.out.println("");
-			//
-			//			for (int i = 0; i < 5; i++) {
-			//
-			//				System.out.println("" + sis.getCliente().getTopDePilaresDelCliente()[i].getNombreDelPilar());
-			//			}
-
-			System.out.println("");
-
-			System.out.println("Recomendacion de tecnologias Multi-Cloud Computing - Test");
-			System.out.println("");
-			//
-			//			for (int i = 0; i < sis.listaDeServiciosRecomendados.size(); i++) {
-			//				System.out.println(sis.listaDeServiciosRecomendados.get(i).getTipoDeServicio() + " 				recomendacion: " + sis.listaDeServiciosRecomendados.get(i).getNombreDeServicio());
-			//
-			//			}
-
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-	}
-
+	
 	public Preguntas getPreguntasParaLaRecomendacion() {
 		return preguntasParaLaRecomendacion;
 	}
-
+	
 	public void setPreguntasParaLaRecomendacion(Preguntas preguntasParaLaRecomendacion) {
 		this.preguntasParaLaRecomendacion = preguntasParaLaRecomendacion;
 	}
+
+	public ArrayList<ServicioCloud> getListaDeServiciosRecomendados() {
+		return listaDeServiciosRecomendados;
+	}
+
+	public void setListaDeServiciosRecomendados(ArrayList<ServicioCloud> listaDeServiciosRecomendados) {
+		this.listaDeServiciosRecomendados = listaDeServiciosRecomendados;
+	}
+
+
+//	public static void main(String[] args) {
+//
+//		try {
+//
+//			SistemaDeRecomendacion sis = new SistemaDeRecomendacion();
+//
+//			System.out.println("Top de pilares");
+//
+//			System.out.println("");
+//			//
+//			//			for (int i = 0; i < 5; i++) {
+//			//
+//			//				System.out.println("" + sis.getCliente().getTopDePilaresDelCliente()[i].getNombreDelPilar());
+//			//			}
+//
+//			System.out.println("");
+//
+//			System.out.println("Recomendacion de tecnologias Multi-Cloud Computing - Test");
+//			System.out.println("");
+//			//
+//			//			for (int i = 0; i < sis.listaDeServiciosRecomendados.size(); i++) {
+//			//				System.out.println(sis.listaDeServiciosRecomendados.get(i).getTipoDeServicio() + " 				recomendacion: " + sis.listaDeServiciosRecomendados.get(i).getNombreDeServicio());
+//			//
+//			//			}
+//
+//
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//
+//	}
 
 
 

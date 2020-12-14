@@ -328,15 +328,15 @@ public class Main extends Application {
 				preguntaBaseDatosView.show(true);
 			}
 		}
-		
-		
+
+
 	}
 
 	public void initActionEigth() throws Exception {
 		preguntaBaseDatosView.show(false);
 		sistema.getPreguntasParaLaRecomendacion().setRespuestasAplicaciones(respuestasTotalServicios);
 		sistema.getPreguntasParaLaRecomendacion().interpretarRespuestasAplicacion();
-		
+
 		if (preguntasPilares1View == null) {
 			FXMLLoader loader = new FXMLLoader(new File("src/interfaz/" + PREGUNTAS_PILARES1_VIEW).toURI().toURL());
 			InputStream stream = getClass().getResourceAsStream(PREGUNTAS_PILARES1_VIEW);
@@ -366,7 +366,7 @@ public class Main extends Application {
 		preguntaMicroserviciosView.show(false);
 		sistema.getPreguntasParaLaRecomendacion().setRespuestasAplicaciones(respuestasTotalServicios);
 		sistema.getPreguntasParaLaRecomendacion().interpretarRespuestasAplicacion();
-		
+
 		if (preguntasPilares1View == null) {
 			FXMLLoader loader = new FXMLLoader(new File("src/interfaz/" + PREGUNTAS_PILARES1_VIEW).toURI().toURL());
 			InputStream stream = getClass().getResourceAsStream(PREGUNTAS_PILARES1_VIEW);
@@ -392,7 +392,7 @@ public class Main extends Application {
 		}
 	}
 
-	
+
 	public void initActionNine() throws Exception {
 		preguntasPilares1View.show(false);
 
@@ -447,7 +447,7 @@ public class Main extends Application {
 		} else {
 			preguntasPilares3View.show(true);
 		}
-		}	
+	}	
 
 	public void initActionEleven() throws Exception {
 		preguntasPilares3View.show(false);
@@ -507,12 +507,12 @@ public class Main extends Application {
 
 	public void initActionThirteen() throws Exception {
 		preguntasPilares5View.show(false);
-		
+
 		sistema.getPreguntasParaLaRecomendacion().setRespuestasPreguntasPilares(respuestasTotalPilares);
 		sistema.getPreguntasParaLaRecomendacion().interpretarRespuestasPilares();
-		
-		
-		
+
+
+
 		if (resultadosView == null) {
 			FXMLLoader loader = new FXMLLoader(new File("src/interfaz/" + RESULTADOS_VIEW).toURI().toURL());
 			InputStream stream = getClass().getResourceAsStream(RESULTADOS_VIEW);
@@ -520,10 +520,16 @@ public class Main extends Application {
 			try {
 				pane = loader.load(stream);
 				resultadosView = loader.getController();
-				
+
+				//				System.out.println("Sistema de recomendación Multi-cloud");
 				//JUSTO AQUI SE CARGAN LAS RESPUESTAS
-				resultadosView.getTextArea().setText("AQUI VA EL TEXTO DE LA RECOMENDACION");
-				
+				String mensaje = "Sistema de recomendación Multi-cloud\n\n";
+				for (int i = 0; i < sistema.getListaDeServiciosRecomendados().size(); i++) {
+					mensaje+=  sistema.getListaDeServiciosRecomendados().get(i).getTipoDeServicio() + 
+							": 	"+ sistema.getListaDeServiciosRecomendados().get(i).getNombreDeServicio()+ "\n";					
+				}
+
+				resultadosView.getTextArea().setText(mensaje);
 				Scene scene = new Scene(pane);
 				Stage stage = new Stage();
 				stage.setScene(scene);
@@ -541,7 +547,7 @@ public class Main extends Application {
 			resultadosView.show(true);
 		}
 	}
-	
+
 	public void dispose() {
 		System.exit(0);
 	}
