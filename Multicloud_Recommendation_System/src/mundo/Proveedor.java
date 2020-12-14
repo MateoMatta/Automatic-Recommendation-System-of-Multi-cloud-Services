@@ -9,8 +9,10 @@ import java.util.ArrayList;
 
 public class Proveedor {
 
+	//	public static String[] SERVICIOS_ESPECIALES = {"Compute Services", "Container Support", "Kubernetes Managed Service", "SQL Database", "NoSQL Database"};
+
 	private String nombreDeProveedor;
-	
+
 	/*
 	 * |AWS| 
 	 *  Compute Service || EC2
@@ -23,9 +25,9 @@ public class Proveedor {
 	private BufferedReader br;
 
 	private String linea;
-	
 
-	public Proveedor(String nombreDeProveedor, String URLArchivoDeDatosComparativaDeServicios) throws Exception {
+
+	public Proveedor(String nombreDeProveedor, String URLArchivoDeDatosComparativaDeServicios, ArrayList<ServicioCloud> serviciosADescartar) throws Exception {
 		super();
 		this.nombreDeProveedor = nombreDeProveedor;
 		listaDeServicios = new ArrayList<ServicioCloud>();
@@ -46,7 +48,8 @@ public class Proveedor {
 				break;
 			}
 		}
-		construirListaDeServiciosPorProveedor(br, posProveedor);
+		//		serviciosADescartar = new ArrayList<ServicioCloud>();
+		construirListaDeServiciosPorProveedor(br, posProveedor, serviciosADescartar);
 
 	}
 
@@ -66,7 +69,8 @@ public class Proveedor {
 		this.listaDeServicios = listaDeServicios;
 	}
 
-	public void construirListaDeServiciosPorProveedor(BufferedReader br, int posProveedor) {
+	public void construirListaDeServiciosPorProveedor(BufferedReader br, int posProveedor, 	ArrayList<ServicioCloud> listaDeTiposDeServiciosADescartar) {
+		//		lista
 		try {
 
 			// Se lee la lista de proveedores
@@ -78,19 +82,52 @@ public class Proveedor {
 			int offset = 4 * (posProveedor + 1);
 
 			// Se lee el rotulo de la lista de datos de un servicio cloud
-			while ((linea = br.readLine()) != null) {
-				String[] datos = linea.split(",");
-
-				ServicioCloud sc = new ServicioCloud(datos[0], datos[posProveedor + 1],
-						Integer.parseInt(datos[offset + posProveedor]),
-						Integer.parseInt(datos[offset + posProveedor + 1]),
-						Integer.parseInt(datos[offset + posProveedor + 2]),
-						Integer.parseInt(datos[offset + posProveedor + 3]),
-						Integer.parseInt(datos[offset + posProveedor + 4]));
-
-				listaDeServicios.add(sc);
+			for (int i = 0; i < listaDeTiposDeServiciosADescartar.size(); i++) {
+				System.out.println(listaDeTiposDeServiciosADescartar.get(i).getTipoDeServicio()  + " 		estos papi");
 
 			}
+
+			System.out.println("mano \n");
+
+			while ((linea = br.readLine()) != null) {
+				String[] datos = linea.split(",");
+				//				System.out.println(datos[0] + " 				iguales a " +listaDeTiposDeServiciosADescartar.get(0).getTipoDeServicio() );
+
+				boolean evitar= false;
+				for (int i = 0; i < listaDeTiposDeServiciosADescartar.size(); i++) {
+					if(datos[0].equals(listaDeTiposDeServiciosADescartar.get(i).getTipoDeServicio())) {
+						evitar = true;
+						//						System.out.println();
+
+						//						System.out.println("			Curramba " + datos[0] + "        iguales a " +listaDeTiposDeServiciosADescartar.get(i).getTipoDeServicio() );
+						break;
+
+					}
+
+				}
+				
+				if(evitar == false )
+				{
+					ServicioCloud sc = new ServicioCloud(datos[0], datos[posProveedor + 1],
+							Integer.parseInt(datos[offset + posProveedor]),
+							Integer.parseInt(datos[offset + posProveedor + 1]),
+							Integer.parseInt(datos[offset + posProveedor + 2]),
+							Integer.parseInt(datos[offset + posProveedor + 3]),
+							Integer.parseInt(datos[offset + posProveedor + 4]));
+
+					listaDeServicios.add(sc);
+					//						System.out.println("agregado");
+
+
+				}
+
+
+			}
+
+
+			//			for (int i = 0; i < listaDeServicios.size(); i++) {
+			//				System.out.println(nombreDeProveedor + " mis: " + listaDeServicios.get(i).getTipoDeServicio());
+			//			}
 
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -80,8 +80,8 @@ public class PreguntasPilares3View extends View {
                  boolean[] nuevasRespuestas = new boolean[respuestasActual.length+respuestas.length];
                  System.arraycopy(respuestasActual, 0, nuevasRespuestas, 0, respuestasActual.length);
                  System.arraycopy(respuestas, 0, nuevasRespuestas, respuestasActual.length, respuestas.length);
-                 System.out.println("View 3 son :"+respuestas.length);
-			     System.out.println("Y el acomulado de View 3 son :"+nuevasRespuestas.length);
+//                 System.out.println("View 3 son :"+respuestas.length);
+//			     System.out.println("Y el acomulado de View 3 son :"+nuevasRespuestas.length);
                  main.setRespuestasTotalPilares(nuevasRespuestas);
 			     main.initActionEleven();
 			} catch (Exception e) {
@@ -90,7 +90,7 @@ public class PreguntasPilares3View extends View {
 			}
 		});
 		backButtonPilares3.setOnAction((evt)->{
-			System.out.println("Se hace click hacia atra!");
+//			System.out.println("Se hace click hacia atra!");
 			try {
 				main.goBackAction();
 			} catch (Exception e) {

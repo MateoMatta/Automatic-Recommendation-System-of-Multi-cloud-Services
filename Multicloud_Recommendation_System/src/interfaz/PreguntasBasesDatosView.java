@@ -37,7 +37,7 @@ public class PreguntasBasesDatosView extends View {
 		respuestasBasesDatos = new boolean[3];
 		super.init(main);
 		nextButtonBasesDatos.setOnAction((evt) -> {
-			System.out.println("Se hace click!");
+//			System.out.println("Se hace click!");
 			try {
 				if (true1InitBasesDatos.isSelected() && !false1InitBasesDatos.isSelected()) {
 					respuestasBasesDatos[0] = true;

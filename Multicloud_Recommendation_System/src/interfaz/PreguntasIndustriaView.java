@@ -41,10 +41,10 @@ public class PreguntasIndustriaView extends View {
 	@Override
 	public void init(Main main) {
 		respuestasIndustria = new boolean[4];
-		System.out.println("Antes del init");
+//		System.out.println("Antes del init");
 		super.init(main);
 		nextButtonIndustria.setOnAction((evt) -> {
-			System.out.println("Se hace click!");
+//			System.out.println("Se hace click!");
 			try {
 				if (true1InitIndustria.isSelected() && !false1InitIndustria.isSelected()) {
 					respuestasIndustria[0] = true;
@@ -79,7 +79,7 @@ public class PreguntasIndustriaView extends View {
 			}
 		});
 		backButtonIndustria.setOnAction((evt) -> {
-			System.out.println("Se hace click hacia atra!");
+//			System.out.println("Se hace click hacia atra!");
 			try {
 				main.goBackAction();
 			} catch (Exception e) {

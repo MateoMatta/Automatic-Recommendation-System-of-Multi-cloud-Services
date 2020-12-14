@@ -49,11 +49,11 @@ public class PreguntasGeneralView extends View {
 	@Override
 	public void init(Main main) {
 		respuestas = new boolean[5];
-		System.out.println("Antes del init");
+//		System.out.println("Antes del init");
 		super.init(main);
 		
 		nextButtonVentas.setOnAction((evt)->{
-			System.out.println("Se hace click!");
+//			System.out.println("Se hace click!");
 			try {
 			     if (true1InitVentas.isSelected() && !false1InitVentas.isSelected()) {
 			    	 respuestas[0] = true;
@@ -90,7 +90,7 @@ public class PreguntasGeneralView extends View {
 			}
 		});
 		backButtonVentas.setOnAction((evt)->{
-			System.out.println("Se hace click hacia atra!");
+//			System.out.println("Se hace click hacia atra!");
 			try {
 				main.goBackAction();
 			} catch (Exception e) {

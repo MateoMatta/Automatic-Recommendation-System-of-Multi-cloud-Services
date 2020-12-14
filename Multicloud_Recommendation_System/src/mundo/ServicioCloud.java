@@ -6,8 +6,8 @@ import java.util.List;
 
 public class ServicioCloud {
 
-	/** Pilares de los criterios de selección:
-	 * -	Optimización de Costos
+	/** Pilares de los criterios de selecciï¿½n:
+	 * -	Optimizaciï¿½n de Costos
 	 * -	Excelencia Operativa
 	 * - 	Eficacia del Rendimiento
 	 * -	Fiabilidad 
@@ -15,6 +15,11 @@ public class ServicioCloud {
 
 
 	public static String[]  PILARES_DE_CRITERIOS_DE_SELECCION = {"Optimizacion de Costos", "Excelencia Operativa", "Eficacia del Rendimiento", "Fiabilidad", "Seguridad" };
+	
+	public static int SERVICIO_GENERAL = 100;
+	public static int DEPENDIENTE_DE_COMPUTE_SERVICES = 101;
+	public static int DEPENDIENTE_DE_CONTAINER_SUPPORT = 102 ;
+	public static int DEPENDIENTE_DE_DATABASE = 103;
 
 
 	private String tipoDeServicio;	

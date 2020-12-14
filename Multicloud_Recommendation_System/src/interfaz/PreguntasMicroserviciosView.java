@@ -33,7 +33,7 @@ public class PreguntasMicroserviciosView extends View {
 		respuestasMicroservicios = new boolean[2];
 		super.init(main);
 		nextButtonMicroservicios.setOnAction((evt) -> {
-			System.out.println("Se hace click!");
+//			System.out.println("Se hace click!");
 			try {
 				if (true1InitMicroservicios.isSelected() && !false1InitMicroservicios.isSelected()) {
 					respuestasMicroservicios[0] = true;
@@ -53,7 +53,7 @@ public class PreguntasMicroserviciosView extends View {
 			}
 		});
 		backButtonMicroservicios.setOnAction((evt) -> {
-			System.out.println("Se hace click hacia atra!");
+//			System.out.println("Se hace click hacia atra!");
 			try {
 				main.goBackAction();
 			} catch (Exception e) {

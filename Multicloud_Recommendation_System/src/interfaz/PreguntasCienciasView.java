@@ -41,11 +41,11 @@ public class PreguntasCienciasView extends View {
 	@Override
 	public void init(Main main) {
 		respuestasCiencias = new boolean[4];
-		System.out.println("Antes del init");
+//		System.out.println("Antes del init");
 		super.init(main);
 
 		nextButtonCiencias.setOnAction((evt) -> {
-			System.out.println("Se hace click!");
+//			System.out.println("Se hace click!");
 			try {
 				if (true1InitCiencias.isSelected() && !false1InitCiencias.isSelected()) {
 					respuestasCiencias[0] = true;
@@ -80,7 +80,7 @@ public class PreguntasCienciasView extends View {
 			}
 		});
 		backButtonCiencias.setOnAction((evt) -> {
-			System.out.println("Se hace click hacia atra!");
+//			System.out.println("Se hace click hacia atra!");
 			try {
 				main.goBackAction();
 			} catch (Exception e) {

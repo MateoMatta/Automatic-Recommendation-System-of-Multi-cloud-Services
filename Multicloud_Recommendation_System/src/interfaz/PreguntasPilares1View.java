@@ -47,11 +47,11 @@ public class PreguntasPilares1View extends View {
 	@Override
 	public void init(Main main) {
 		respuestas = new boolean[5];
-		System.out.println("Antes del init");
+//		System.out.println("Antes del init");
 		super.init(main);
 		
 		nextButtonPilares1.setOnAction((evt)->{
-			System.out.println("Se hace click!");
+//			System.out.println("Se hace click!");
 			try {
 			     if (true1InitPilares1.isSelected() && !false1InitPilares1.isSelected()) {
 			    	 respuestas[0] = true;
@@ -78,7 +78,7 @@ public class PreguntasPilares1View extends View {
 			     }else {
 			    	 respuestas[4] = false;
 			     }
-			     System.out.println("View 1 son :"+respuestas.length);
+//			     System.out.println("View 1 son :"+respuestas.length);
 
 			     main.setRespuestasTotalPilares(respuestas);
 //			     main.getSistema().getPreguntasParaLaRecomendacion().setRespuestasSector(respuestas);
@@ -89,7 +89,7 @@ public class PreguntasPilares1View extends View {
 			}
 		});
 		backButtonPilares1.setOnAction((evt)->{
-			System.out.println("Se hace click hacia atra!");
+//			System.out.println("Se hace click hacia atra!");
 			try {
 				main.goBackAction();
 			} catch (Exception e) {

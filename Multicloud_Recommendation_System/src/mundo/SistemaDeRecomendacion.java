@@ -52,6 +52,8 @@ public class SistemaDeRecomendacion {
 				preguntasParaLaRecomendacion.getServiciosElegidos(),
 				preguntasParaLaRecomendacion.getSector() );
 
+		exclusionServiciosNoElegidos();
+
 		try {
 			construirTablaDeComparacionDeServicios();
 		} catch (Exception e) {
@@ -90,7 +92,6 @@ public class SistemaDeRecomendacion {
 		// I) Pre-seleccion de tecnologias por parte del sistema - ESTA
 		listaDeServiciosRecomendados = new ArrayList<ServicioCloud>();		
 
-		exclusionServiciosNoElegidos();
 
 		//
 
@@ -100,6 +101,13 @@ public class SistemaDeRecomendacion {
 		// I) Recomendacion de todos los servicios entre Azure, AWS y GCP
 		seleccionRecomendadaDeServiciosCloud(tablaComparacionDeServiciosConPilares);
 
+		for (int i = 0; i < listaDeServiciosRecomendados.size(); i++) {
+			System.out.println(" 	jeje " + listaDeServiciosRecomendados.get(i).getTipoDeServicio());
+		}
+//		for (int i = 0; i < PROVEEDORES_CLOUD.length; i++) {
+//			
+//			System.out.println("Estos son: " + cliente.get(i).getTipoDeServicio());
+//		}
 		// II) Recomendacion de tecnologias de the 12 Factor App | Pendiente
 
 	}
@@ -108,8 +116,8 @@ public class SistemaDeRecomendacion {
 	{
 		listaDeTiposDeServiciosADescartar = new ArrayList<>();
 
-		listaDeTiposDeServiciosADescartar.add( new ServicioCloud("NoSQL Database", "NN", 0, 0, 0, 0, 0) );
-		listaDeTiposDeServiciosADescartar.add( new ServicioCloud("SQL Database", "NN", 0, 0, 0, 0, 0) );
+		listaDeTiposDeServiciosADescartar.add( new ServicioCloud("NoSQL Database Options", "NN", 0, 0, 0, 0, 0) );
+		listaDeTiposDeServiciosADescartar.add( new ServicioCloud("SQL Database Options", "NN", 0, 0, 0, 0, 0) );
 		listaDeTiposDeServiciosADescartar.add( new ServicioCloud("Kubernetes Managed Service", "NN", 0, 0, 0, 0, 0) );
 		listaDeTiposDeServiciosADescartar.add( new ServicioCloud("Container Support", "NN", 0, 0, 0, 0, 0) );
 		listaDeTiposDeServiciosADescartar.add( new ServicioCloud("Compute Services", "NN", 0, 0, 0, 0, 0) );
@@ -133,10 +141,11 @@ public class SistemaDeRecomendacion {
 		
 		System.out.println("\n");
 		System.out.println(cliente.getServiciosSeleccionados()[0].getTipoDeServicio() + " COLEEEE " + cliente.getServiciosSeleccionados()[1].getTipoDeServicio() );		
-		System.out.println("\n");
+		System.out.println("\n Servicios No Elegidos:");
 
 		
 		//La chinga quiso SQL y Contenedores
+		
 		for (int i = 0; i < listaDeTiposDeServiciosADescartar.size(); i++) {
 			
 			System.out.println(	"OIGA MIRE VEA "  + listaDeTiposDeServiciosADescartar.get(i).getTipoDeServicio());
@@ -166,6 +175,7 @@ public class SistemaDeRecomendacion {
 	 */
 
 	public void incluirServiciosDependientes(Integer[] serviciosDependientes, Proveedor[] proveedor) {
+		
 
 	}
 
@@ -213,7 +223,7 @@ public class SistemaDeRecomendacion {
 		for (int i = 0; i < listaDeProveedoresCloud.length; i++) {
 			// Recuperacion de informacion de pilares de los tres proveedores
 			listaDeProveedoresCloud[i] = new Proveedor(PROVEEDORES_CLOUD[i],
-					URL_ARCHIVO_DE_DATOS_COMPARATIVA_DE_SERVICIOS);
+					URL_ARCHIVO_DE_DATOS_COMPARATIVA_DE_SERVICIOS, listaDeTiposDeServiciosADescartar);
 
 			cantidadDeServicios = listaDeProveedoresCloud[i].cantidadDeServicios();
 
@@ -253,7 +263,9 @@ public class SistemaDeRecomendacion {
 
 		for (int i = 0; i < matrizDePilaresDeServicios.length; i += 5) {
 			//			System.out.println(i + " Ojo ahi");
+//			if(matrizDePilaresDeServicios[i][0].  )
 
+			
 			servicioYaRecomendado = false;
 			int posicionCloudRecomendado = -1;
 			int cantidadDeProveedoresQueCuentanConElPilar = 0;
@@ -262,11 +274,15 @@ public class SistemaDeRecomendacion {
 			// String[SistemaDeRecomendacion.PROVEEDORES_CLOUD.length];
 
 			// String nombreDePilar = "";
+			
+			
+			//HACER QUE LEA LAS ETIQUETAS !! DESDE EL ARCHIVO
 			for (int j = 0; j < ServicioCloud.PILARES_DE_CRITERIOS_DE_SELECCION.length && !servicioYaRecomendado; j++)
 			{
 				cantidadDeProveedoresQueCuentanConElPilar = 0;
 				posicionCloudRecomendado = -1;
 
+				
 
 				if (topEleccionDePilares[indiceDeTop].getNombreDelPilar()
 						.equals(ServicioCloud.PILARES_DE_CRITERIOS_DE_SELECCION[j])) {
@@ -342,57 +358,12 @@ public class SistemaDeRecomendacion {
 
 			System.out.println("Recomendacion de tecnologias Multi-Cloud Computing - Test");
 			System.out.println("");
+//
+//			for (int i = 0; i < sis.listaDeServiciosRecomendados.size(); i++) {
+//				System.out.println(sis.listaDeServiciosRecomendados.get(i).getTipoDeServicio() + " 				recomendacion: " + sis.listaDeServiciosRecomendados.get(i).getNombreDeServicio());
+//
+//			}
 
-			for (int i = 0; i < sis.listaDeServiciosRecomendados.size(); i++) {
-				System.out.println(sis.listaDeServiciosRecomendados.get(i).getTipoDeServicio() + " 				recomendacion: " + sis.listaDeServiciosRecomendados.get(i).getNombreDeServicio());
-
-			}
-//Seguir aca, 8:32 pm
-			// for (int i = 0; i < args.length; i++) {
-			// System.out.println( "hhey" +
-			// sis.topEleccionDePilares[i].getNombreDelPilar());
-			// }
-			//
-			//
-			//
-			// for (int i = 0; i < sis.getCliente().getTopDePilaresDelCliente().length; i++)
-			// {
-			//
-			// System.out.println(sis.getCliente().getTopDePilaresDelCliente()[i]);
-			// }
-			////
-			// System.out.println(sis.tablaComparacionDeServiciosConPilares[0][0] + " - " +
-			// sis.tablaComparacionDeServiciosConPilares[0][1] + " - " +
-			// sis.tablaComparacionDeServiciosConPilares[0][2]);
-			// System.out.println(sis.tablaComparacionDeServiciosConPilares[1][0] + " - " +
-			// sis.tablaComparacionDeServiciosConPilares[1][1] + " - " +
-			// sis.tablaComparacionDeServiciosConPilares[1][2]);
-			// System.out.println(sis.tablaComparacionDeServiciosConPilares[2][0] + " - " +
-			// sis.tablaComparacionDeServiciosConPilares[2][1] + " - " +
-			// sis.tablaComparacionDeServiciosConPilares[2][2]);
-			// System.out.println(sis.tablaComparacionDeServiciosConPilares[3][0] + " - " +
-			// sis.tablaComparacionDeServiciosConPilares[3][1] + " - " +
-			// sis.tablaComparacionDeServiciosConPilares[3][2]);
-			// System.out.println(sis.tablaComparacionDeServiciosConPilares[4][0] + " - " +
-			// sis.tablaComparacionDeServiciosConPilares[4][1] + " - " +
-			// sis.tablaComparacionDeServiciosConPilares[4][2] + "\n");
-			//
-			// System.out.println(sis.tablaComparacionDeServiciosConPilares[5][0] + " - " +
-			// sis.tablaComparacionDeServiciosConPilares[5][1] + " - " +
-			// sis.tablaComparacionDeServiciosConPilares[5][2]);
-			// System.out.println(sis.tablaComparacionDeServiciosConPilares[6][0] + " - " +
-			// sis.tablaComparacionDeServiciosConPilares[6][1] + " - " +
-			// sis.tablaComparacionDeServiciosConPilares[6][2]);
-			// System.out.println(sis.tablaComparacionDeServiciosConPilares[7][0] + " - " +
-			// sis.tablaComparacionDeServiciosConPilares[7][1] + " - " +
-			// sis.tablaComparacionDeServiciosConPilares[7][2]);
-			// System.out.println(sis.tablaComparacionDeServiciosConPilares[8][0] + " - " +
-			// sis.tablaComparacionDeServiciosConPilares[8][1] + " - " +
-			// sis.tablaComparacionDeServiciosConPilares[8][2]);
-			// System.out.println(sis.tablaComparacionDeServiciosConPilares[9][0] + " - " +
-			// sis.tablaComparacionDeServiciosConPilares[9][1] + " - " +
-			// sis.tablaComparacionDeServiciosConPilares[9][2] + "\n");
-			//
 
 		} catch (Exception e) {
 			e.printStackTrace();
