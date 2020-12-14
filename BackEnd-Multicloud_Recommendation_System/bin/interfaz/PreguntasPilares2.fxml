@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfaz.PreguntasPilares2View">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="640.0">
+         <image>
+            <Image url="@../../images/multicloud3.png" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="trueSecondQ" layoutX="35.0" layoutY="9.0" opacity="0.62" prefHeight="380.0" prefWidth="565.0" style="-fx-background-color: black;">
+         <children>
+            <Text fill="WHITE" layoutX="475.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Si" textAlignment="JUSTIFY" wrappingWidth="16.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="514.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No" textAlignment="JUSTIFY" wrappingWidth="22.0">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+         </children></AnchorPane>
+      <Button fx:id="nextButtonPilares2" layoutX="333.0" layoutY="338.0" mnemonicParsing="false" text="Continuar" />
+      <Text fx:id="textTipoDePregunta" fill="WHITE" layoutX="233.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preguntas calificadoras de pilares" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="pregunta1txtPilares2" fill="WHITE" layoutX="58.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Considera que su aplicación necesita, por cuestiones del negocio, unas características especializadas en seguridad?" textAlignment="JUSTIFY" wrappingWidth="437.150390625">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fx:id="pregunta2txtPilares2" fill="WHITE" layoutX="58.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Estaría dispuesto a invertir dinero extra en la seguridad de los servicios que utilizará su aplicación?" textAlignment="JUSTIFY" wrappingWidth="437.150390625">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fx:id="pregunta3txtPilares2" fill="WHITE" layoutX="58.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Su aplicación cuenta con restricciones gubernamentales que le obligan a cumplir con estándares de seguridad?" textAlignment="JUSTIFY" wrappingWidth="437.150390625">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fx:id="pregunta4txtPilares2" fill="WHITE" layoutX="58.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Estaría dispuesto a invertir una cantidad considerable de dinero extra para implementar sistemas para prevenir intrusiones, daños por parte de atacantes internos, entre otros?" textAlignment="JUSTIFY" wrappingWidth="437.150390625">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fx:id="pregunta5txtPilares2" fill="WHITE" layoutX="58.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" text="•	¿Considera usted que su aplicación requiere un conjunto de herramientas especializadas en el monitoreo de su aplicación desde el punto de vista de la seguridad (Desde el diseño, la construcción y su operación)?" textAlignment="JUSTIFY" wrappingWidth="437.150390625">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Button fx:id="backButtonPilares2" layoutX="235.0" layoutY="338.0" mnemonicParsing="false" text="Atras" />
+      <RadioButton fx:id="true1InitPilares2" layoutX="510.0" layoutY="98.0" mnemonicParsing="false" />
+      <RadioButton fx:id="false1InitPilares2" layoutX="550.0" layoutY="98.0" mnemonicParsing="false" />
+      <RadioButton fx:id="true2InitPilares2" layoutX="509.0" layoutY="138.0" mnemonicParsing="false" />
+      <RadioButton fx:id="false2InitPilares2" layoutX="549.0" layoutY="138.0" mnemonicParsing="false" />
+      <RadioButton fx:id="true3InitPilares2" layoutX="509.0" layoutY="178.0" mnemonicParsing="false" />
+      <RadioButton fx:id="false3InitPilares2" layoutX="549.0" layoutY="178.0" mnemonicParsing="false" />
+      <RadioButton fx:id="true4InitPilares2" layoutX="509.0" layoutY="218.0" mnemonicParsing="false" />
+      <RadioButton fx:id="false4InitPilares2" layoutX="549.0" layoutY="218.0" mnemonicParsing="false" />
+      <RadioButton fx:id="true5InitPilares2" layoutX="509.0" layoutY="258.0" mnemonicParsing="false" />
+      <RadioButton fx:id="false5InitPilares2" layoutX="549.0" layoutY="258.0" mnemonicParsing="false" />
+   </children>
+</AnchorPane>

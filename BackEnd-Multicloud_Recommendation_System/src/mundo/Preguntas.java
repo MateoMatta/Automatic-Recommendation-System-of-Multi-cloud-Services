@@ -19,18 +19,12 @@ public class Preguntas {
 	private boolean[] respuestasSector;
 	private boolean[] respuestasAplicaciones;
 	private boolean[] respuestasPreguntasPilares;
-	
-	public final static String SECTOR_VENTAS = "Sector ventas";
-	public final static String SECTOR_FINANCIERO = "Sector financiero";
-	public final static String CIENCIAS_BIOLOGICAS = "Ciencias biologicas y sector sanitario";
-	public final static String INDUSTRIA_FABRICACION = "Industria y fabricacion";
-	public final static String NEGOCIOS_TECNOLOGIA = "Negocios alto uso de tecnologia";
 
 	public final static String SECTOR_VENTAS = "Sector ventas";
 	public final static String SECTOR_FINANCIERO = "Sector financiero";
 	public final static String CIENCIAS_BIOLOGICAS = "Ciencias biologicas y sector sanitario";
 	public final static String INDUSTRIA_FABRICACION = "Industria y fabricacion";
-	public final static String NEGOCIOS_TECNOLOGIA = "Negocios alto uso de tecnologia";	
+	public final static String NEGOCIOS_TECNOLOGIA = "Negocios con alto uso de tecnologia";	
 
 	public Preguntas() throws Exception {
 		// Importacion del CSV del sector a la variable PreguntasSector
@@ -158,8 +152,9 @@ public class Preguntas {
 	 */
 	public void mostrarPreguntasSector(String urlSector) throws Exception {
 		buffer = new BufferedReader(new FileReader(urlSector));
-		preguntasSector = new String[22][2];
+		preguntasSector = new String[21][2];
 		for (int i = 0; i < preguntasSector.length; i++) {
+			System.out.println(buffer+"GG:"+i);
 			preguntasSector[i] = buffer.readLine().split(",");			
 		}
 
@@ -239,8 +234,6 @@ public class Preguntas {
 				}else if (i >= 14 && i <= 17) {
 					industria += 1;
 				}else if (i >= 18 && i <= 21) {
-					//Este +10 significa que sin importar las respuestas anteriores, si el men hace parte
-					//De alguna de estas industrias se le recomienda tecnológico
 					tecnologia += 10;
 				}
 			}
@@ -313,7 +306,10 @@ public class Preguntas {
 				serviciosElegidos[1] = new ServicioCloud("Compute Services", "NN", 0, 0, 0, 0, 0);
 			}
 		}
-
+        for (int i = 0; i < serviciosElegidos.length; i++) {
+			System.out.println("NOMBRE DEL SERVICIO ELEGIDO: : "+serviciosElegidos[i].getTipoDeServicio());
+		}
+		
 	}
 
 
@@ -434,5 +430,42 @@ public class Preguntas {
 	}
 
 
+
+
+	public boolean[] getRespuestasPreguntasPilares() {
+		return respuestasPreguntasPilares;
+	}
+
+
+
+
+	public void setRespuestasPreguntasPilares(boolean[] respuestasPreguntasPilares) {
+		this.respuestasPreguntasPilares = respuestasPreguntasPilares;
+	}
+
+
+	
+	
+//
+//	public static void main(String[] args) {
+//		try {
+//			Preguntas p = new Preguntas();
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//
+//	}
+//
 
 }

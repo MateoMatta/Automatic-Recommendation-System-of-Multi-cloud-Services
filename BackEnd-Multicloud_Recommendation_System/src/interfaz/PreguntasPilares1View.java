@@ -78,7 +78,8 @@ public class PreguntasPilares1View extends View {
 			     }else {
 			    	 respuestas[4] = false;
 			     }
-			    
+			     System.out.println("View 1 son :"+respuestas.length);
+
 			     main.setRespuestasTotalPilares(respuestas);
 //			     main.getSistema().getPreguntasParaLaRecomendacion().setRespuestasSector(respuestas);
 			     main.initActionNine();

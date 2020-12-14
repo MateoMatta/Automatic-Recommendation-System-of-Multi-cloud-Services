@@ -24,11 +24,7 @@ public class PreguntasMicroserviciosView extends View {
 	@FXML
 	private RadioButton false2InitMicroservicios;
 	
-	@FXML
-	private RadioButton true3InitMicroservicios;
 
-	@FXML
-	private RadioButton false3InitMicroservicios;
 	
 	private boolean[] respuestasMicroservicios;
 	
@@ -50,8 +46,7 @@ public class PreguntasMicroserviciosView extends View {
 				}	
 
 				main.setRespuestasTotalServicios(respuestasMicroservicios);
-//			    main.getSistema().getPreguntasParaLaRecomendacion().setRespuestasSector(respuestasMicroservicios);
-				main.initActionEigth();
+				main.initActionEigth2();
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
