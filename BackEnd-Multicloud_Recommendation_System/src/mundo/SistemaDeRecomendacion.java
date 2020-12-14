@@ -37,6 +37,8 @@ public class SistemaDeRecomendacion {
 	private ArrayList<ServicioCloud> listaDeServiciosTecnologia;
 	private ArrayList<ServicioCloud> listaDeServiciosRecomendados;
 	private ArrayList<String> listaDeProveedoresRelacionadosParaLosServiciosGenerales;
+	private ArrayList<ServicioCloud> listaDeTiposDeServiciosADescartar;
+
 
 
 	public SistemaDeRecomendacion() throws Exception {
@@ -62,6 +64,12 @@ public class SistemaDeRecomendacion {
 
 		}
 
+		//		System.out.println("\n");
+		//		for (int i = 0; i < 2; i++) {
+		//			System.out.println(cliente.getServiciosSeleccionados()+ " : " + cliente.getTopDePilaresDelCliente()[i].getNombreDelPilar()  );
+		//
+		//		}
+
 
 		// 1. Perfilacion de eleccion de pilares del usuario
 		// I) Preguntas - DATOS QUEMADOS DEL TOP DE PILARES
@@ -80,7 +88,13 @@ public class SistemaDeRecomendacion {
 
 		// 2. Eleccion de los servicios para la infraestructura
 		// I) Pre-seleccion de tecnologias por parte del sistema - ESTA
-		listaDeServiciosRecomendados = new ArrayList<ServicioCloud>();
+		listaDeServiciosRecomendados = new ArrayList<ServicioCloud>();		
+
+		exclusionServiciosNoElegidos();
+
+		//
+
+
 		// II) Eleccion propia del usuario
 		// 3. Recomendacion de servicios para la infraestructura
 		// I) Recomendacion de todos los servicios entre Azure, AWS y GCP
@@ -90,6 +104,47 @@ public class SistemaDeRecomendacion {
 
 	}
 
+	public void exclusionServiciosNoElegidos()
+	{
+		listaDeTiposDeServiciosADescartar = new ArrayList<>();
+
+		listaDeTiposDeServiciosADescartar.add( new ServicioCloud("NoSQL Database", "NN", 0, 0, 0, 0, 0) );
+		listaDeTiposDeServiciosADescartar.add( new ServicioCloud("SQL Database", "NN", 0, 0, 0, 0, 0) );
+		listaDeTiposDeServiciosADescartar.add( new ServicioCloud("Kubernetes Managed Service", "NN", 0, 0, 0, 0, 0) );
+		listaDeTiposDeServiciosADescartar.add( new ServicioCloud("Container Support", "NN", 0, 0, 0, 0, 0) );
+		listaDeTiposDeServiciosADescartar.add( new ServicioCloud("Compute Services", "NN", 0, 0, 0, 0, 0) );
+
+		for (int i = 0; i < listaDeTiposDeServiciosADescartar.size(); i++) {
+			//Eliminacion de la base de datos seleccionada
+			if(listaDeTiposDeServiciosADescartar.get(i).getTipoDeServicio().equals(cliente.getServiciosSeleccionados()[0].getTipoDeServicio()))
+			{
+				listaDeTiposDeServiciosADescartar.remove(i);
+
+			}
+
+			//Eliminacion del tipo de computo seleccionado			
+			if(listaDeTiposDeServiciosADescartar.get(i).getTipoDeServicio().equals(cliente.getServiciosSeleccionados()[1].getTipoDeServicio()))
+			{
+				listaDeTiposDeServiciosADescartar.remove(i);
+
+			}			
+
+		}
+		
+		System.out.println("\n");
+		System.out.println(cliente.getServiciosSeleccionados()[0].getTipoDeServicio() + " COLEEEE " + cliente.getServiciosSeleccionados()[1].getTipoDeServicio() );		
+		System.out.println("\n");
+
+		
+		//La chinga quiso SQL y Contenedores
+		for (int i = 0; i < listaDeTiposDeServiciosADescartar.size(); i++) {
+			
+			System.out.println(	"OIGA MIRE VEA "  + listaDeTiposDeServiciosADescartar.get(i).getTipoDeServicio());
+			
+		}
+		System.out.println("\n");
+		
+	}
 	public void incluirServiciosGenerales() {
 
 	}
@@ -289,7 +344,7 @@ public class SistemaDeRecomendacion {
 			System.out.println("");
 
 			for (int i = 0; i < sis.listaDeServiciosRecomendados.size(); i++) {
-				System.out.println(sis.listaDeServiciosRecomendados.get(i).getNombreDeServicio());
+				System.out.println(sis.listaDeServiciosRecomendados.get(i).getTipoDeServicio() + " 				recomendacion: " + sis.listaDeServiciosRecomendados.get(i).getNombreDeServicio());
 
 			}
 

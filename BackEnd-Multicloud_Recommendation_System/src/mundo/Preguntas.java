@@ -285,6 +285,7 @@ public class Preguntas {
 
 			//Si no es alto uso de tech, significa que es cualquiera de los otros, que todos son iguales
 			//BD
+			
 			serviciosElegidos = new ServicioCloud[2];
 			if(respuestasAplicaciones[0] == true) {
 				serviciosElegidos[0] = new ServicioCloud("NoSQL Database", "NN", 0, 0, 0, 0, 0);
