@@ -291,9 +291,9 @@ public class Preguntas {
 			
 			serviciosElegidos = new ServicioCloud[2];
 			if(respuestasAplicaciones[0] == true) {
-				serviciosElegidos[0] = new ServicioCloud("NoSQL Database", "NN", 0, 0, 0, 0, 0);
+				serviciosElegidos[0] = new ServicioCloud("NoSQL Database Options", "NN", 0, 0, 0, 0, 0);
 			} else {
-				serviciosElegidos[0] = new ServicioCloud("SQL Database", "NN", 0, 0, 0, 0, 0);
+				serviciosElegidos[0] = new ServicioCloud("SQL Database Options", "NN", 0, 0, 0, 0, 0);
 			}
 			//Computo
 			if(respuestasAplicaciones[1] == true) {

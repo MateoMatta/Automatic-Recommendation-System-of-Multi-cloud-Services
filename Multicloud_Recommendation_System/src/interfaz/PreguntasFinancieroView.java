@@ -47,12 +47,12 @@ public class PreguntasFinancieroView extends View {
 	@Override
 	public void init(Main main) {
 		respuestasFinanciero = new boolean[4];
-		System.out.println("Antes del init");
+//		System.out.println("Antes del init");
 		super.init(main);
 		
 		
 		nextButtonFinanciero.setOnAction((evt)->{
-			System.out.println("Se hace click!");
+//			System.out.println("Se hace click!");
 			try {
 			     if (true1InitFinanciero.isSelected() && !false1InitFinanciero.isSelected()) {
 			    	 respuestasFinanciero[0] = true;
@@ -87,7 +87,7 @@ public class PreguntasFinancieroView extends View {
 			}
 		});
 		backButtonFinanciero.setOnAction((evt)->{
-			System.out.println("Se hace click hacia atra!");
+//			System.out.println("Se hace click hacia atra!");
 			try {
 				main.goBackAction();
 			} catch (Exception e) {

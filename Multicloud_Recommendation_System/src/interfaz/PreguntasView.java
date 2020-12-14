@@ -14,10 +14,10 @@ public class PreguntasView extends View {
 	
 	@Override
 	public void init(Main main) {
-		System.out.println("Checkbox!");
+//		System.out.println("Checkbox!");
 		super.init(main);
 		nextButtonInfo.setOnAction((evt)->{
-			System.out.println("ENTRO!");
+//			System.out.println("ENTRO!");
 			if(checkBoxInfo.isSelected()) {
 				try {
 					main.initActionSecond();

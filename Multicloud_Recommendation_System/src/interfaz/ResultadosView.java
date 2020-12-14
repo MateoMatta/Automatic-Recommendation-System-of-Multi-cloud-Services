@@ -17,13 +17,13 @@ public class ResultadosView extends View {
 
 	@Override
 	public void init(Main main) {
-		System.out.println("Finalizar!");
+//		System.out.println("Finalizar!");
 		super.init(main);
 		buttonFinalizar.setOnAction((evt)->{
            main.dispose();
 		});
 		buttonGoToInit.setOnAction((evt)->{
-			System.out.println("Va a atras");
+//			System.out.println("Va a atras");
 		});
 	}
 	
