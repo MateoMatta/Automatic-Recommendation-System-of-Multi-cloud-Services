@@ -7,60 +7,57 @@ import javafx.scene.control.RadioButton;
 public class PreguntasMicroserviciosView extends View {
 
 	@FXML
-	private Button nextButtonBasesDatos;
+	private Button nextButtonMicroservicios;
 
 	@FXML
-	private Button backButtonBasesDatos;
+	private Button backButtonMicroservicios;
 
 	@FXML
-	private RadioButton true1InitBasesDatos;
+	private RadioButton true1InitMicroservicios;
 
 	@FXML
-	private RadioButton false1InitBasesDatos;
+	private RadioButton false1InitMicroservicios;
 	
 	@FXML
-	private RadioButton true2InitBasesDatos;
+	private RadioButton true2InitMicroservicios;
 
 	@FXML
-	private RadioButton false2InitBasesDatos;
+	private RadioButton false2InitMicroservicios;
 	
 	@FXML
-	private RadioButton true3InitBasesDatos;
+	private RadioButton true3InitMicroservicios;
 
 	@FXML
-	private RadioButton false3InitBasesDatos;
+	private RadioButton false3InitMicroservicios;
 	
-	private boolean[] respuestasBasesDatos;
+	private boolean[] respuestasMicroservicios;
 	
 	@Override
 	public void init(Main main) {
-		respuestasBasesDatos = new boolean[2];
+		respuestasMicroservicios = new boolean[2];
 		super.init(main);
-		nextButtonBasesDatos.setOnAction((evt) -> {
+		nextButtonMicroservicios.setOnAction((evt) -> {
 			System.out.println("Se hace click!");
 			try {
-				if (true1InitBasesDatos.isSelected() && !false1InitBasesDatos.isSelected()) {
-					respuestasBasesDatos[0] = true;
+				if (true1InitMicroservicios.isSelected() && !false1InitMicroservicios.isSelected()) {
+					respuestasMicroservicios[0] = true;
 				} else {
-					respuestasBasesDatos[0] = false;
-				}if (true2InitBasesDatos.isSelected() && !false2InitBasesDatos.isSelected()) {
-					respuestasBasesDatos[1] = true;
+					respuestasMicroservicios[0] = false;
+				}if (true2InitMicroservicios.isSelected() && !false2InitMicroservicios.isSelected()) {
+					respuestasMicroservicios[1] = true;
 				} else {
-					respuestasBasesDatos[1] = false;
+					respuestasMicroservicios[1] = false;
 				}	
-				boolean[] respuestasActual = main.getRespuestasTotalServicios();
-				boolean[] nuevasRespuestas = new boolean[respuestasActual.length + respuestasBasesDatos.length];
-				System.arraycopy(respuestasActual, 0, nuevasRespuestas, 0, respuestasActual.length);
-                System.arraycopy(respuestasBasesDatos, 0, nuevasRespuestas, respuestasActual.length, respuestasBasesDatos.length);
-				main.setRespuestasTotal(nuevasRespuestas);
-//			    main.getSistema().getPreguntasParaLaRecomendacion().setRespuestasSector(respuestasBasesDatos);
-				main.initActionFive();
+
+				main.setRespuestasTotalServicios(respuestasMicroservicios);
+//			    main.getSistema().getPreguntasParaLaRecomendacion().setRespuestasSector(respuestasMicroservicios);
+				main.initActionEigth();
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		});
-		backButtonBasesDatos.setOnAction((evt) -> {
+		backButtonMicroservicios.setOnAction((evt) -> {
 			System.out.println("Se hace click hacia atra!");
 			try {
 				main.goBackAction();
@@ -70,5 +67,14 @@ public class PreguntasMicroserviciosView extends View {
 			}
 		});
 	}
+
+	public boolean[] getRespuestasMicroservicios() {
+		return respuestasMicroservicios;
+	}
+
+	public void setRespuestasMicroservicios(boolean[] respuestasMicroservicios) {
+		this.respuestasMicroservicios = respuestasMicroservicios;
+	}
+	
 	
 }

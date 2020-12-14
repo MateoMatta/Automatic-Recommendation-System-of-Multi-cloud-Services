@@ -6,9 +6,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.text.Text;
 import mundo.Preguntas;
 
-public class PreguntasGeneralView extends View {
-	
-	
+public class PreguntasGeneralView extends View {	
 	
 	@FXML
 	private Button nextButtonVentas;

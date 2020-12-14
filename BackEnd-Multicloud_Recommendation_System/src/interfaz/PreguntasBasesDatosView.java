@@ -57,13 +57,9 @@ public class PreguntasBasesDatosView extends View {
 						respuestasBasesDatos[2] = false;
 					}
 				}	
-				boolean[] respuestasActual = main.getRespuestasTotalServicios();
-				boolean[] nuevasRespuestas = new boolean[respuestasActual.length + respuestasBasesDatos.length];
-				System.arraycopy(respuestasActual, 0, nuevasRespuestas, 0, respuestasActual.length);
-                System.arraycopy(respuestasBasesDatos, 0, nuevasRespuestas, respuestasActual.length, respuestasBasesDatos.length);
-				main.setRespuestasTotal(nuevasRespuestas);
+				main.setRespuestasTotalServicios(respuestasBasesDatos);
 //			    main.getSistema().getPreguntasParaLaRecomendacion().setRespuestasSector(respuestasBasesDatos);
-				main.initActionFive();
+				main.initActionEigth();
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

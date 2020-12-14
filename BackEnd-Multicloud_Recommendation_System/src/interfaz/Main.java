@@ -27,6 +27,12 @@ public class Main extends Application {
 	private PreguntasIndustriaView preguntasIndustriaView;
 	private PreguntasTecnologiaView preguntasTecnologiaView;
 	private PreguntasBasesDatosView preguntaBaseDatosView;
+	private PreguntasMicroserviciosView preguntaMicroserviciosView;
+	private PreguntasPilares1View preguntasPilares1View;
+	private PreguntasPilares2View preguntasPilares2View;
+	private PreguntasPilares3View preguntasPilares3View;
+	private PreguntasPilares4View preguntasPilares4View;
+	private PreguntasPilares5View preguntasPilares5View;
 	private ResultadosView resultadosView;
 
 	private SistemaDeRecomendacion sistema;
@@ -37,6 +43,7 @@ public class Main extends Application {
 	private String[] preguntasTecnologia;
 	private boolean[] respuestasTotal;
 	private boolean[] respuestasTotalServicios;
+	private boolean[] respuestasTotalPilares;
 	private String sectorGeneral;
 
 	private static String INTERFAZ_VIEW = "Interfaz.fxml";
@@ -46,6 +53,14 @@ public class Main extends Application {
 	private static String PREGUNTAS_CIENCIAS_VIEW = "PreguntasCiencias.fxml";
 	private static String PREGUNTAS_INDUSTRIA_VIEW = "PreguntasIndustria.fxml";
 	private static String PREGUNTAS_TECNOLOGIA_VIEW = "PreguntasTecnologia.fxml";
+	private static String PREGUNTAS_MICROSERVICIOS_VIEW = "PreguntasMicroservicios.fxml";
+	private static String PREGUNTAS_BASESDEDATOS_VIEW = "PreguntasBasesDatosView.fxml";
+	private static String PREGUNTAS_PILARES1_VIEW = "PreguntasPilares1.fxml";
+	private static String PREGUNTAS_PILARES2_VIEW = "PreguntasPilares2.fxml";
+	private static String PREGUNTAS_PILARES3_VIEW = "PreguntasPilares3.fxml";
+	private static String PREGUNTAS_PILARES4_VIEW = "PreguntasPilares4.fxml";
+	private static String PREGUNTAS_PILARES5_VIEW = "PreguntasPilares5.fxml";
+
 	private static String RESULTADOS_VIEW = "Resultados.fxml";
 
 	@Override
@@ -53,6 +68,7 @@ public class Main extends Application {
 
 		try {
 			initViews(primaryStage);
+			initData();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -260,14 +276,235 @@ public class Main extends Application {
 
 	public void initActionSeven() throws Exception {
 		// MANDAR LA INFO AL MODELO Y SEGUIR CON LAS OTRAS PREGUNTAS
+		preguntasTecnologiaView.show(false);
+		System.out.println("Respuestas total: "+respuestasTotal.toString());
+		System.out.println("Sistema: "+sistema);
 		sistema.getPreguntasParaLaRecomendacion().setRespuestasSector(respuestasTotal);
 		sectorGeneral = sistema.getPreguntasParaLaRecomendacion().interpretarRespuestasSector();
 		if (sectorGeneral.equals(Preguntas.NEGOCIOS_TECNOLOGIA)) {
-			
-		} else {
-            
-		}
+			if (preguntaMicroserviciosView == null) {
+				FXMLLoader loader = new FXMLLoader(
+						new File("src/interfaz/" + PREGUNTAS_MICROSERVICIOS_VIEW).toURI().toURL());
+				InputStream stream = getClass().getResourceAsStream(PREGUNTAS_MICROSERVICIOS_VIEW);
+				Pane pane;
+				try {
+					pane = loader.load(stream);
+					preguntaMicroserviciosView = loader.getController();
+					Scene scene = new Scene(pane);
+					Stage stage = new Stage();
+					stage.setScene(scene);
 
+					preguntaMicroserviciosView.setPane(pane);
+					preguntaMicroserviciosView.setStage(stage);
+					preguntaMicroserviciosView.init(this);
+					preguntaMicroserviciosView.show(true);
+
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+
+			} else {
+				preguntaMicroserviciosView.show(true);
+			}
+		} else {
+			if (preguntaBaseDatosView == null) {
+				FXMLLoader loader = new FXMLLoader(
+						new File("src/interfaz/" + PREGUNTAS_BASESDEDATOS_VIEW).toURI().toURL());
+				InputStream stream = getClass().getResourceAsStream(PREGUNTAS_BASESDEDATOS_VIEW);
+				Pane pane;
+				try {
+					pane = loader.load(stream);
+					preguntaBaseDatosView = loader.getController();
+					Scene scene = new Scene(pane);
+					Stage stage = new Stage();
+					stage.setScene(scene);
+
+					preguntaBaseDatosView.setPane(pane);
+					preguntaBaseDatosView.setStage(stage);
+					preguntaBaseDatosView.init(this);
+					preguntaBaseDatosView.show(true);
+
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+
+			} else {
+				preguntaBaseDatosView.show(true);
+
+			}
+		}
+	}
+
+	public void initActionEigth() throws Exception {
+		preguntaBaseDatosView.show(false);
+
+		if (preguntasPilares1View == null) {
+			FXMLLoader loader = new FXMLLoader(new File("src/interfaz/" + PREGUNTAS_PILARES1_VIEW).toURI().toURL());
+			InputStream stream = getClass().getResourceAsStream(PREGUNTAS_PILARES1_VIEW);
+			Pane pane;
+			try {
+				pane = loader.load(stream);
+				preguntasPilares1View = loader.getController();
+				Scene scene = new Scene(pane);
+				Stage stage = new Stage();
+				stage.setScene(scene);
+
+				preguntasPilares1View.setPane(pane);
+				preguntasPilares1View.setStage(stage);
+				preguntasPilares1View.init(this);
+				preguntasPilares1View.show(true);
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+		} else {
+			preguntasPilares1View.show(true);
+		}
+	}
+
+	public void initActionNine() throws Exception {
+		preguntasPilares1View.show(false);
+
+		if (preguntasPilares2View == null) {
+			FXMLLoader loader = new FXMLLoader(new File("src/interfaz/" + PREGUNTAS_PILARES2_VIEW).toURI().toURL());
+			InputStream stream = getClass().getResourceAsStream(PREGUNTAS_PILARES2_VIEW);
+			Pane pane;
+			try {
+				pane = loader.load(stream);
+				preguntasPilares2View = loader.getController();
+				Scene scene = new Scene(pane);
+				Stage stage = new Stage();
+				stage.setScene(scene);
+
+				preguntasPilares2View.setPane(pane);
+				preguntasPilares2View.setStage(stage);
+				preguntasPilares2View.init(this);
+				preguntasPilares2View.show(true);
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+		} else {
+			preguntasPilares2View.show(true);
+		}
+	}
+
+	public void initActionTen() throws Exception {
+		preguntasPilares2View.show(false);
+
+		if (preguntasPilares3View == null) {
+			FXMLLoader loader = new FXMLLoader(new File("src/interfaz/" + PREGUNTAS_PILARES3_VIEW).toURI().toURL());
+			InputStream stream = getClass().getResourceAsStream(PREGUNTAS_PILARES3_VIEW);
+			Pane pane;
+			try {
+				pane = loader.load(stream);
+				preguntasPilares3View = loader.getController();
+				Scene scene = new Scene(pane);
+				Stage stage = new Stage();
+				stage.setScene(scene);
+
+				preguntasPilares3View.setPane(pane);
+				preguntasPilares3View.setStage(stage);
+				preguntasPilares3View.init(this);
+				preguntasPilares3View.show(true);
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+		} else {
+			preguntasPilares3View.show(true);
+		}
+		}	
+
+	public void initActionEleven() throws Exception {
+		preguntasPilares3View.show(false);
+
+		if (preguntasPilares4View == null) {
+			FXMLLoader loader = new FXMLLoader(new File("src/interfaz/" + PREGUNTAS_PILARES4_VIEW).toURI().toURL());
+			InputStream stream = getClass().getResourceAsStream(PREGUNTAS_PILARES4_VIEW);
+			Pane pane;
+			try {
+				pane = loader.load(stream);
+				preguntasPilares4View = loader.getController();
+				Scene scene = new Scene(pane);
+				Stage stage = new Stage();
+				stage.setScene(scene);
+
+				preguntasPilares4View.setPane(pane);
+				preguntasPilares4View.setStage(stage);
+				preguntasPilares4View.init(this);
+				preguntasPilares4View.show(true);
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+		} else {
+			preguntasPilares4View.show(true);
+		}
+	}
+
+	public void initActionTwelve() throws Exception {
+		preguntasPilares4View.show(false);
+
+		if (preguntasPilares5View == null) {
+			FXMLLoader loader = new FXMLLoader(new File("src/interfaz/" + PREGUNTAS_PILARES5_VIEW).toURI().toURL());
+			InputStream stream = getClass().getResourceAsStream(PREGUNTAS_PILARES5_VIEW);
+			Pane pane;
+			try {
+				pane = loader.load(stream);
+				preguntasPilares5View = loader.getController();
+				Scene scene = new Scene(pane);
+				Stage stage = new Stage();
+				stage.setScene(scene);
+
+				preguntasPilares5View.setPane(pane);
+				preguntasPilares5View.setStage(stage);
+				preguntasPilares5View.init(this);
+				preguntasPilares5View.show(true);
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+		} else {
+			preguntasPilares5View.show(true);
+		}
+	}
+
+	public void initActionThirteen() throws Exception {
+		preguntasPilares5View.show(false);
+
+		if (resultadosView == null) {
+			FXMLLoader loader = new FXMLLoader(new File("src/interfaz/" + RESULTADOS_VIEW).toURI().toURL());
+			InputStream stream = getClass().getResourceAsStream(RESULTADOS_VIEW);
+			Pane pane;
+			try {
+				pane = loader.load(stream);
+				preguntasPilares4View = loader.getController();
+				Scene scene = new Scene(pane);
+				Stage stage = new Stage();
+				stage.setScene(scene);
+
+				resultadosView.setPane(pane);
+				resultadosView.setStage(stage);
+				resultadosView.init(this);
+				resultadosView.show(true);
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+		} else {
+			resultadosView.show(true);
+		}
+	}
+	
+	public void dispose() {
+		System.exit(0);
 	}
 
 	public void setArrayPregSector() {
@@ -358,6 +595,12 @@ public class Main extends Application {
 		this.respuestasTotalServicios = respuestasTotalServicios;
 	}
 
-	
-	
+	public boolean[] getRespuestasTotalPilares() {
+		return respuestasTotalPilares;
+	}
+
+	public void setRespuestasTotalPilares(boolean[] respuestasTotalPilares) {
+		this.respuestasTotalPilares = respuestasTotalPilares;
+	}
+
 }

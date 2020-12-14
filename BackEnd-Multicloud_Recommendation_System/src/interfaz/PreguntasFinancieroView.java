@@ -79,9 +79,6 @@ public class PreguntasFinancieroView extends View {
                  System.arraycopy(respuestasActual, 0, nuevasRespuestas, 0, respuestasActual.length);
                  System.arraycopy(respuestasFinanciero, 0, nuevasRespuestas, respuestasActual.length, respuestasFinanciero.length);
                  main.setRespuestasTotal(nuevasRespuestas);
-                 for (int i = 0; i < nuevasRespuestas.length; i++) {
-					System.out.println("Respuestas FinancieroTotal:"+nuevasRespuestas[i]);
-				}
 //			     main.getSistema().getPreguntasParaLaRecomendacion().setRespuestasSector(respuestasFinanciero);
 			     main.initActionFourth();
 			} catch (Exception e) {

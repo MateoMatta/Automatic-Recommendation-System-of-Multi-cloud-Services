@@ -21,6 +21,14 @@ public class ResultadosView extends View {
 			System.out.println("Va a atras");
 		});
 	}
+
+	public TextArea getTextArea() {
+		return textArea;
+	}
+
+	public void setTextArea(TextArea textArea) {
+		this.textArea = textArea;
+	}
 	
 	
 }
