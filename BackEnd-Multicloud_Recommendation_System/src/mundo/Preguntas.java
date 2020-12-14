@@ -24,7 +24,7 @@ public class Preguntas {
 	public final static String SECTOR_FINANCIERO = "Sector financiero";
 	public final static String CIENCIAS_BIOLOGICAS = "Ciencias biologicas y sector sanitario";
 	public final static String INDUSTRIA_FABRICACION = "Industria y fabricacion";
-	public final static String NEGOCIOS_TECNOLOGIA = "Negocios alto uso de tecnologia";	
+	public final static String NEGOCIOS_TECNOLOGIA = "Negocios con alto uso de tecnologia";	
 
 	public Preguntas() throws Exception {
 		// Importacion del CSV del sector a la variable PreguntasSector
@@ -152,8 +152,9 @@ public class Preguntas {
 	 */
 	public void mostrarPreguntasSector(String urlSector) throws Exception {
 		buffer = new BufferedReader(new FileReader(urlSector));
-		preguntasSector = new String[22][2];
+		preguntasSector = new String[21][2];
 		for (int i = 0; i < preguntasSector.length; i++) {
+			System.out.println(buffer+"GG:"+i);
 			preguntasSector[i] = buffer.readLine().split(",");			
 		}
 
@@ -233,31 +234,28 @@ public class Preguntas {
 				}else if (i >= 14 && i <= 17) {
 					industria += 1;
 				}else if (i >= 18 && i <= 21) {
-					tecnologia += 1;
+					tecnologia += 10;
 				}
 			}
 		}
 		if(ventas > financiero && ventas > ciencias && ventas > industria && ventas > tecnologia ) {
-			setSector("Sector ventas");
-			respuesta="Sector ventas";
+			setSector(SECTOR_VENTAS);
+			respuesta=SECTOR_VENTAS;
 		}else if(financiero > ventas && financiero > ciencias && financiero > industria && financiero > tecnologia ) {
-			setSector("Sector financiero");
-			respuesta="Sector financiero";
+			setSector(SECTOR_FINANCIERO);
+			respuesta=SECTOR_FINANCIERO;
 		}else if(ciencias > ventas && ciencias > financiero && ciencias > industria && ciencias > tecnologia ) {
-			setSector("Ciencias biologicas y sector sanitario");
-			respuesta="Ciencias biologicas y sector sanitario";
+			setSector(CIENCIAS_BIOLOGICAS);
+			respuesta=CIENCIAS_BIOLOGICAS;
 		}else if(industria > ventas && industria > financiero && industria > ciencias && industria > tecnologia ) {
-			setSector("Industria y fabricacion");
-			respuesta="Industria y fabricacion";
-		}else if(industria > ventas && industria > financiero && industria > ciencias && industria > tecnologia ) {
-			setSector("Industria y fabricacion");
-			respuesta="Industria y fabricacion";
+			setSector(INDUSTRIA_FABRICACION);
+			respuesta=INDUSTRIA_FABRICACION;
 		}else if(tecnologia >=1 ) {
-			setSector("Negocios con alto uso de tecnologia");
-			respuesta="Negocios con alto uso de tecnologia";
+			setSector(NEGOCIOS_TECNOLOGIA);
+			respuesta=NEGOCIOS_TECNOLOGIA;
 		}else {
-			setSector("Negocios con alto uso de tecnologia");
-			respuesta="Negocios con alto uso de tecnologia";
+			setSector(NEGOCIOS_TECNOLOGIA);
+			respuesta=NEGOCIOS_TECNOLOGIA;
 		}
 
 		return respuesta;
@@ -308,7 +306,10 @@ public class Preguntas {
 				serviciosElegidos[1] = new ServicioCloud("Compute Services", "NN", 0, 0, 0, 0, 0);
 			}
 		}
-
+        for (int i = 0; i < serviciosElegidos.length; i++) {
+			System.out.println("NOMBRE DEL SERVICIO ELEGIDO: : "+serviciosElegidos[i].getTipoDeServicio());
+		}
+		
 	}
 
 
@@ -426,6 +427,20 @@ public class Preguntas {
 
 	public void setPreguntasPilares(String[][] preguntasPilares) {
 		this.preguntasPilares = preguntasPilares;
+	}
+
+
+
+
+	public boolean[] getRespuestasPreguntasPilares() {
+		return respuestasPreguntasPilares;
+	}
+
+
+
+
+	public void setRespuestasPreguntasPilares(boolean[] respuestasPreguntasPilares) {
+		this.respuestasPreguntasPilares = respuestasPreguntasPilares;
 	}
 
 

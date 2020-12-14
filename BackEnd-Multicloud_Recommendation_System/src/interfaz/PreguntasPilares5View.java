@@ -46,7 +46,7 @@ public class PreguntasPilares5View extends View {
 
 	@Override
 	public void init(Main main) {
-		respuestas = new boolean[5];
+		respuestas = new boolean[2];
 		super.init(main);
 		
 		nextButtonPilares5.setOnAction((evt)->{
@@ -61,25 +61,12 @@ public class PreguntasPilares5View extends View {
 			     }else {
 			    	 respuestas[1] = false;
 			     }
-			     if (true3InitPilares5.isSelected() && !false3InitPilares5.isSelected()) {
-			    	 respuestas[2] = true;
-			     }else {
-			    	 respuestas[2] = false;
-			     }
-			     if (true4InitPilares5.isSelected() && !false4InitPilares5.isSelected()) {
-			    	 respuestas[3] = true;
-			     }else {
-			    	 respuestas[3] = false;
-			     }
-			     if (true5InitPilares5.isSelected() && !false5InitPilares5.isSelected()) {
-			    	 respuestas[4] = true;
-			     }else {
-			    	 respuestas[4] = false;
-			     }
 			     boolean[] respuestasActual = main.getRespuestasTotalPilares();
                  boolean[] nuevasRespuestas = new boolean[respuestasActual.length+respuestas.length];
                  System.arraycopy(respuestasActual, 0, nuevasRespuestas, 0, respuestasActual.length);
                  System.arraycopy(respuestas, 0, nuevasRespuestas, respuestasActual.length, respuestas.length);
+                 System.out.println("View 5 son :"+respuestas.length);
+			     System.out.println("Y el acomulado de View 5 son :"+nuevasRespuestas.length);
                  main.setRespuestasTotalPilares(nuevasRespuestas);
 			     main.initActionThirteen();
 			} catch (Exception e) {

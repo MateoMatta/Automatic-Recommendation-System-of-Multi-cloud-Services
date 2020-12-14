@@ -28,9 +28,6 @@ public class SistemaDeRecomendacion {
 
 	// TERMINAR VARIABLES RELACIONADAS A LA REALIZACION DE LAS PREGUNTAS
 
-
-
-
 	private int[][] tablaComparacionDeServiciosConPilares;
 
 	private ArrayList<ServicioCloud> listaDeServiciosSectorVentas;
@@ -206,15 +203,6 @@ public class SistemaDeRecomendacion {
 		this.cliente = cliente;
 	}
 
-	public Preguntas getPreguntasParaLaRecomendacion() {
-		return preguntasParaLaRecomendacion;
-	}
-
-	public void setPreguntasParaLaRecomendacion(Preguntas preguntasParaLaRecomendacion) {
-		this.preguntasParaLaRecomendacion = preguntasParaLaRecomendacion;
-	}
-	
-	
 	/**
 	 * En este punto deberia tener un parametro que le pase el URL del archivo, dependiendo del tipo de negocio del usuario
 	 * @throws Exception
@@ -412,4 +400,14 @@ public class SistemaDeRecomendacion {
 
 	}
 
+	public Preguntas getPreguntasParaLaRecomendacion() {
+		return preguntasParaLaRecomendacion;
+	}
+
+	public void setPreguntasParaLaRecomendacion(Preguntas preguntasParaLaRecomendacion) {
+		this.preguntasParaLaRecomendacion = preguntasParaLaRecomendacion;
+	}
+
+	
+	
 }

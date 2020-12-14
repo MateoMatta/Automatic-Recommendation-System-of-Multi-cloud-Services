@@ -93,7 +93,6 @@ public class Main extends Application {
 	public void initData() {
 		try {
 			sistema = new SistemaDeRecomendacion();
-			setArrayPregSector();
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -277,8 +276,6 @@ public class Main extends Application {
 	public void initActionSeven() throws Exception {
 		// MANDAR LA INFO AL MODELO Y SEGUIR CON LAS OTRAS PREGUNTAS
 		preguntasTecnologiaView.show(false);
-		System.out.println("Respuestas total: "+respuestasTotal.toString());
-		System.out.println("Sistema: "+sistema);
 		sistema.getPreguntasParaLaRecomendacion().setRespuestasSector(respuestasTotal);
 		sectorGeneral = sistema.getPreguntasParaLaRecomendacion().interpretarRespuestasSector();
 		if (sectorGeneral.equals(Preguntas.NEGOCIOS_TECNOLOGIA)) {
@@ -302,7 +299,6 @@ public class Main extends Application {
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
-
 			} else {
 				preguntaMicroserviciosView.show(true);
 			}
@@ -330,14 +326,17 @@ public class Main extends Application {
 
 			} else {
 				preguntaBaseDatosView.show(true);
-
 			}
 		}
+		
+		
 	}
 
 	public void initActionEigth() throws Exception {
 		preguntaBaseDatosView.show(false);
-
+		sistema.getPreguntasParaLaRecomendacion().setRespuestasAplicaciones(respuestasTotalServicios);
+		sistema.getPreguntasParaLaRecomendacion().interpretarRespuestasAplicacion();
+		
 		if (preguntasPilares1View == null) {
 			FXMLLoader loader = new FXMLLoader(new File("src/interfaz/" + PREGUNTAS_PILARES1_VIEW).toURI().toURL());
 			InputStream stream = getClass().getResourceAsStream(PREGUNTAS_PILARES1_VIEW);
@@ -363,6 +362,37 @@ public class Main extends Application {
 		}
 	}
 
+	public void initActionEigth2() throws Exception {
+		preguntaMicroserviciosView.show(false);
+		sistema.getPreguntasParaLaRecomendacion().setRespuestasAplicaciones(respuestasTotalServicios);
+		sistema.getPreguntasParaLaRecomendacion().interpretarRespuestasAplicacion();
+		
+		if (preguntasPilares1View == null) {
+			FXMLLoader loader = new FXMLLoader(new File("src/interfaz/" + PREGUNTAS_PILARES1_VIEW).toURI().toURL());
+			InputStream stream = getClass().getResourceAsStream(PREGUNTAS_PILARES1_VIEW);
+			Pane pane;
+			try {
+				pane = loader.load(stream);
+				preguntasPilares1View = loader.getController();
+				Scene scene = new Scene(pane);
+				Stage stage = new Stage();
+				stage.setScene(scene);
+
+				preguntasPilares1View.setPane(pane);
+				preguntasPilares1View.setStage(stage);
+				preguntasPilares1View.init(this);
+				preguntasPilares1View.show(true);
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+		} else {
+			preguntasPilares1View.show(true);
+		}
+	}
+
+	
 	public void initActionNine() throws Exception {
 		preguntasPilares1View.show(false);
 
@@ -477,14 +507,23 @@ public class Main extends Application {
 
 	public void initActionThirteen() throws Exception {
 		preguntasPilares5View.show(false);
-
+		
+		sistema.getPreguntasParaLaRecomendacion().setRespuestasPreguntasPilares(respuestasTotalPilares);
+		sistema.getPreguntasParaLaRecomendacion().interpretarRespuestasPilares();
+		
+		
+		
 		if (resultadosView == null) {
 			FXMLLoader loader = new FXMLLoader(new File("src/interfaz/" + RESULTADOS_VIEW).toURI().toURL());
 			InputStream stream = getClass().getResourceAsStream(RESULTADOS_VIEW);
 			Pane pane;
 			try {
 				pane = loader.load(stream);
-				preguntasPilares4View = loader.getController();
+				resultadosView = loader.getController();
+				
+				//JUSTO AQUI SE CARGAN LAS RESPUESTAS
+				resultadosView.getTextArea().setText("AQUI VA EL TEXTO DE LA RECOMENDACION");
+				
 				Scene scene = new Scene(pane);
 				Stage stage = new Stage();
 				stage.setScene(scene);

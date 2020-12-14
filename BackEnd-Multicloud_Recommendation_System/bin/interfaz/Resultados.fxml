@@ -17,7 +17,6 @@
          </image>
       </ImageView>
       <AnchorPane layoutX="35.0" layoutY="32.0" opacity="0.62" prefHeight="325.0" prefWidth="565.0" />
-      <Button fx:id="buttonFinalizar" layoutX="316.0" layoutY="298.0" mnemonicParsing="false" text="Continuar" />
       <Text fill="WHITE" layoutX="261.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Resultados" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="18.0" />
@@ -34,6 +33,7 @@
          </font>
       </Text>
       <Button fx:id="buttonGoToInit" layoutX="226.0" layoutY="298.0" mnemonicParsing="false" text="Ir a inicio" />
+      <Button fx:id="buttonFinalizar" layoutX="316.0" layoutY="298.0" mnemonicParsing="false" text="Finalizar" />
       <ScrollPane fx:id="scrollpaneResult" layoutX="380.0" layoutY="80.0" opacity="0.63" prefHeight="200.0" prefWidth="200.0">
          <content>
             <TextArea fx:id="textArea" prefHeight="200.0" prefWidth="200.0" />

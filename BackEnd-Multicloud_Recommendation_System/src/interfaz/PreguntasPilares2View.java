@@ -80,6 +80,9 @@ public class PreguntasPilares2View extends View {
                  boolean[] nuevasRespuestas = new boolean[respuestasActual.length+respuestas.length];
                  System.arraycopy(respuestasActual, 0, nuevasRespuestas, 0, respuestasActual.length);
                  System.arraycopy(respuestas, 0, nuevasRespuestas, respuestasActual.length, respuestas.length);
+			     System.out.println("View 2 son :"+respuestas.length);
+			     System.out.println("Y el acomulado de View 2 son :"+nuevasRespuestas.length);
+
                  main.setRespuestasTotalPilares(nuevasRespuestas);
 			     main.initActionTen();
 			} catch (Exception e) {
