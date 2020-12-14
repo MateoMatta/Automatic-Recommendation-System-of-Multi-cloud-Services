@@ -26,6 +26,11 @@ public class Preguntas {
 	public final static String INDUSTRIA_FABRICACION = "Industria y fabricacion";
 	public final static String NEGOCIOS_TECNOLOGIA = "Negocios alto uso de tecnologia";
 
+	public final static String SECTOR_VENTAS = "Sector ventas";
+	public final static String SECTOR_FINANCIERO = "Sector financiero";
+	public final static String CIENCIAS_BIOLOGICAS = "Ciencias biologicas y sector sanitario";
+	public final static String INDUSTRIA_FABRICACION = "Industria y fabricacion";
+	public final static String NEGOCIOS_TECNOLOGIA = "Negocios alto uso de tecnologia";	
 
 	public Preguntas() throws Exception {
 		// Importacion del CSV del sector a la variable PreguntasSector
@@ -290,6 +295,7 @@ public class Preguntas {
 
 			//Si no es alto uso de tech, significa que es cualquiera de los otros, que todos son iguales
 			//BD
+			
 			serviciosElegidos = new ServicioCloud[2];
 			if(respuestasAplicaciones[0] == true) {
 				serviciosElegidos[0] = new ServicioCloud("NoSQL Database", "NN", 0, 0, 0, 0, 0);
@@ -346,12 +352,15 @@ public class Preguntas {
 				}
 			}
 		}
+		
+
+		
 		pilaresCliente = new Pilar[5];
-		pilaresCliente[0] = new Pilar("Excelencia operativa", excelenciaOperativa);
-		pilaresCliente[1] = new Pilar("Seguridad", seguridad);
-		pilaresCliente[2] = new Pilar("Fiabilidad", fiabilidad);
-		pilaresCliente[3] = new Pilar("Eficiencia del rendimiento", eficienciaRendimiento);
-		pilaresCliente[4] = new Pilar("Optimizacion de costos", optimizacionCostos);
+		pilaresCliente[0] = new Pilar( ServicioCloud.PILARES_DE_CRITERIOS_DE_SELECCION[1], excelenciaOperativa);
+		pilaresCliente[1] = new Pilar( ServicioCloud.PILARES_DE_CRITERIOS_DE_SELECCION[4], seguridad);
+		pilaresCliente[2] = new Pilar( ServicioCloud.PILARES_DE_CRITERIOS_DE_SELECCION[3], fiabilidad);
+		pilaresCliente[3] = new Pilar( ServicioCloud.PILARES_DE_CRITERIOS_DE_SELECCION[2], eficienciaRendimiento);
+		pilaresCliente[4] = new Pilar( ServicioCloud.PILARES_DE_CRITERIOS_DE_SELECCION[0], optimizacionCostos);
 
 	}
 
