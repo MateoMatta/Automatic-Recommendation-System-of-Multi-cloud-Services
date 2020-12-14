@@ -20,6 +20,11 @@ public class Preguntas {
 	private boolean[] respuestasAplicaciones;
 	private boolean[] respuestasPreguntasPilares;
 
+	public final static String SECTOR_VENTAS = "Sector ventas";
+	public final static String SECTOR_FINANCIERO = "Sector financiero";
+	public final static String CIENCIAS_BIOLOGICAS = "Ciencias biologicas y sector sanitario";
+	public final static String INDUSTRIA_FABRICACION = "Industria y fabricacion";
+	public final static String NEGOCIOS_TECNOLOGIA = "Negocios alto uso de tecnologia";	
 
 	public Preguntas() throws Exception {
 		// Importacion del CSV del sector a la variable PreguntasSector

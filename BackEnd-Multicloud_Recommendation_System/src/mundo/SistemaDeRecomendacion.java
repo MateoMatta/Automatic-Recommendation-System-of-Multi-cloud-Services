@@ -347,7 +347,7 @@ public class SistemaDeRecomendacion {
 				System.out.println(sis.listaDeServiciosRecomendados.get(i).getTipoDeServicio() + " 				recomendacion: " + sis.listaDeServiciosRecomendados.get(i).getNombreDeServicio());
 
 			}
-
+//Seguir aca, 8:32 pm
 			// for (int i = 0; i < args.length; i++) {
 			// System.out.println( "hhey" +
 			// sis.topEleccionDePilares[i].getNombreDelPilar());
