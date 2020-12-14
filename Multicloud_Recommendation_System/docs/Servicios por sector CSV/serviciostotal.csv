@@ -1,57 +1,57 @@
-﻿NombreDeProveedor,,,,,,,,,,,,,,,,,,,
-Azure,AWS,GCP,,,,,,,,,,,,,,,,,
-TipoDeServicio,NombreDeServicioAzure,NombreDeServicioAWS,NombreDeServicioGCP,valorCosAz,valorEOAz,valorEfAz,valorFiaAz,valorSegAz,valorCosAws,valorEOAws,valorEfAws,valorFiaAws,valorSegAws,valorCosGcp,valorEOGcp,valorEfGcp,valorFiaGcp,valorSegGcp,
-Compute Services,Virtual Machines,Elastic Compute Cloud (EC2),Compute Engine,0,0,0,0,1,0,0,1,1,0,1,0,0,0,0,
-Object Storage,Azure Blob Storage,Amazon Simple Storage (S3),Cloud Storage,1,0,0,0,1,0,0,1,1,0,1,1,0,0,0,
-Analytics,Azure Stream Analytics,Amazon Kinesis,Cloud Dataflow,0,1,0,0,1,0,1,0,1,0,1,0,1,0,0,
-Compliance,Azure Trust Center,AWS CloudHSM,Google Cloud Platform Security,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,
-Notifications,Azure Notification Hub,Amazon Simple Notification Service (SNS),Cloud Pub/Sub,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,
-Serverless Computing,Azure Functions,AWS Lambda,Cloud functions,0,1,0,0,0,0,1,0,1,0,1,0,1,0,0,
-Virtual Network,Azure Virtual Network,Amazon VPC,Virtual Private Cloud (Network),101,101,101,101,101,101,101,101,101,101,101,101,101,101,101,
-Scaling Options,Azure Autoscale,Auto Scaling,Autoscaler,101,101,101,101,101,101,101,101,101,101,101,101,101,101,101,
-Load Balancing,Load Balancer for Azure,Elastic Load Balancing,Cloud Load Balancing,101,101,101,101,101,101,101,101,101,101,101,101,101,101,101,
-Container Support,Azure Container Service ,Amazon Elastic Container Service (EC2),Container Engine,0,1,0,0,1,0,1,0,1,0,1,0,0,0,0,
-Content Delivery ,Azure CDN,Amazon CloudFront,Cloud CDN,0,1,0,0,0,0,0,1,1,0,1,0,0,0,0,
-SQL Database Options,Azure SQL Database,Amazon Aurora,Cloud Spanner,1,0,0,0,0,0,1,0,1,1,0,0,1,1,0,
-NoSQL Database Options,Azure Cosmos DB,Amazon DynamoDB,Cloud Datastore,0,0,0,1,1,0,1,1,0,0,1,0,0,0,0,
-Block Storage,Azure Block Blob,Amazon Elastic Block Store,Persistent Disk,101,101,101,101,101,101,101,101,101,101,101,101,101,101,101,
-Performance Monitoring,Azure Moinitor,Amazon CloudWatch,Operations (Stackdriver Monitoring),100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,
-DNS Services,Azure DNS,Amazon Route 53,Cloud DNS,0,0,1,0,0,0,1,0,1,1,1,0,0,1,0,
-Traffic Routing & Failover Services,Azure Traffic Manager,Amazon Route 53,Cloud Traffic Director,0,0,0,1,0,0,1,0,0,0,0,0,1,0,0,
-Automation,Azure Automation Accounts,AWS Opsworks,Compute Engine Management,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,
-Log Monitoring,Azure Operational Insights,AWS CloudTrail,Cloud Logging,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,
-Administration & Security,Azure Identity and Access Management (IAM),AWS Identity and Access Management (IAM),Cloud Identity and Access Management (IAM),100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,
-Directory Services,Active Directory Domain Services,AWS Directory Service,-,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,
-Management Services & Options,Azure Resource Manager,AWS CloudFormation,Cloud Deployment Manager,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,
-Kubernetes Managed Service,Azure Kubernetes Service (AKS),Elastic Kubernetes Service (EKS),Kubernetes Engine,0,0,1,0,0,0,0,0,1,0,1,1,0,1,1,
-Register of Containers,Azure Container Registry,EC2 Container Registry (ECR),Container Registry,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102,
-Batch Processing,Import/Export,AWS DataSync,Storage Transfer Service,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,
-Big Data Transfer,Azure Data Box,Snowball Edge,Data Transfer,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,
-Cache Storage,Azure Redis Cache,ElastiCache,Cloud Memorystore,0,0,0,1,1,1,1,0,1,0,0,0,1,0,0,
-Database Migration,Azure Database Migration Service,Database Migration Service,-,103,103,103,103,103,103,103,103,103,103,103,103,103,103,103,
-Managed Data Warehouse,SQL Data Warehouse,Redshift,Big Query,1,0,1,1,0,0,1,0,1,0,0,0,0,0,1,por qué se eliminó Connection with On-Premise Environments?
-Encryption,Key Vault,AWS KMS,Cloud Key Management Service,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,
-Firewall,Application Gateway,Web Application Firewall,-,100,100,100,100,100,100,100,100,100,100,0,0,0,0,0,
-Certifications Administration,App Service Certificates,Certificate Manager,-,100,100,100,100,100,100,100,100,100,100,0,0,0,0,0,
-Identities Administration ,Azure Active Directory B2C,Cognito,Cloud Identity Platform,1,0,1,0,1,0,0,0,1,1,0,1,1,1,0,
-Threats and Anormal Activities Detection,Azure Advanced Threat Protection,GuardDuty,Cloud Security Command Center,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,
-Normative Accomplishment,DDoS Protection Service,AWS Shield,Cloud Armor,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,
-API Management,API Management,API Gateway,Cloud Endpoints,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,Revisar| discutir
-Cross Cloud Services,Azure Arc,-,Google Anthos,100,100,100,100,100,0,0,0,0,0,100,100,100,100,100,Revisar| discutir
-Application Tests in Devices,AppCenter,Device Farm,Cloud Test Lab,0,0,0,1,1,0,1,1,0,0,1,0,0,0,0,
-Git Repositories,Azure Repos,AWS Code Commit,Cloud Source Repositories,0,1,0,0,1,0,0,0,1,0,1,0,1,0,0,
-Applications and Artifacts Construction,Visual Studio Team Services,CodeBuild,Cloud Build,1,0,1,0,0,0,0,0,0,0,1,0,1,0,1,
-CI/CD,Azure DevOps,CodeDeploy,Cloud Deployment Manager,1,0,0,1,0,1,1,0,1,1,0,0,0,1,0,
-Queues Services,Azure Queue Storage,Simple Queue Service (SQS),Cloud Pub/Sub,1,0,0,1,0,0,1,0,0,1,0,0,0,0,0,
-Payment Services,-,Amazon Dev Pay,Google Pay API,0,0,0,0,0,0,1,0,1,1,1,0,1,0,0,
-Big Data Analysis Platform ,Azure Databricks,Amazon EMR,Cloud Dataproc,0,0,1,0,0,0,1,0,1,1,1,0,0,0,0,
-Storing and Processing Data Streams,Stream Analytics,Amazon Kinesis,Pub/Sub,1,0,0,0,0,0,1,0,1,1,0,1,1,1,0,
-Managed Service for Machine Learning,Azure Machine Learning Studio,SageMaker,Cloud Machine Learning Engine,1,0,1,1,0,1,1,1,0,1,0,1,0,1,0,
-Speech Recognition and Conversation Interface,Bing Speech API/Speaker Recognition API,Amazon Lex,Dialogflow Enterprise Edition,0,1,1,0,1,0,1,0,1,0,1,1,0,1,0,
-Text to Speech,Bing Speech API,Amazon Polly,Text-To-Speech,0,1,1,0,1,0,1,0,0,1,0,1,1,1,1,
-Images and video Processing,Computer Vision,Amazon Rekognition,Cloud Vision,1,0,1,0,1,1,0,0,1,0,0,1,1,0,1,
-Natural Language Processing,Language Understanding Intelligent Service (LUIS),Amazon Comprehend,Cloud Natural Language,1,0,0,1,0,1,0,1,1,0,1,1,0,1,1,
-Internet of Things (IoT),Azure IoT Hub,AWS IoT Core,Cloud IoT Core,1,1,1,0,1,0,1,1,0,0,0,0,1,1,0,
-Blockchain,Azure Blockchain Service,Amazon Managed Blockchain,-,1,0,0,1,1,0,1,1,0,0,0,0,0,0,0,
-Dedicated Videogames Servers,PlayFab,GameLift/Lumberyard,Game Servers,1,0,1,0,0,0,1,0,0,1,0,1,0,1,0,
-Augmented and Virtual Reality ,Mixed Reality,Amazon Sumerian,-,0,1,1,0,0,0,0,1,0,0,0,0,0,0,0,
+﻿NombreDeProveedor,,,,,,,,,,,,,,,,,,
+Azure,AWS,GCP,,,,,,,,,,,,,,,,
+TipoDeServicio,NombreDeServicioAzure,NombreDeServicioAWS,NombreDeServicioGCP,valorCosAz,valorEOAz,valorEfAz,valorFiaAz,valorSegAz,valorCosAws,valorEOAws,valorEfAws,valorFiaAws,valorSegAws,valorCosGcp,valorEOGcp,valorEfGcp,valorFiaGcp,valorSegGcp
+Compute Services,Virtual Machines,Elastic Compute Cloud (EC2),Compute Engine,0,0,0,0,1,0,0,1,1,0,1,0,0,0,0
+Object Storage,Azure Blob Storage,Amazon Simple Storage (S3),Cloud Storage,1,0,0,0,1,0,0,1,1,0,1,1,0,0,0
+Analytics,Azure Stream Analytics,Amazon Kinesis,Cloud Dataflow,0,1,0,0,1,0,1,0,1,0,1,0,1,0,0
+Compliance,Azure Trust Center,AWS CloudHSM,Google Cloud Platform Security,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100
+Notifications,Azure Notification Hub,Amazon Simple Notification Service (SNS),Cloud Pub/Sub,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100
+Serverless Computing,Azure Functions,AWS Lambda,Cloud functions,0,1,0,0,0,0,1,0,1,0,1,0,1,0,0
+Virtual Network,Azure Virtual Network,Amazon VPC,Virtual Private Cloud (Network),101,101,101,101,101,101,101,101,101,101,101,101,101,101,101
+Scaling Options,Azure Autoscale,Auto Scaling,Autoscaler,101,101,101,101,101,101,101,101,101,101,101,101,101,101,101
+Load Balancing,Load Balancer for Azure,Elastic Load Balancing,Cloud Load Balancing,101,101,101,101,101,101,101,101,101,101,101,101,101,101,101
+Container Support,Azure Container Service ,Amazon Elastic Container Service (EC2),Container Engine,0,1,0,0,1,0,1,0,1,0,1,0,0,0,0
+Content Delivery ,Azure CDN,Amazon CloudFront,Cloud CDN,0,1,0,0,0,0,0,1,1,0,1,0,0,0,0
+SQL Database Options,Azure SQL Database,Amazon Aurora,Cloud Spanner,1,0,0,0,0,0,1,0,1,1,0,0,1,1,0
+NoSQL Database Options,Azure Cosmos DB,Amazon DynamoDB,Cloud Datastore,0,0,0,1,1,0,1,1,0,0,1,0,0,0,0
+Block Storage,Azure Block Blob,Amazon Elastic Block Store,Persistent Disk,101,101,101,101,101,101,101,101,101,101,101,101,101,101,101
+Performance Monitoring,Azure Moinitor,Amazon CloudWatch,Operations (Stackdriver Monitoring),100,100,100,100,100,100,100,100,100,100,100,100,100,100,100
+DNS Services,Azure DNS,Amazon Route 53,Cloud DNS,0,0,1,0,0,0,1,0,1,1,1,0,0,1,0
+Traffic Routing & Failover Services,Azure Traffic Manager,Amazon Route 53,Cloud Traffic Director,0,0,0,1,0,0,1,0,0,0,0,0,1,0,0
+Automation,Azure Automation Accounts,AWS Opsworks,Compute Engine Management,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100
+Log Monitoring,Azure Operational Insights,AWS CloudTrail,Cloud Logging,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100
+Administration & Security,Azure Identity and Access Management (IAM),AWS Identity and Access Management (IAM),Cloud Identity and Access Management (IAM),100,100,100,100,100,100,100,100,100,100,100,100,100,100,100
+Directory Services,Active Directory Domain Services,AWS Directory Service,-,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0
+Management Services & Options,Azure Resource Manager,AWS CloudFormation,Cloud Deployment Manager,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100
+Kubernetes Managed Service,Azure Kubernetes Service (AKS),Elastic Kubernetes Service (EKS),Kubernetes Engine,0,0,1,0,0,0,0,0,1,0,1,1,0,1,1
+Register of Containers,Azure Container Registry,EC2 Container Registry (ECR),Container Registry,102,102,102,102,102,102,102,102,102,102,102,102,102,102,102
+Batch Processing,Import/Export,AWS DataSync,Storage Transfer Service,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100
+Big Data Transfer,Azure Data Box,Snowball Edge,Data Transfer,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100
+Cache Storage,Azure Redis Cache,ElastiCache,Cloud Memorystore,0,0,0,1,1,1,1,0,1,0,0,0,1,0,0
+Database Migration,Azure Database Migration Service,Database Migration Service,-,103,103,103,103,103,103,103,103,103,103,0,0,0,0,0
+Managed Data Warehouse,SQL Data Warehouse,Redshift,Big Query,1,0,1,1,0,0,1,0,1,0,0,0,0,0,1
+Encryption,Key Vault,AWS KMS,Cloud Key Management Service,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100
+Firewall,Application Gateway,Web Application Firewall,-,100,100,100,100,100,100,100,100,100,100,0,0,0,0,0
+Certifications Administration,App Service Certificates,Certificate Manager,-,100,100,100,100,100,100,100,100,100,100,0,0,0,0,0
+Identities Administration ,Azure Active Directory B2C,Cognito,Cloud Identity Platform,1,0,1,0,1,0,0,0,1,1,0,1,1,1,0
+Threats and Anormal Activities Detection,Azure Advanced Threat Protection,GuardDuty,Cloud Security Command Center,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100
+Normative Accomplishment,DDoS Protection Service,AWS Shield,Cloud Armor,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100
+API Management,API Management,API Gateway,Cloud Endpoints,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100
+Cross Cloud Services,Azure Arc,-,Google Anthos,100,100,100,100,100,0,0,0,0,0,100,100,100,100,100
+Application Tests in Devices,AppCenter,Device Farm,Cloud Test Lab,0,0,0,1,1,0,1,1,0,0,1,0,0,0,0
+Git Repositories,Azure Repos,AWS Code Commit,Cloud Source Repositories,0,1,0,0,1,0,0,0,1,0,1,0,1,0,0
+Applications and Artifacts Construction,Visual Studio Team Services,CodeBuild,Cloud Build,1,0,1,0,0,0,0,0,0,0,1,0,1,0,1
+CI/CD,Azure DevOps,CodeDeploy,Cloud Deployment Manager,1,0,0,1,0,1,1,0,1,1,0,0,0,1,0
+Queues Services,Azure Queue Storage,Simple Queue Service (SQS),Cloud Pub/Sub,1,0,0,1,0,0,1,0,0,1,0,0,0,0,0
+Payment Services,-,Amazon Dev Pay,Google Pay API,0,0,0,0,0,0,1,0,1,1,1,0,1,0,0
+Big Data Analysis Platform ,Azure Databricks,Amazon EMR,Cloud Dataproc,0,0,1,0,0,0,1,0,1,1,1,0,0,0,0
+Storing and Processing Data Streams,Stream Analytics,Amazon Kinesis,Pub/Sub,1,0,0,0,0,0,1,0,1,1,0,1,1,1,0
+Managed Service for Machine Learning,Azure Machine Learning Studio,SageMaker,Cloud Machine Learning Engine,1,0,1,1,0,1,1,1,0,1,0,1,0,1,0
+Speech Recognition and Conversation Interface,Bing Speech API/Speaker Recognition API,Amazon Lex,Dialogflow Enterprise Edition,0,1,1,0,1,0,1,0,1,0,1,1,0,1,0
+Text to Speech,Bing Speech API,Amazon Polly,Text-To-Speech,0,1,1,0,1,0,1,0,0,1,0,1,1,1,1
+Images and video Processing,Computer Vision,Amazon Rekognition,Cloud Vision,1,0,1,0,1,1,0,0,1,0,0,1,1,0,1
+Natural Language Processing,Language Understanding Intelligent Service (LUIS),Amazon Comprehend,Cloud Natural Language,1,0,0,1,0,1,0,1,1,0,1,1,0,1,1
+Internet of Things (IoT),Azure IoT Hub,AWS IoT Core,Cloud IoT Core,1,1,1,0,1,0,1,1,0,0,0,0,1,1,0
+Blockchain,Azure Blockchain Service,Amazon Managed Blockchain,-,1,0,0,1,1,0,1,1,0,0,0,0,0,0,0
+Dedicated Videogames Servers,PlayFab,GameLift/Lumberyard,Game Servers,1,0,1,0,0,0,1,0,0,1,0,1,0,1,0
+Augmented and Virtual Reality ,Mixed Reality,Amazon Sumerian,-,0,1,1,0,0,0,0,1,0,0,0,0,0,0,0
