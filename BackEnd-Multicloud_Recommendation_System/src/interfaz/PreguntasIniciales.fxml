@@ -28,54 +28,47 @@
                </font>
             </Text>
          </children></AnchorPane>
-      <Button fx:id="nextButtonIniciales" layoutX="333.0" layoutY="338.0" mnemonicParsing="false"  text="Continuar" />
-      <Text fx:id="textTipoDePregunta" fill="WHITE" layoutX="233.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preguntas Iniciales" textAlignment="CENTER">
+      <Button fx:id="nextButtonVentas" layoutX="333.0" layoutY="338.0" mnemonicParsing="false" text="Continuar" />
+      <Text fx:id="textTipoDePregunta" fill="WHITE" layoutX="233.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preguntas Sector Ventas" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <RadioButton fx:id="true1Init" layoutX="510.0" layoutY="98.0" mnemonicParsing="false" />
-      <Text fx:id="pregunta1txt" fill="WHITE" layoutX="58.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pregunta 1" textAlignment="JUSTIFY" wrappingWidth="437.150390625">
+      <Text fx:id="pregunta1txtVentas" fill="WHITE" layoutX="58.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Su aplicación podría necesitar un sistema para realizar pagos online?" textAlignment="JUSTIFY" wrappingWidth="437.150390625">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text fx:id="pregunta2txt" fill="WHITE" layoutX="58.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pregunta 2" textAlignment="JUSTIFY" wrappingWidth="437.150390625">
+      <Text fx:id="pregunta2txtVentas" fill="WHITE" layoutX="58.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Es relevante guardar información sobre los usuarios que usan la aplicación?" textAlignment="JUSTIFY" wrappingWidth="437.150390625">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text fx:id="pregunta3txt" fill="WHITE" layoutX="58.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pregunta 3" textAlignment="JUSTIFY" wrappingWidth="437.150390625">
+      <Text fx:id="pregunta3txtVentas" fill="WHITE" layoutX="58.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿La demanda de su aplicación podría ser fluctuante y presentar picos de demanda?" textAlignment="JUSTIFY" wrappingWidth="437.150390625">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text fx:id="pregunta4txt" fill="WHITE" layoutX="58.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pregunta 4" textAlignment="JUSTIFY" wrappingWidth="437.150390625">
+      <Text fx:id="pregunta4txtVentas" fill="WHITE" layoutX="58.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Su aplicación manejará información sobre procesos logísticos y de transporte?" textAlignment="JUSTIFY" wrappingWidth="437.150390625">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text fx:id="pregunta5txt" fill="WHITE" layoutX="58.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pregunta 5" textAlignment="JUSTIFY" wrappingWidth="437.150390625">
+      <Text fx:id="pregunta5txtVentas" fill="WHITE" layoutX="58.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿La atención al usuario es una parte fundamental de su negocio?" textAlignment="JUSTIFY" wrappingWidth="437.150390625">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text fx:id="pregunta6txt" fill="WHITE" layoutX="58.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pregunta 6" textAlignment="JUSTIFY" wrappingWidth="437.150390625">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Text>
-      <Button fx:id="backButtonIniciales" layoutX="235.0" layoutY="338.0" mnemonicParsing="false"  text="Atras" />
-      <RadioButton fx:id="false1Init" layoutX="550.0" layoutY="98.0" mnemonicParsing="false" />
-      <RadioButton fx:id="true2Init" layoutX="509.0" layoutY="138.0" mnemonicParsing="false" />
-      <RadioButton fx:id="false2Init" layoutX="549.0" layoutY="138.0" mnemonicParsing="false" />
-      <RadioButton fx:id="true3Init" layoutX="509.0" layoutY="178.0" mnemonicParsing="false" />
-      <RadioButton fx:id="false3Init" layoutX="549.0" layoutY="178.0" mnemonicParsing="false" />
-      <RadioButton fx:id="true4Init" layoutX="509.0" layoutY="218.0" mnemonicParsing="false" />
-      <RadioButton fx:id="false4init" layoutX="549.0" layoutY="218.0" mnemonicParsing="false" />
-      <RadioButton fx:id="true5Init" layoutX="509.0" layoutY="258.0" mnemonicParsing="false" />
-      <RadioButton fx:id="false5Init" layoutX="549.0" layoutY="258.0" mnemonicParsing="false" />
-      <RadioButton fx:id="true6Init" layoutX="509.0" layoutY="298.0" mnemonicParsing="false" />
-      <RadioButton fx:id="false6Init" layoutX="549.0" layoutY="298.0" mnemonicParsing="false" />
+      <Button fx:id="backButtonVentas" layoutX="235.0" layoutY="338.0" mnemonicParsing="false" text="Atras" />
+      <RadioButton fx:id="true1InitVentas" layoutX="510.0" layoutY="98.0" mnemonicParsing="false" />
+      <RadioButton fx:id="false1InitVentas" layoutX="550.0" layoutY="98.0" mnemonicParsing="false" />
+      <RadioButton fx:id="true2InitVentas" layoutX="509.0" layoutY="138.0" mnemonicParsing="false" />
+      <RadioButton fx:id="false2InitVentas" layoutX="549.0" layoutY="138.0" mnemonicParsing="false" />
+      <RadioButton fx:id="true3InitVentas" layoutX="509.0" layoutY="178.0" mnemonicParsing="false" />
+      <RadioButton fx:id="false3InitVentas" layoutX="549.0" layoutY="178.0" mnemonicParsing="false" />
+      <RadioButton fx:id="true4InitVentas" layoutX="509.0" layoutY="218.0" mnemonicParsing="false" />
+      <RadioButton fx:id="false4InitVentas" layoutX="549.0" layoutY="218.0" mnemonicParsing="false" />
+      <RadioButton fx:id="true5InitVentas" layoutX="509.0" layoutY="258.0" mnemonicParsing="false" />
+      <RadioButton fx:id="false5InitVentas" layoutX="549.0" layoutY="258.0" mnemonicParsing="false" />
    </children>
 </AnchorPane>

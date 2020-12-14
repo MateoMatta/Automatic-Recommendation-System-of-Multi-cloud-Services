@@ -41,6 +41,9 @@ public class SistemaDeRecomendacion {
 
 
 
+	
+	
+	
 	public SistemaDeRecomendacion() throws Exception {
 		super();
 
@@ -323,6 +326,10 @@ public class SistemaDeRecomendacion {
 
 
 
+	
+	
+
+
 	public static void main(String[] args) {
 
 		try {
@@ -398,6 +405,14 @@ public class SistemaDeRecomendacion {
 			e.printStackTrace();
 		}
 
+	}
+
+	public Preguntas getPreguntasParaLaRecomendacion() {
+		return preguntasParaLaRecomendacion;
+	}
+
+	public void setPreguntasParaLaRecomendacion(Preguntas preguntasParaLaRecomendacion) {
+		this.preguntasParaLaRecomendacion = preguntasParaLaRecomendacion;
 	}
 
 }
