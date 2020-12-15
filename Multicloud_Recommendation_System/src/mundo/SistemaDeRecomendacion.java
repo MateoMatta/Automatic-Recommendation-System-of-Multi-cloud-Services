@@ -78,9 +78,9 @@ public class SistemaDeRecomendacion {
 			e.printStackTrace();
 		}
 
-		// System.out.println("\n");
+		// ("\n");
 		// for (int i = 0; i < 2; i++) {
-		// System.out.println(cliente.getServiciosSeleccionados()+ " : " +
+		// (cliente.getServiciosSeleccionados()+ " : " +
 		// cliente.getTopDePilaresDelCliente()[i].getNombreDelPilar() );
 		//
 		// }
@@ -118,11 +118,6 @@ public class SistemaDeRecomendacion {
 			e.printStackTrace();
 		}
 
-		for (int i = 0; i < cliente.getTopDePilaresDelCliente().length; i++) {
-			System.out.println(cliente.getTopDePilaresDelCliente()[i].getNombreDelPilar());
-			System.out.println("Valor:" + cliente.getTopDePilaresDelCliente()[i].getValorDelPilar());
-
-		}
 
 	}
 
@@ -156,9 +151,9 @@ public class SistemaDeRecomendacion {
 
 		}
 
-//		System.out.println(cliente.getServiciosSeleccionados()[0].getTipoDeServicio() + " COLEEEE "
+//		(cliente.getServiciosSeleccionados()[0].getTipoDeServicio() + " COLEEEE "
 //				+ cliente.getServiciosSeleccionados()[1].getTipoDeServicio());
-//		System.out.println("\n Servicios No Elegidos:");
+//		("\n Servicios No Elegidos:");
 
 		// La chinga quiso SQL y Contenedores
 
@@ -233,7 +228,7 @@ public class SistemaDeRecomendacion {
 		int[][] matrizDePilaresDeServicios = tablaComparacionDeServiciosConPilares;
 
 		for (int i = 0; i < matrizDePilaresDeServicios.length; i += 5) {
-			// System.out.println(i + " Ojo ahi");
+			// (i + " Ojo ahi");
 			// if(matrizDePilaresDeServicios[i][0]. )
 
 			servicioYaRecomendado = false;
@@ -430,7 +425,7 @@ public class SistemaDeRecomendacion {
 		Pilar[] topEleccionDePilares = cliente.getTopDePilaresDelCliente();
 
 		for (int i = 0; i < matrizDePilaresDeServicios.length; i += 5) {
-			// System.out.println(i + " Ojo ahi");
+			// (i + " Ojo ahi");
 			// if(matrizDePilaresDeServicios[i][0]. )
 
 			servicioYaRecomendado = false;
@@ -537,22 +532,22 @@ public class SistemaDeRecomendacion {
 //
 //			SistemaDeRecomendacion sis = new SistemaDeRecomendacion();
 //
-//			System.out.println("Top de pilares");
+//			("Top de pilares");
 //
-//			System.out.println("");
+//			("");
 //			//
 //			//			for (int i = 0; i < 5; i++) {
 //			//
-//			//				System.out.println("" + sis.getCliente().getTopDePilaresDelCliente()[i].getNombreDelPilar());
+//			//				("" + sis.getCliente().getTopDePilaresDelCliente()[i].getNombreDelPilar());
 //			//			}
 //
-//			System.out.println("");
+//			("");
 //
-//			System.out.println("Recomendacion de tecnologias Multi-Cloud Computing - Test");
-//			System.out.println("");
+//			("Recomendacion de tecnologias Multi-Cloud Computing - Test");
+//			("");
 //			//
 //			//			for (int i = 0; i < sis.listaDeServiciosRecomendados.size(); i++) {
-//			//				System.out.println(sis.listaDeServiciosRecomendados.get(i).getTipoDeServicio() + " 				recomendacion: " + sis.listaDeServiciosRecomendados.get(i).getNombreDeServicio());
+//			//				(sis.listaDeServiciosRecomendados.get(i).getTipoDeServicio() + " 				recomendacion: " + sis.listaDeServiciosRecomendados.get(i).getNombreDeServicio());
 //			//
 //			//			}
 //

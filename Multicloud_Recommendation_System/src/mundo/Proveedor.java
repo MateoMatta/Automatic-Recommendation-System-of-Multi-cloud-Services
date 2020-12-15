@@ -82,24 +82,19 @@ public class Proveedor {
 			int offset = 4 * (posProveedor + 1);
 
 			// Se lee el rotulo de la lista de datos de un servicio cloud
-			for (int i = 0; i < listaDeTiposDeServiciosADescartar.size(); i++) {
-				System.out.println(listaDeTiposDeServiciosADescartar.get(i).getTipoDeServicio()  + " 		estos papi");
 
-			}
-
-			System.out.println("mano \n");
 
 			while ((linea = br.readLine()) != null) {
 				String[] datos = linea.split(",");
-				//				System.out.println(datos[0] + " 				iguales a " +listaDeTiposDeServiciosADescartar.get(0).getTipoDeServicio() );
+				//				(datos[0] + " 				iguales a " +listaDeTiposDeServiciosADescartar.get(0).getTipoDeServicio() );
 
 				boolean evitar= false;
 				for (int i = 0; i < listaDeTiposDeServiciosADescartar.size(); i++) {
 					if(datos[0].equals(listaDeTiposDeServiciosADescartar.get(i).getTipoDeServicio())) {
 						evitar = true;
-						//						System.out.println();
+						//						();
 
-						//						System.out.println("			Curramba " + datos[0] + "        iguales a " +listaDeTiposDeServiciosADescartar.get(i).getTipoDeServicio() );
+						//						("			Curramba " + datos[0] + "        iguales a " +listaDeTiposDeServiciosADescartar.get(i).getTipoDeServicio() );
 						break;
 
 					}
@@ -116,7 +111,7 @@ public class Proveedor {
 							Integer.parseInt(datos[offset + posProveedor + 4]));
 
 					listaDeServicios.add(sc);
-					//						System.out.println("agregado");
+					//						("agregado");
 
 
 				}
@@ -126,7 +121,7 @@ public class Proveedor {
 
 
 			//			for (int i = 0; i < listaDeServicios.size(); i++) {
-			//				System.out.println(nombreDeProveedor + " mis: " + listaDeServicios.get(i).getTipoDeServicio());
+			//				(nombreDeProveedor + " mis: " + listaDeServicios.get(i).getTipoDeServicio());
 			//			}
 
 		} catch (Exception e) {
@@ -139,41 +134,6 @@ public class Proveedor {
 		return listaDeServicios.size();
 	}
 
-	// public static void main(String[] args) throws Exception {
-	//
-	//
-	// Proveedor pro = new Proveedor("Azure",
-	// "./docs/PilaresDeServiciosDeProveedores.csv");
-	//
-	// System.out.println(pro.listaDeServicios.get(0).getTipoDeServicio() + " - " +
-	// pro.listaDeServicios.get(0).getNombreDeServicio()+ " | " +
-	// pro.listaDeServicios.get(0).getPilares()[0] + " - " +
-	// pro.listaDeServicios.get(0).getPilares()[1] +" - " +
-	// pro.listaDeServicios.get(0).getPilares()[2] +" - " +
-	// pro.listaDeServicios.get(0).getPilares()[3]
-	// +" - " + pro.listaDeServicios.get(0).getPilares()[4]);
-	//
-	// System.out.println(pro.listaDeServicios.get(1).getTipoDeServicio() + " - " +
-	// pro.listaDeServicios.get(1).getNombreDeServicio()+ " | " +
-	// pro.listaDeServicios.get(1).getPilares()[0] + " - " +
-	// pro.listaDeServicios.get(1).getPilares()[1] +" - " +
-	// pro.listaDeServicios.get(1).getPilares()[2] +" - " +
-	// pro.listaDeServicios.get(1).getPilares()[3]
-	// +" - " + pro.listaDeServicios.get(1).getPilares()[4]);
-	//
-	// System.out.println(pro.listaDeServicios.get(4).getTipoDeServicio() + " - " +
-	// pro.listaDeServicios.get(2).getNombreDeServicio()+ " | " +
-	// pro.listaDeServicios.get(2).getPilares()[0] + " - " +
-	// pro.listaDeServicios.get(2).getPilares()[1] +" - " +
-	// pro.listaDeServicios.get(2).getPilares()[2] +" - " +
-	// pro.listaDeServicios.get(2).getPilares()[3]
-	// +" - " + pro.listaDeServicios.get(2).getPilares()[4]);
-	//
-	//
-	//
-	//
-	// }
 
-	// private
 
 }

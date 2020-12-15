@@ -46,7 +46,6 @@ public class Preguntas {
 		buffer = new BufferedReader(new FileReader(urlSector));
 		preguntasSector = new String[21][2];
 		for (int i = 0; i < preguntasSector.length; i++) {
-			System.out.println(buffer+"GG:"+i);
 			preguntasSector[i] = buffer.readLine().split(",");			
 		}
 
@@ -157,7 +156,7 @@ public class Preguntas {
 	// 2
 	public void interpretarRespuestasAplicacion() {
 
-		//		System.out.println(sector + " ESTE");
+		//		(sector + " ESTE");
 		if(sector.equals("Negocios con alto uso de tecnologia")){
 			serviciosElegidos = new ServicioCloud[1];
 			//Si soy Alto uso de tech solo voy a preguntar si es kubernetes o support
@@ -199,7 +198,7 @@ public class Preguntas {
 			}
 		}
         for (int i = 0; i < serviciosElegidos.length; i++) {
-			System.out.println("NOMBRE DEL SERVICIO ELEGIDO: : "+serviciosElegidos[i].getTipoDeServicio());
+        	System.out.println("NOMBRE DEL SERVICIO ELEGIDO: : "+serviciosElegidos[i].getTipoDeServicio());
 		}
 		
 	}
