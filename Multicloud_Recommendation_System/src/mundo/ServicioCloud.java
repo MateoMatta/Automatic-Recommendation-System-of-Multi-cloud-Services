@@ -121,7 +121,7 @@ public class ServicioCloud {
 ////
 ////		for (int i = 0; i < 5; i++) {
 ////
-////			System.out.println(pilares[i].getValorDelPilar());
+////			(pilares[i].getValorDelPilar());
 ////		}
 //		//		List<Pilar> pilares = new ArrayList<>();
 //

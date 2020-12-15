@@ -27,117 +27,9 @@ public class Preguntas {
 	public final static String NEGOCIOS_TECNOLOGIA = "Negocios con alto uso de tecnologia";	
 
 	public Preguntas() throws Exception {
-		// Importacion del CSV del sector a la variable PreguntasSector
-		mostrarPreguntasSector(SistemaDeRecomendacion.URL_ARCHIVO_DE_PREGUNTAS_DEL_SECTOR);
-		// Resultado de las respuestas a las preguntas del sector, hechas dsede la interfaz grafica. 
-		//Mientras se integra el front con este back, hare un arreglo de prueba quemado
-		respuestasSector = new boolean[preguntasSector.length];
-		for (int i = 0; i < respuestasSector.length; i++) {
-			respuestasSector[i] =false;
-		}
-		respuestasSector[0] = false;
-		respuestasSector[1] = false;
-		respuestasSector[2] = false;
-		respuestasSector[3] = true;
-		respuestasSector[4] = true;
-		//-----------------------------------
-
-		// Categorizacion de sector dadas las preguntas de perfilamiento
-		sector = interpretarRespuestasSector();
-		System.out.println(sector + "\n");
-
-
-		// Preguntas sobre la aplicacion y los servicios dado un sector previamente definido
-		if(sector.equals("Negocios con alto uso de tecnologia"))
-		{
-			mostrarPreguntasAplicacion(SistemaDeRecomendacion.URL_ARCHIVO_DE_PREGUNTAS_DEL_SECTOR_TECNOLOGICO);		
-
-		}else
-		{
-			mostrarPreguntasAplicacion(SistemaDeRecomendacion.URL_ARCHIVO_DE_PREGUNTAS_DE_DEMAS_SECTORES);			
-		}
-
-
-		for (int i = 0; i < preguntasAplicacion.length; i++) {
-			System.out.println(preguntasAplicacion[i][0] + " - " + preguntasAplicacion[i][1] );
-		}
-
-		System.out.println("\n--------------------");
-		respuestasAplicaciones = new boolean[preguntasAplicacion.length];
-		//QUEMADOOOOOOOOOOOOOOOOOOOOO. Pues de llos booleans de las respuestas dadas en el front end
-		for (int i = 0; i < respuestasAplicaciones.length; i++) {
-			respuestasAplicaciones[i] =false;
-		}
-		//Supongamos que del sector de ventas, eligio bases de datos |SQL|, estara con microservicios usando así instancias y  no usara Kubernetes
-		respuestasAplicaciones[0] = false;
-		respuestasAplicaciones[1] = true;
-		respuestasAplicaciones[2] = false;   
-
-		//------------------------------
-		interpretarRespuestasAplicacion();
-		//Se obtienen aqui los serviciosElegidos
-		//Resultado: serviciosElegdos [SQL, Cómputo, kube]
-		for (int i = 0; i < serviciosElegidos.length; i++) {
-
-			System.out.println( serviciosElegidos[i].getTipoDeServicio() );
-			//			System.out.println("\n");
-			//			System.out.println(serviciosElegidos[1].getTipoDeServicio() + " hey");
-			//			System.out.println(serviciosElegidos.length + " uy");
-		}
-
-		System.out.println("\n--------------------");
-		//-------------------------
-
-		//Ahora se obtendra el top de pilares correspondiente al cliente
-			
 		
-		mostrarPreguntasPilares(SistemaDeRecomendacion.URL_ARCHIVO_DE_PREGUNTAS_DE_LOS_PILARES);
-
-		respuestasPreguntasPilares = new boolean[preguntasPilares.length];
-
-		
-		
-		for (int i = 0; i < respuestasPreguntasPilares.length; i++) {
-			respuestasPreguntasPilares[i] = true;
-			
-		}
-		// 22 Preguntas
-		
-		// 4/5
-		respuestasPreguntasPilares[0] = false;
-		
-		// 5/5
-		//YA Seguridad
-
-		// 3/5
-		respuestasPreguntasPilares[11] = false;
-		respuestasPreguntasPilares[12] = false;
-		
-		// 2/5
-		respuestasPreguntasPilares[15] = false;
-		respuestasPreguntasPilares[16] = false;
-		respuestasPreguntasPilares[17] = false;
-		
-		// 1/5
-		respuestasPreguntasPilares[18] = false;
-		respuestasPreguntasPilares[19] = false;
-		respuestasPreguntasPilares[20] = false;
-		
-		interpretarRespuestasPilares();
-		
-		for (int i = 0; i < pilaresCliente.length; i++) {
-//			System.out.println(pilaresCliente.length + "");
-			System.out.println(pilaresCliente[i].getNombreDelPilar() + " - " + pilaresCliente[i].getValorDelPilar());
-			
-		}
-		// pilares resultado: 4,5,3,2,1
-		
-
 
 	}
-
-
-
 
 	/**
 	 * Este metodo importa el CSV de sector, le asigna a la variable PreguntasSector el tamano de la matriz y finalmente
@@ -154,7 +46,6 @@ public class Preguntas {
 		buffer = new BufferedReader(new FileReader(urlSector));
 		preguntasSector = new String[21][2];
 		for (int i = 0; i < preguntasSector.length; i++) {
-			System.out.println(buffer+"GG:"+i);
 			preguntasSector[i] = buffer.readLine().split(",");			
 		}
 
@@ -265,7 +156,7 @@ public class Preguntas {
 	// 2
 	public void interpretarRespuestasAplicacion() {
 
-		//		System.out.println(sector + " ESTE");
+		//		(sector + " ESTE");
 		if(sector.equals("Negocios con alto uso de tecnologia")){
 			serviciosElegidos = new ServicioCloud[1];
 			//Si soy Alto uso de tech solo voy a preguntar si es kubernetes o support
@@ -307,7 +198,7 @@ public class Preguntas {
 			}
 		}
         for (int i = 0; i < serviciosElegidos.length; i++) {
-			System.out.println("NOMBRE DEL SERVICIO ELEGIDO: : "+serviciosElegidos[i].getTipoDeServicio());
+        	System.out.println("NOMBRE DEL SERVICIO ELEGIDO: : "+serviciosElegidos[i].getTipoDeServicio());
 		}
 		
 	}

@@ -29,7 +29,7 @@
             </Text>
          </children></AnchorPane>
       <Button fx:id="nextButtonCiencias" layoutX="333.0" layoutY="338.0" mnemonicParsing="false" text="Continuar" />
-      <Text fx:id="textTipoDePregunta" fill="WHITE" layoutX="233.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preguntas Ciencias biológicas y sector sanitario" textAlignment="CENTER">
+      <Text fx:id="textTipoDePregunta" fill="WHITE" layoutX="112.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preguntas Ciencias biológicas y sector sanitario" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -39,17 +39,17 @@
             <Font size="14.0" />
          </font>
       </Text>
-      <Text fx:id="pregunta2txtCiencias" fill="WHITE" layoutX="58.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Su aplicación debe comunicarse y funcionar con sistemas externos dedicados a la investigación científica?" textAlignment="JUSTIFY" wrappingWidth="437.150390625">
+      <Text fx:id="pregunta2txtCiencias" fill="WHITE" layoutX="58.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Su aplicación debe comunicarse y funcionar con sistemas externos dedicados a la investigación científica?" textAlignment="JUSTIFY" wrappingWidth="437.150390625">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text fx:id="pregunta3txtCiencias" fill="WHITE" layoutX="58.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Su aplicación requiere usar o migrar bases de datos?" textAlignment="JUSTIFY" wrappingWidth="437.150390625">
+      <Text fx:id="pregunta3txtCiencias" fill="WHITE" layoutX="58.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Su aplicación requiere usar o migrar bases de datos?" textAlignment="JUSTIFY" wrappingWidth="437.150390625">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text fx:id="pregunta4txtCiencias" fill="WHITE" layoutX="58.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Su aplicación funcionará como parte de un sistema con fines médicos?" textAlignment="JUSTIFY" wrappingWidth="437.150390625">
+      <Text fx:id="pregunta4txtCiencias" fill="WHITE" layoutX="58.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Su aplicación funcionará como parte de un sistema con fines médicos?" textAlignment="JUSTIFY" wrappingWidth="437.150390625">
          <font>
             <Font size="14.0" />
          </font>
@@ -57,11 +57,11 @@
       <Button fx:id="backButtonCiencias" layoutX="235.0" layoutY="338.0" mnemonicParsing="false" text="Atras" />
       <RadioButton fx:id="true1InitCiencias" layoutX="510.0" layoutY="98.0" mnemonicParsing="false" />
       <RadioButton fx:id="false1InitCiencias" layoutX="550.0" layoutY="98.0" mnemonicParsing="false" />
-      <RadioButton fx:id="true2InitCiencias" layoutX="509.0" layoutY="138.0" mnemonicParsing="false" />
-      <RadioButton fx:id="false2InitCiencias" layoutX="549.0" layoutY="138.0" mnemonicParsing="false" />
-      <RadioButton fx:id="true3InitCiencias" layoutX="509.0" layoutY="178.0" mnemonicParsing="false" />
-      <RadioButton fx:id="false3InitCiencias" layoutX="549.0" layoutY="178.0" mnemonicParsing="false" />
-      <RadioButton fx:id="true4InitCiencias" layoutX="509.0" layoutY="218.0" mnemonicParsing="false" />
-      <RadioButton fx:id="false4InitCiencias" layoutX="549.0" layoutY="218.0" mnemonicParsing="false" />
+      <RadioButton fx:id="true2InitCiencias" layoutX="509.0" layoutY="145.0" mnemonicParsing="false" />
+      <RadioButton fx:id="false2InitCiencias" layoutX="549.0" layoutY="145.0" mnemonicParsing="false" />
+      <RadioButton fx:id="true3InitCiencias" layoutX="509.0" layoutY="192.0" mnemonicParsing="false" />
+      <RadioButton fx:id="false3InitCiencias" layoutX="549.0" layoutY="192.0" mnemonicParsing="false" />
+      <RadioButton fx:id="true4InitCiencias" layoutX="509.0" layoutY="232.0" mnemonicParsing="false" />
+      <RadioButton fx:id="false4InitCiencias" layoutX="549.0" layoutY="232.0" mnemonicParsing="false" />
    </children>
 </AnchorPane>

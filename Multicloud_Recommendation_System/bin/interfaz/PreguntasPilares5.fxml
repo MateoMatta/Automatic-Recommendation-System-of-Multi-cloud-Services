@@ -29,7 +29,7 @@
             </Text>
          </children></AnchorPane>
       <Button fx:id="nextButtonPilares5" layoutX="333.0" layoutY="338.0" mnemonicParsing="false" text="Continuar" />
-      <Text fx:id="textTipoDePregunta" fill="WHITE" layoutX="233.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preguntas calificadoras de pilares" textAlignment="CENTER">
+      <Text fx:id="textTipoDePregunta" fill="WHITE" layoutX="179.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preguntas calificadoras de pilares" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -39,7 +39,7 @@
             <Font size="14.0" />
          </font>
       </Text>
-      <Text fx:id="pregunta2txtPilares5" fill="WHITE" layoutX="58.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Estaría usted dispuesto a migrar algunas tecnologías de su aplicación con tal de reducir costos?" textAlignment="JUSTIFY" wrappingWidth="437.150390625">
+      <Text fx:id="pregunta2txtPilares5" fill="WHITE" layoutX="58.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Estaría usted dispuesto a migrar algunas tecnologías de su aplicación con tal de reducir costos?" textAlignment="JUSTIFY" wrappingWidth="437.150390625">
          <font>
             <Font size="14.0" />
          </font>
@@ -47,7 +47,7 @@
       <Button fx:id="backButtonPilares5" layoutX="235.0" layoutY="338.0" mnemonicParsing="false" text="Atras" />
       <RadioButton fx:id="true1InitPilares5" layoutX="510.0" layoutY="98.0" mnemonicParsing="false" />
       <RadioButton fx:id="false1InitPilares5" layoutX="550.0" layoutY="98.0" mnemonicParsing="false" />
-      <RadioButton fx:id="true2InitPilares5" layoutX="509.0" layoutY="138.0" mnemonicParsing="false" />
-      <RadioButton fx:id="false2InitPilares5" layoutX="549.0" layoutY="138.0" mnemonicParsing="false" />
+      <RadioButton fx:id="true2InitPilares5" layoutX="509.0" layoutY="178.0" mnemonicParsing="false" />
+      <RadioButton fx:id="false2InitPilares5" layoutX="549.0" layoutY="178.0" mnemonicParsing="false" />
    </children>
 </AnchorPane>

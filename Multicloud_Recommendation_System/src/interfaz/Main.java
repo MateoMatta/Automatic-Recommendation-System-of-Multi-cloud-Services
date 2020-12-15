@@ -83,6 +83,7 @@ public class Main extends Application {
 
 		interfazView.setPane(pane);
 		Scene scene2 = new Scene(pane);
+		stage.setTitle("Sistema autom·tico de Servicios Multi-Cloud");
 		stage.setScene(scene2);
 		interfazView.setStage(stage);
 
@@ -115,6 +116,7 @@ public class Main extends Application {
 				preguntasView = loader.getController();
 				Scene scene = new Scene(pane);
 				Stage stage = new Stage();
+				stage.setTitle("Sistema autom·tico de Servicios Multi-Cloud");
 				stage.setScene(scene);
 
 				preguntasView.setPane(pane);
@@ -143,6 +145,7 @@ public class Main extends Application {
 				preguntasInicialesView = loader.getController();
 				Scene scene = new Scene(pane);
 				Stage stage = new Stage();
+				stage.setTitle("Sistema autom·tico de Servicios Multi-Cloud");
 				stage.setScene(scene);
 
 				preguntasInicialesView.setPane(pane);
@@ -172,6 +175,7 @@ public class Main extends Application {
 				preguntasFinanciero = loader.getController();
 				Scene scene = new Scene(pane);
 				Stage stage = new Stage();
+				stage.setTitle("Sistema autom·tico de Servicios Multi-Cloud");
 				stage.setScene(scene);
 
 				preguntasFinanciero.setPane(pane);
@@ -200,6 +204,7 @@ public class Main extends Application {
 				preguntasCienciasView = loader.getController();
 				Scene scene = new Scene(pane);
 				Stage stage = new Stage();
+				stage.setTitle("Sistema autom·tico de Servicios Multi-Cloud");
 				stage.setScene(scene);
 
 				preguntasCienciasView.setPane(pane);
@@ -228,6 +233,7 @@ public class Main extends Application {
 				preguntasIndustriaView = loader.getController();
 				Scene scene = new Scene(pane);
 				Stage stage = new Stage();
+				stage.setTitle("Sistema autom·tico de Servicios Multi-Cloud");
 				stage.setScene(scene);
 
 				preguntasIndustriaView.setPane(pane);
@@ -257,6 +263,7 @@ public class Main extends Application {
 				preguntasTecnologiaView = loader.getController();
 				Scene scene = new Scene(pane);
 				Stage stage = new Stage();
+				stage.setTitle("Sistema autom·tico de Servicios Multi-Cloud");
 				stage.setScene(scene);
 
 				preguntasTecnologiaView.setPane(pane);
@@ -289,6 +296,7 @@ public class Main extends Application {
 					preguntaMicroserviciosView = loader.getController();
 					Scene scene = new Scene(pane);
 					Stage stage = new Stage();
+					stage.setTitle("Sistema autom·tico de Servicios Multi-Cloud");
 					stage.setScene(scene);
 
 					preguntaMicroserviciosView.setPane(pane);
@@ -313,6 +321,7 @@ public class Main extends Application {
 					preguntaBaseDatosView = loader.getController();
 					Scene scene = new Scene(pane);
 					Stage stage = new Stage();
+					stage.setTitle("Sistema autom·tico de Servicios Multi-Cloud");
 					stage.setScene(scene);
 
 					preguntaBaseDatosView.setPane(pane);
@@ -346,6 +355,7 @@ public class Main extends Application {
 				preguntasPilares1View = loader.getController();
 				Scene scene = new Scene(pane);
 				Stage stage = new Stage();
+				stage.setTitle("Sistema autom·tico de Servicios Multi-Cloud");
 				stage.setScene(scene);
 
 				preguntasPilares1View.setPane(pane);
@@ -376,6 +386,7 @@ public class Main extends Application {
 				preguntasPilares1View = loader.getController();
 				Scene scene = new Scene(pane);
 				Stage stage = new Stage();
+				stage.setTitle("Sistema autom·tico de Servicios Multi-Cloud");
 				stage.setScene(scene);
 
 				preguntasPilares1View.setPane(pane);
@@ -405,6 +416,7 @@ public class Main extends Application {
 				preguntasPilares2View = loader.getController();
 				Scene scene = new Scene(pane);
 				Stage stage = new Stage();
+				stage.setTitle("Sistema autom·tico de Servicios Multi-Cloud");
 				stage.setScene(scene);
 
 				preguntasPilares2View.setPane(pane);
@@ -433,6 +445,7 @@ public class Main extends Application {
 				preguntasPilares3View = loader.getController();
 				Scene scene = new Scene(pane);
 				Stage stage = new Stage();
+				stage.setTitle("Sistema autom·tico de Servicios Multi-Cloud");
 				stage.setScene(scene);
 
 				preguntasPilares3View.setPane(pane);
@@ -461,6 +474,7 @@ public class Main extends Application {
 				preguntasPilares4View = loader.getController();
 				Scene scene = new Scene(pane);
 				Stage stage = new Stage();
+				stage.setTitle("Sistema autom·tico de Servicios Multi-Cloud");
 				stage.setScene(scene);
 
 				preguntasPilares4View.setPane(pane);
@@ -489,6 +503,7 @@ public class Main extends Application {
 				preguntasPilares5View = loader.getController();
 				Scene scene = new Scene(pane);
 				Stage stage = new Stage();
+				stage.setTitle("Sistema autom·tico de Servicios Multi-Cloud");
 				stage.setScene(scene);
 
 				preguntasPilares5View.setPane(pane);
@@ -507,12 +522,8 @@ public class Main extends Application {
 
 	public void initActionThirteen() throws Exception {
 		preguntasPilares5View.show(false);
-
 		sistema.getPreguntasParaLaRecomendacion().setRespuestasPreguntasPilares(respuestasTotalPilares);
 		sistema.getPreguntasParaLaRecomendacion().interpretarRespuestasPilares();
-
-
-
 		if (resultadosView == null) {
 			FXMLLoader loader = new FXMLLoader(new File("src/interfaz/" + RESULTADOS_VIEW).toURI().toURL());
 			InputStream stream = getClass().getResourceAsStream(RESULTADOS_VIEW);
@@ -523,6 +534,7 @@ public class Main extends Application {
 
 				//				System.out.println("Sistema de recomendaci√≥n Multi-cloud");
 				//JUSTO AQUI SE CARGAN LAS RESPUESTAS
+				sistema.iniciarRecomendacion();
 				String mensaje = "Sistema de recomendaci√≥n Multi-cloud\n\n";
 				for (int i = 0; i < sistema.getListaDeServiciosRecomendados().size(); i++) {
 					mensaje+=  sistema.getListaDeServiciosRecomendados().get(i).getTipoDeServicio() + 
@@ -532,6 +544,7 @@ public class Main extends Application {
 				resultadosView.getTextArea().setText(mensaje);
 				Scene scene = new Scene(pane);
 				Stage stage = new Stage();
+				stage.setTitle("Sistema autom·tico de Servicios Multi-Cloud");
 				stage.setScene(scene);
 
 				resultadosView.setPane(pane);

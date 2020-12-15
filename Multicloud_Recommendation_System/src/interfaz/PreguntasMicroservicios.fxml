@@ -29,7 +29,7 @@
             </Text>
          </children></AnchorPane>
       <Button fx:id="nextButtonMicroservicios" layoutX="333.0" layoutY="338.0" mnemonicParsing="false" text="Continuar" />
-      <Text fx:id="textTipoDePregunta" fill="WHITE" layoutX="233.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preguntas sobre los servicios" textAlignment="CENTER">
+      <Text fx:id="textTipoDePregunta" fill="WHITE" layoutX="195.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preguntas sobre los servicios" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>

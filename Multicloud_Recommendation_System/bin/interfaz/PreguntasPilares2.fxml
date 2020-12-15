@@ -28,8 +28,8 @@
                </font>
             </Text>
          </children></AnchorPane>
-      <Button fx:id="nextButtonPilares2" layoutX="333.0" layoutY="338.0" mnemonicParsing="false" text="Continuar" />
-      <Text fx:id="textTipoDePregunta" fill="WHITE" layoutX="233.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preguntas calificadoras de pilares" textAlignment="CENTER">
+      <Button fx:id="nextButtonPilares2" layoutX="333.0" layoutY="356.0" mnemonicParsing="false" text="Continuar" />
+      <Text fx:id="textTipoDePregunta" fill="WHITE" layoutX="170.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preguntas calificadoras de pilares" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -49,26 +49,26 @@
             <Font size="14.0" />
          </font>
       </Text>
-      <Text fx:id="pregunta4txtPilares2" fill="WHITE" layoutX="58.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Estaría dispuesto a invertir una cantidad considerable de dinero extra para implementar sistemas para prevenir intrusiones, daños por parte de atacantes internos, entre otros?" textAlignment="JUSTIFY" wrappingWidth="437.150390625">
+      <Text fx:id="pregunta4txtPilares2" fill="WHITE" layoutX="58.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Estaría dispuesto a invertir una cantidad considerable de dinero extra para implementar sistemas para prevenir intrusiones, daños por parte de atacantes internos, entre otros?" textAlignment="JUSTIFY" wrappingWidth="437.150390625">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text fx:id="pregunta5txtPilares2" fill="WHITE" layoutX="58.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" text="•	¿Considera usted que su aplicación requiere un conjunto de herramientas especializadas en el monitoreo de su aplicación desde el punto de vista de la seguridad (Desde el diseño, la construcción y su operación)?" textAlignment="JUSTIFY" wrappingWidth="437.150390625">
+      <Text fx:id="pregunta5txtPilares2" fill="WHITE" layoutX="58.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Considera usted que su aplicación requiere un conjunto de herramientas especializadas en el monitoreo de su aplicación desde el punto de vista de la seguridad (Desde el diseño, la construcción y su operación)?" textAlignment="JUSTIFY" wrappingWidth="437.150390625">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Button fx:id="backButtonPilares2" layoutX="235.0" layoutY="338.0" mnemonicParsing="false" text="Atras" />
+      <Button fx:id="backButtonPilares2" layoutX="235.0" layoutY="356.0" mnemonicParsing="false" text="Atras" />
       <RadioButton fx:id="true1InitPilares2" layoutX="510.0" layoutY="98.0" mnemonicParsing="false" />
       <RadioButton fx:id="false1InitPilares2" layoutX="550.0" layoutY="98.0" mnemonicParsing="false" />
       <RadioButton fx:id="true2InitPilares2" layoutX="509.0" layoutY="138.0" mnemonicParsing="false" />
       <RadioButton fx:id="false2InitPilares2" layoutX="549.0" layoutY="138.0" mnemonicParsing="false" />
       <RadioButton fx:id="true3InitPilares2" layoutX="509.0" layoutY="178.0" mnemonicParsing="false" />
       <RadioButton fx:id="false3InitPilares2" layoutX="549.0" layoutY="178.0" mnemonicParsing="false" />
-      <RadioButton fx:id="true4InitPilares2" layoutX="509.0" layoutY="218.0" mnemonicParsing="false" />
-      <RadioButton fx:id="false4InitPilares2" layoutX="549.0" layoutY="218.0" mnemonicParsing="false" />
-      <RadioButton fx:id="true5InitPilares2" layoutX="509.0" layoutY="258.0" mnemonicParsing="false" />
-      <RadioButton fx:id="false5InitPilares2" layoutX="549.0" layoutY="258.0" mnemonicParsing="false" />
+      <RadioButton fx:id="true4InitPilares2" layoutX="509.0" layoutY="219.0" mnemonicParsing="false" />
+      <RadioButton fx:id="false4InitPilares2" layoutX="549.0" layoutY="219.0" mnemonicParsing="false" />
+      <RadioButton fx:id="true5InitPilares2" layoutX="509.0" layoutY="278.0" mnemonicParsing="false" />
+      <RadioButton fx:id="false5InitPilares2" layoutX="549.0" layoutY="278.0" mnemonicParsing="false" />
    </children>
 </AnchorPane>

@@ -17,58 +17,58 @@
       </ImageView>
       <AnchorPane fx:id="trueSecondQ" layoutX="35.0" layoutY="9.0" opacity="0.62" prefHeight="380.0" prefWidth="565.0" style="-fx-background-color: black;">
          <children>
-            <Text fill="WHITE" layoutX="475.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Si" textAlignment="JUSTIFY" wrappingWidth="16.0">
+            <Text fill="WHITE" layoutX="475.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Si" textAlignment="JUSTIFY" wrappingWidth="16.0">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="514.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No" textAlignment="JUSTIFY" wrappingWidth="22.0">
+            <Text fill="WHITE" layoutX="514.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No" textAlignment="JUSTIFY" wrappingWidth="22.0">
                <font>
                   <Font size="14.0" />
                </font>
             </Text>
          </children></AnchorPane>
-      <Button fx:id="nextButtonPilares4" layoutX="333.0" layoutY="338.0" mnemonicParsing="false" text="Continuar" />
-      <Text fx:id="textTipoDePregunta" fill="WHITE" layoutX="233.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preguntas calificadoras de pilares" textAlignment="CENTER">
+      <Button fx:id="nextButtonPilares4" layoutX="333.0" layoutY="351.0" mnemonicParsing="false" text="Continuar" />
+      <Text fx:id="textTipoDePregunta" fill="WHITE" layoutX="171.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preguntas calificadoras de pilares" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Text>
-      <Text fx:id="pregunta1txtPilares4" fill="WHITE" layoutX="58.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Considera relevante que las cargas de trabajo que maneje su aplicación sean gestionadas de la manera más precisa en cuestión de uso de recursos?" textAlignment="JUSTIFY" wrappingWidth="437.150390625">
+      <Text fx:id="pregunta1txtPilares4" fill="WHITE" layoutX="58.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Considera relevante que las cargas de trabajo que maneje su aplicación sean gestionadas de la manera más precisa en cuestión de uso de recursos?" textAlignment="JUSTIFY" wrappingWidth="437.150390625">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text fx:id="pregunta2txtPilares4" fill="WHITE" layoutX="58.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Utilizaría herramientas avanzadas para el análisis de su infraestructura para hacerla más eficiente, incluso cuando esto podría costar una cantidad de dinero adicional?" textAlignment="JUSTIFY" wrappingWidth="437.150390625">
+      <Text fx:id="pregunta2txtPilares4" fill="WHITE" layoutX="58.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Utilizaría herramientas avanzadas para el análisis de su infraestructura para hacerla más eficiente, incluso cuando esto podría costar una cantidad de dinero adicional?" textAlignment="JUSTIFY" wrappingWidth="437.150390625">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text fx:id="pregunta3txtPilares4" fill="WHITE" layoutX="58.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Considera usted necesario implementar políticas de archivo y eliminación para algunos de los datos utilizados por su aplicación?" textAlignment="JUSTIFY" wrappingWidth="437.150390625">
+      <Text fx:id="pregunta3txtPilares4" fill="WHITE" layoutX="58.0" layoutY="208.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Considera usted necesario implementar políticas de archivo y eliminación para algunos de los datos utilizados por su aplicación?" textAlignment="JUSTIFY" wrappingWidth="437.150390625">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text fx:id="pregunta4txtPilares4" fill="WHITE" layoutX="58.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿El presupuesto disponible para la implementación y operación de la aplicación es un tema de discusión fundamental desde el punto de vista del negocio? (Dos puntos)" textAlignment="JUSTIFY" wrappingWidth="437.150390625">
+      <Text fx:id="pregunta4txtPilares4" fill="WHITE" layoutX="58.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿El presupuesto disponible para la implementación y operación de la aplicación es un tema de discusión fundamental desde el punto de vista del negocio? (Dos puntos)" textAlignment="JUSTIFY" wrappingWidth="437.150390625">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text fx:id="pregunta5txtPilares4" fill="WHITE" layoutX="58.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Es relevante para usted monitorear constantemente el consumo y los costos que podría estar generando la infraestructura?" textAlignment="JUSTIFY" wrappingWidth="437.150390625">
+      <Text fx:id="pregunta5txtPilares4" fill="WHITE" layoutX="58.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Es relevante para usted monitorear constantemente el consumo y los costos que podría estar generando la infraestructura?" textAlignment="JUSTIFY" wrappingWidth="437.150390625">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Button fx:id="backButtonPilares4" layoutX="235.0" layoutY="338.0" mnemonicParsing="false" text="Atras" />
-      <RadioButton fx:id="true1InitPilares4" layoutX="510.0" layoutY="98.0" mnemonicParsing="false" />
-      <RadioButton fx:id="false1InitPilares4" layoutX="550.0" layoutY="98.0" mnemonicParsing="false" />
-      <RadioButton fx:id="true2InitPilares4" layoutX="509.0" layoutY="138.0" mnemonicParsing="false" />
-      <RadioButton fx:id="false2InitPilares4" layoutX="549.0" layoutY="138.0" mnemonicParsing="false" />
-      <RadioButton fx:id="true3InitPilares4" layoutX="509.0" layoutY="178.0" mnemonicParsing="false" />
-      <RadioButton fx:id="false3InitPilares4" layoutX="549.0" layoutY="178.0" mnemonicParsing="false" />
-      <RadioButton fx:id="true4InitPilares4" layoutX="509.0" layoutY="218.0" mnemonicParsing="false" />
-      <RadioButton fx:id="false4InitPilares4" layoutX="549.0" layoutY="218.0" mnemonicParsing="false" />
-      <RadioButton fx:id="true5InitPilares4" layoutX="509.0" layoutY="258.0" mnemonicParsing="false" />
-      <RadioButton fx:id="false5InitPilares4" layoutX="549.0" layoutY="258.0" mnemonicParsing="false" />
+      <Button fx:id="backButtonPilares4" layoutX="235.0" layoutY="351.0" mnemonicParsing="false" text="Atras" />
+      <RadioButton fx:id="true1InitPilares4" layoutX="510.0" layoutY="75.0" mnemonicParsing="false" />
+      <RadioButton fx:id="false1InitPilares4" layoutX="550.0" layoutY="75.0" mnemonicParsing="false" />
+      <RadioButton fx:id="true2InitPilares4" layoutX="509.0" layoutY="134.0" mnemonicParsing="false" />
+      <RadioButton fx:id="false2InitPilares4" layoutX="549.0" layoutY="134.0" mnemonicParsing="false" />
+      <RadioButton fx:id="true3InitPilares4" layoutX="509.0" layoutY="193.0" mnemonicParsing="false" />
+      <RadioButton fx:id="false3InitPilares4" layoutX="549.0" layoutY="193.0" mnemonicParsing="false" />
+      <RadioButton fx:id="true4InitPilares4" layoutX="509.0" layoutY="235.0" mnemonicParsing="false" />
+      <RadioButton fx:id="false4InitPilares4" layoutX="549.0" layoutY="235.0" mnemonicParsing="false" />
+      <RadioButton fx:id="true5InitPilares4" layoutX="509.0" layoutY="297.0" mnemonicParsing="false" />
+      <RadioButton fx:id="false5InitPilares4" layoutX="549.0" layoutY="297.0" mnemonicParsing="false" />
    </children>
 </AnchorPane>
