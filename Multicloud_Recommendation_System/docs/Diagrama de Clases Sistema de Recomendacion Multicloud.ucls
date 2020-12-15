@@ -1,55 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class-diagram version="1.2.4" icons="true" automaticImage="PNG" always-add-relationships="false" generalizations="true" 
+<class-diagram version="1.2.3" icons="true" automaticImage="PNG" always-add-relationships="false" generalizations="true" 
   realizations="true" associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
-  <class id="1" language="java" name="mundo.Cliente" project="BackEnd-Multicloud_Recommendation_System" 
-    file="/BackEnd-Multicloud_Recommendation_System/src/mundo/Cliente.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="243" width="260" x="958" y="-66"/>    
+  <class id="1" language="java" name="mundo.ServicioCloud" project="Multicloud_Recommendation_System" 
+    file="/Multicloud_Recommendation_System/src/mundo/ServicioCloud.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="120" y="123"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="mundo.ServicioCloud" project="BackEnd-Multicloud_Recommendation_System" 
-    file="/BackEnd-Multicloud_Recommendation_System/src/mundo/ServicioCloud.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="243" width="266" x="1638" y="613"/>    
+  <class id="2" language="java" name="mundo.SistemaDeRecomendacion" project="Multicloud_Recommendation_System" 
+    file="/Multicloud_Recommendation_System/src/mundo/SistemaDeRecomendacion.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="711" width="410" x="488" y="-224"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="mundo.Pilar" project="BackEnd-Multicloud_Recommendation_System" 
-    file="/BackEnd-Multicloud_Recommendation_System/src/mundo/Pilar.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="189" width="172" x="958" y="896"/>    
+  <class id="3" language="java" name="mundo.Preguntas" project="Multicloud_Recommendation_System" 
+    file="/Multicloud_Recommendation_System/src/mundo/Preguntas.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="125" y="-455"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="mundo.Preguntas" project="BackEnd-Multicloud_Recommendation_System" 
-    file="/BackEnd-Multicloud_Recommendation_System/src/mundo/Preguntas.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="639" width="236" x="682" y="-66"/>    
+  <class id="4" language="java" name="mundo.Cliente" project="Multicloud_Recommendation_System" 
+    file="/Multicloud_Recommendation_System/src/mundo/Cliente.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="115" y="504"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="mundo.Proveedor" project="BackEnd-Multicloud_Recommendation_System" 
-    file="/BackEnd-Multicloud_Recommendation_System/src/mundo/Proveedor.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1453" y="56"/>    
+  <class id="5" language="java" name="mundo.Pilar" project="Multicloud_Recommendation_System" 
+    file="/Multicloud_Recommendation_System/src/mundo/Pilar.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="-237" y="125"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="mundo.SistemaDeRecomendacion" project="BackEnd-Multicloud_Recommendation_System" 
-    file="/BackEnd-Multicloud_Recommendation_System/src/mundo/SistemaDeRecomendacion.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="423" width="370" x="1659" y="-529"/>    
+  <class id="6" language="java" name="mundo.Proveedor" project="Multicloud_Recommendation_System" 
+    file="/Multicloud_Recommendation_System/src/mundo/Proveedor.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="693" y="712"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -57,123 +56,142 @@
     </display>  
   </class>  
   <association id="7">    
-    <bendpoint x="1647" y="-66"/>    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="8" name="listaDeServiciosSectorVentas"/>      
-      <multiplicity id="9" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="10">    
-    <bendpoint x="829" y="613"/>    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="11" name="pilaresCliente"/>      
-      <multiplicity id="12" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="13">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="14" name="listaDeProveedoresCloud"/>      
-      <multiplicity id="15" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="16">    
-    <bendpoint x="1710" y="-66"/>    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="17" name="listaDeServiciosIndustria"/>      
-      <multiplicity id="18" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="19">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="20" name="serviciosElegidos"/>      
-      <multiplicity id="21" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="22">    
-    <bendpoint x="1668" y="-66"/>    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="23" name="listaDeServiciosRecomendados"/>      
-      <multiplicity id="24" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="25">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="26" name="serviciosSeleccionados"/>      
-      <multiplicity id="27" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="28">    
-    <bendpoint x="1626" y="-66"/>    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="29" name="listaDeServiciosSectorFinanciero"/>      
-      <multiplicity id="30" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="31">    
+    <bendpoint x="434" y="101"/>    
     <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="32" name="pilares"/>      
-      <multiplicity id="33" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="34">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="35" name="cliente"/>      
-      <multiplicity id="36" minimum="0" maximum="1"/>    
+      <attribute id="8" name="listaDeServiciosIndustria"/>      
+      <multiplicity id="9" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="37">    
-    <bendpoint x="1689" y="-66"/>    
+  <association id="10">    
+    <bendpoint x="390" y="24"/>    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="11" name="listaDeServiciosTecnologia"/>      
+      <multiplicity id="12" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="13">    
+    <bendpoint x="389" y="193"/>    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="14" name="listaDeServiciosSectorVentas"/>      
+      <multiplicity id="15" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="16">    
     <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="38" name="listaDeServiciosCienciasBiologicas"/>      
-      <multiplicity id="39" minimum="0" maximum="2147483647"/>    
+      <attribute id="17" name="listaDeServicios"/>      
+      <multiplicity id="18" minimum="0" maximum="2147483647"/>    
     </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
+    <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="40">    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="41" name="listaDeServicios"/>      
-      <multiplicity id="42" minimum="0" maximum="2147483647"/>    
+  <association id="19">    
+    <bendpoint x="367" y="310"/>    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="20" name="listaDeServiciosRecomendados"/>      
+      <multiplicity id="21" minimum="0" maximum="2147483647"/>    
     </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
+    <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="43">    
-    <bendpoint x="967" y="613"/>    
+  <association id="22">    
+    <bendpoint x="393" y="-40"/>    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="23" name="listaDeServiciosSectorFinanciero"/>      
+      <multiplicity id="24" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="25">    
+    <bendpoint x="524" y="504"/>    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="26" name="cliente"/>      
+      <multiplicity id="27" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="28">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="29" name="pilaresCliente"/>      
+      <multiplicity id="30" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="31">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="32" name="serviciosSeleccionados"/>      
+      <multiplicity id="33" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="34">    
     <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="44" name="topDePilaresDelCliente"/>      
-      <multiplicity id="45" minimum="0" maximum="2147483647"/>    
+      <attribute id="35" name="pilares"/>      
+      <multiplicity id="36" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="37">    
+    <bendpoint x="686" y="-445"/>    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="38" name="preguntasParaLaRecomendacion"/>      
+      <multiplicity id="39" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
+  <association id="40">    
+    <bendpoint x="390" y="-90"/>    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="41" name="listaDeTiposDeServiciosADescartar"/>      
+      <multiplicity id="42" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="43">    
+    <bendpoint x="378" y="251"/>    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="44" name="listaDeServiciosCienciasBiologicas">        
+        <position height="18" width="175" x="268" y="171"/>      
+      </attribute>      
+      <multiplicity id="45" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
   <association id="46">    
-    <bendpoint x="1731" y="-66"/>    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="47" name="listaDeServiciosTecnologia"/>      
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="47" name="serviciosElegidos"/>      
       <multiplicity id="48" minimum="0" maximum="2147483647"/>    
     </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="49">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="50" name="listaDeProveedoresCloud"/>      
+      <multiplicity id="51" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="52">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="53" name="topDePilaresDelCliente"/>      
+      <multiplicity id="54" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 

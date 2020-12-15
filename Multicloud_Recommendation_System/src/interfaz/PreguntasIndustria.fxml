@@ -29,7 +29,7 @@
             </Text>
          </children></AnchorPane>
       <Button fx:id="nextButtonIndustria" layoutX="333.0" layoutY="338.0" mnemonicParsing="false" text="Continuar" />
-      <Text fx:id="textTipoDePregunta" fill="WHITE" layoutX="233.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preguntas Industria y fabricación" textAlignment="CENTER">
+      <Text fx:id="textTipoDePregunta" fill="WHITE" layoutX="176.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Preguntas Industria y fabricación" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -39,17 +39,17 @@
             <Font size="14.0" />
          </font>
       </Text>
-      <Text fx:id="pregunta2txtIndustria" fill="WHITE" layoutX="58.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Su aplicación está destinada a controlar diferentes dispositivos que hacen parte de un proceso productivo?" textAlignment="JUSTIFY" wrappingWidth="437.150390625">
+      <Text fx:id="pregunta2txtIndustria" fill="WHITE" layoutX="58.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Su aplicación está destinada a controlar diferentes dispositivos que hacen parte de un proceso productivo?" textAlignment="JUSTIFY" wrappingWidth="437.150390625">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text fx:id="pregunta3txtIndustria" fill="WHITE" layoutX="58.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Su aplicación está pensada para estar operando constantemente por un personal especializado?" textAlignment="JUSTIFY" wrappingWidth="437.150390625">
+      <Text fx:id="pregunta3txtIndustria" fill="WHITE" layoutX="58.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Su aplicación está pensada para estar operando constantemente por un personal especializado?" textAlignment="JUSTIFY" wrappingWidth="437.150390625">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Text fx:id="pregunta4txtIndustria" fill="WHITE" layoutX="58.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Su aplicación utilizará análisis de datos para optimizar procesos?" textAlignment="JUSTIFY" wrappingWidth="437.150390625">
+      <Text fx:id="pregunta4txtIndustria" fill="WHITE" layoutX="58.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="¿Su aplicación utilizará análisis de datos para optimizar procesos?" textAlignment="JUSTIFY" wrappingWidth="437.150390625">
          <font>
             <Font size="14.0" />
          </font>
@@ -57,12 +57,11 @@
       <Button fx:id="backButtonIndustria" layoutX="235.0" layoutY="338.0" mnemonicParsing="false" text="Atras" />
       <RadioButton fx:id="true1InitIndustria" layoutX="510.0" layoutY="98.0" mnemonicParsing="false" />
       <RadioButton fx:id="false1InitIndustria" layoutX="550.0" layoutY="98.0" mnemonicParsing="false" />
-      <RadioButton fx:id="true2InitIndustria" layoutX="509.0" layoutY="138.0" mnemonicParsing="false" />
-      <RadioButton fx:id="false2InitIndustria" layoutX="549.0" layoutY="138.0" mnemonicParsing="false" />
-      <RadioButton fx:id="true3InitIndustria" layoutX="509.0" layoutY="178.0" mnemonicParsing="false" />
-      <RadioButton fx:id="false3InitIndustria" layoutX="549.0" layoutY="178.0" mnemonicParsing="false" />
-      <RadioButton fx:id="true4InitIndustria" layoutX="509.0" layoutY="218.0" mnemonicParsing="false" />
-      <RadioButton fx:id="false4InitIndustria" layoutX="549.0" layoutY="218.0" mnemonicParsing="false" />
+      <RadioButton fx:id="true2InitIndustria" layoutX="509.0" layoutY="158.0" mnemonicParsing="false" />
+      <RadioButton fx:id="false2InitIndustria" layoutX="549.0" layoutY="158.0" mnemonicParsing="false" />
+      <RadioButton fx:id="true3InitIndustria" layoutX="509.0" layoutY="198.0" mnemonicParsing="false" />
+      <RadioButton fx:id="false3InitIndustria" layoutX="549.0" layoutY="198.0" mnemonicParsing="false" />
+      <RadioButton fx:id="true4InitIndustria" layoutX="509.0" layoutY="238.0" mnemonicParsing="false" />
+      <RadioButton fx:id="false4InitIndustria" layoutX="549.0" layoutY="238.0" mnemonicParsing="false" />
    </children>
 </AnchorPane>
-

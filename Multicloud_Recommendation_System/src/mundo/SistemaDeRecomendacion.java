@@ -11,12 +11,12 @@ public class SistemaDeRecomendacion {
 	public static String[] PROVEEDORES_CLOUD = { "Azure", "AWS", "GCP" };
 
 	public static String URL_COMPARATIVA_DE_SERVICIOS_SECTOR_VENTAS = "./docs/Servicios por sector CSV/sectorventas.csv";
-		public static String URL_COMPARATIVA_DE_SERVICIOS_DE_ALTO_USO_TECNOLOGICO = "./docs/Servicios por sector CSV/altousotecnologia.csv";
-		public static String URL_COMPARATIVA_DE_SERVICIOS_CIENCIAS_BIOLOGICAS = "./docs/Servicios por sector CSV/cienciabiologicas.csv";
-		public static String URL_COMPARATIVA_DE_SERVICIOS_INDUSTRIA_Y_FABRICACION = "./docs/Servicios por sector CSV/industriayfabricacion.csv";
-		public static String URL_COMPARATIVA_DE_SERVICIOS_SECTOR_FINANCIERO = "./docs/Servicios por sector CSV/sectorfinanciero.csv";
-		public static String URL_COMPARATIVA_DE_SERVICIOS_ESPECIALES = "./docs/Servicios por sector CSV/serviciostotal.csv";
-		
+	public static String URL_COMPARATIVA_DE_SERVICIOS_DE_ALTO_USO_TECNOLOGICO = "./docs/Servicios por sector CSV/altousotecnologia.csv";
+	public static String URL_COMPARATIVA_DE_SERVICIOS_CIENCIAS_BIOLOGICAS = "./docs/Servicios por sector CSV/cienciabiologicas.csv";
+	public static String URL_COMPARATIVA_DE_SERVICIOS_INDUSTRIA_Y_FABRICACION = "./docs/Servicios por sector CSV/industriayfabricacion.csv";
+	public static String URL_COMPARATIVA_DE_SERVICIOS_SECTOR_FINANCIERO = "./docs/Servicios por sector CSV/sectorfinanciero.csv";
+	public static String URL_COMPARATIVA_DE_SERVICIOS_ESPECIALES = "./docs/Servicios por sector CSV/serviciostotal.csv";
+
 	public static String URL_ARCHIVO_DE_PREGUNTAS_DEL_SECTOR = "./docs/Preguntas CSV/1preguntasSector.csv";
 	public static String URL_ARCHIVO_DE_PREGUNTAS_DE_DEMAS_SECTORES = "./docs/Preguntas CSV/2preguntasAplicacionDemasSectores.csv";
 	public static String URL_ARCHIVO_DE_PREGUNTAS_DEL_SECTOR_TECNOLOGICO = "./docs/Preguntas CSV/2preguntasAplicacionSectorTecnologico.csv";
@@ -40,46 +40,50 @@ public class SistemaDeRecomendacion {
 	private ArrayList<ServicioCloud> listaDeServiciosRecomendados;
 	private ArrayList<String> listaDeProveedoresRelacionadosParaLosServiciosGenerales;
 	private ArrayList<ServicioCloud> listaDeTiposDeServiciosADescartar;
-	
+
 	private int posicionDeProveedorDeBaseDeDatosSeleccionado;
 	private int posicionDeProveedorDeComputoSeleccionado;
 
-
-
 	public SistemaDeRecomendacion() throws Exception {
 		super();
-		
+
 		posicionDeProveedorDeBaseDeDatosSeleccionado = -1;
-		posicionDeProveedorDeComputoSeleccionado  = -1;
+		posicionDeProveedorDeComputoSeleccionado = -1;
 
 		listaDeProveedoresCloud = new Proveedor[3];
 
 		preguntasParaLaRecomendacion = new Preguntas();
 
-		cliente = new Cliente( preguntasParaLaRecomendacion.getPilaresCliente(),
-				preguntasParaLaRecomendacion.getServiciosElegidos(),
-				preguntasParaLaRecomendacion.getSector() );
+	}
+
+	public void iniciarRecomendacion() {
+		cliente = new Cliente(preguntasParaLaRecomendacion.getPilaresCliente(),
+				preguntasParaLaRecomendacion.getServiciosElegidos(), preguntasParaLaRecomendacion.getSector());
 
 		exclusionServiciosNoElegidos();
 
 		try {
-			construirTablaDeComparacionDeServicios(URL_COMPARATIVA_DE_SERVICIOS_SECTOR_VENTAS);
+			if(cliente.getSector().equals(Preguntas.CIENCIAS_BIOLOGICAS)) {
+				construirTablaDeComparacionDeServicios(URL_COMPARATIVA_DE_SERVICIOS_CIENCIAS_BIOLOGICAS);
+			}else if(cliente.getSector().equals(Preguntas.SECTOR_VENTAS)) {
+				construirTablaDeComparacionDeServicios(URL_COMPARATIVA_DE_SERVICIOS_SECTOR_VENTAS);
+			}else if(cliente.getSector().equals(Preguntas.SECTOR_FINANCIERO)) {
+				construirTablaDeComparacionDeServicios(URL_COMPARATIVA_DE_SERVICIOS_SECTOR_FINANCIERO);
+			}else if(cliente.getSector().equals(Preguntas.INDUSTRIA_FABRICACION)) {
+				construirTablaDeComparacionDeServicios(URL_COMPARATIVA_DE_SERVICIOS_INDUSTRIA_Y_FABRICACION);
+			}else if(cliente.getSector().equals(Preguntas.NEGOCIOS_TECNOLOGIA)) {
+				construirTablaDeComparacionDeServicios(URL_COMPARATIVA_DE_SERVICIOS_DE_ALTO_USO_TECNOLOGICO);
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		System.out.println("\n");
-		for (int i = 0; i < 5; i++) {
-			System.out.println(cliente.getTopDePilaresDelCliente()[i].getValorDelPilar()+ " : " + cliente.getTopDePilaresDelCliente()[i].getNombreDelPilar()  );
-
-		}
-
-		//		System.out.println("\n");
-		//		for (int i = 0; i < 2; i++) {
-		//			System.out.println(cliente.getServiciosSeleccionados()+ " : " + cliente.getTopDePilaresDelCliente()[i].getNombreDelPilar()  );
+		// System.out.println("\n");
+		// for (int i = 0; i < 2; i++) {
+		// System.out.println(cliente.getServiciosSeleccionados()+ " : " +
+		// cliente.getTopDePilaresDelCliente()[i].getNombreDelPilar() );
 		//
-		//		}
-
+		// }
 
 		// 1. Perfilacion de eleccion de pilares del usuario
 		// I) Preguntas - DATOS QUEMADOS DEL TOP DE PILARES
@@ -98,110 +102,99 @@ public class SistemaDeRecomendacion {
 
 		// 2. Eleccion de los servicios para la infraestructura
 		// I) Pre-seleccion de tecnologias por parte del sistema - ESTA
-		listaDeServiciosRecomendados = new ArrayList<ServicioCloud>();		
-
+		listaDeServiciosRecomendados = new ArrayList<ServicioCloud>();
 
 		//
-
 
 		// II) Eleccion propia del usuario
 		// 3. Recomendacion de servicios para la infraestructura
 		// I) Recomendacion de todos los servicios entre Azure, AWS y GCP
 		seleccionRecomendadaDeServiciosCloud(tablaComparacionDeServiciosConPilares);
-		for (int i = 0; i < listaDeServiciosRecomendados.size(); i++) {
-			System.out.println(" 	jeje " + listaDeServiciosRecomendados.get(i).getTipoDeServicio());
-		}
-		
-		incluirServiciosDependientes(URL_COMPARATIVA_DE_SERVICIOS_ESPECIALES);
 
-		System.out.println("\n\n 	OTROS ---------------------------------------------------------------" );
-		for (int i = 0; i < listaDeServiciosRecomendados.size(); i++) {
-			System.out.println(" 	OTROS" + listaDeServiciosRecomendados.get(i).getTipoDeServicio()+  "	Celebralo Curramba!: " + listaDeServiciosRecomendados.get(i).getNombreDeServicio());
+		try {
+			incluirServiciosDependientes(URL_COMPARATIVA_DE_SERVICIOS_ESPECIALES);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		
-		
-		System.out.println("COMPUTO: "+ posicionDeProveedorDeComputoSeleccionado + " y BD: " + posicionDeProveedorDeBaseDeDatosSeleccionado);
-		//		for (int i = 0; i < PROVEEDORES_CLOUD.length; i++) {
-		//			
-		//			System.out.println("Estos son: " + cliente.get(i).getTipoDeServicio());
-		//		}
-		// II) Recomendacion de tecnologias de the 12 Factor App | Pendiente
+
+		for (int i = 0; i < cliente.getTopDePilaresDelCliente().length; i++) {
+			System.out.println(cliente.getTopDePilaresDelCliente()[i].getNombreDelPilar());
+			System.out.println("Valor:" + cliente.getTopDePilaresDelCliente()[i].getValorDelPilar());
+
+		}
 
 	}
 
-	public void exclusionServiciosNoElegidos()
-	{
+	public void exclusionServiciosNoElegidos() {
 		listaDeTiposDeServiciosADescartar = new ArrayList<>();
 
-		listaDeTiposDeServiciosADescartar.add( new ServicioCloud("NoSQL Database Options", "NN", 0, 0, 0, 0, 0) );
-		listaDeTiposDeServiciosADescartar.add( new ServicioCloud("SQL Database Options", "NN", 0, 0, 0, 0, 0) );
-		listaDeTiposDeServiciosADescartar.add( new ServicioCloud("Kubernetes Managed Service", "NN", 0, 0, 0, 0, 0) );
-		listaDeTiposDeServiciosADescartar.add( new ServicioCloud("Container Support", "NN", 0, 0, 0, 0, 0) );
-		listaDeTiposDeServiciosADescartar.add( new ServicioCloud("Compute Services", "NN", 0, 0, 0, 0, 0) );
+		listaDeTiposDeServiciosADescartar.add(new ServicioCloud("NoSQL Database Options", "NN", 0, 0, 0, 0, 0));
+		listaDeTiposDeServiciosADescartar.add(new ServicioCloud("SQL Database Options", "NN", 0, 0, 0, 0, 0));
+		listaDeTiposDeServiciosADescartar.add(new ServicioCloud("Kubernetes Managed Service", "NN", 0, 0, 0, 0, 0));
+		listaDeTiposDeServiciosADescartar.add(new ServicioCloud("Container Support", "NN", 0, 0, 0, 0, 0));
+		listaDeTiposDeServiciosADescartar.add(new ServicioCloud("Compute Services", "NN", 0, 0, 0, 0, 0));
 
 		for (int i = 0; i < listaDeTiposDeServiciosADescartar.size(); i++) {
-			//Eliminacion de la base de datos seleccionada
-			if(listaDeTiposDeServiciosADescartar.get(i).getTipoDeServicio().equals(cliente.getServiciosSeleccionados()[0].getTipoDeServicio()))
-			{
+			// Eliminacion de la base de datos seleccionada
+			if (listaDeTiposDeServiciosADescartar.get(i).getTipoDeServicio()
+					.equals(cliente.getServiciosSeleccionados()[0].getTipoDeServicio())) {
 				listaDeTiposDeServiciosADescartar.remove(i);
 
 			}
 
-			//Eliminacion del tipo de computo seleccionado			
-			if(listaDeTiposDeServiciosADescartar.get(i).getTipoDeServicio().equals(cliente.getServiciosSeleccionados()[1].getTipoDeServicio()))
-			{
-				listaDeTiposDeServiciosADescartar.remove(i);
+			// Eliminacion del tipo de computo seleccionado
+			if (cliente.getSector().equals(Preguntas.NEGOCIOS_TECNOLOGIA)) {
 
-			}			
+			} else {
+				if (listaDeTiposDeServiciosADescartar.get(i).getTipoDeServicio()
+						.equals(cliente.getServiciosSeleccionados()[1].getTipoDeServicio())) {
+					listaDeTiposDeServiciosADescartar.remove(i);
 
-		}
-
-		System.out.println("\n");
-		System.out.println(cliente.getServiciosSeleccionados()[0].getTipoDeServicio() + " COLEEEE " + cliente.getServiciosSeleccionados()[1].getTipoDeServicio() );		
-		System.out.println("\n Servicios No Elegidos:");
-
-
-		//La chinga quiso SQL y Contenedores
-
-		for (int i = 0; i < listaDeTiposDeServiciosADescartar.size(); i++) {
-
-			System.out.println(	"OIGA MIRE VEA "  + listaDeTiposDeServiciosADescartar.get(i).getTipoDeServicio());
+				}
+			}
 
 		}
-		System.out.println("\n");
+
+//		System.out.println(cliente.getServiciosSeleccionados()[0].getTipoDeServicio() + " COLEEEE "
+//				+ cliente.getServiciosSeleccionados()[1].getTipoDeServicio());
+//		System.out.println("\n Servicios No Elegidos:");
+
+		// La chinga quiso SQL y Contenedores
 
 	}
+
 	public void incluirServiciosGenerales() {
 
 	}
 
 	/**
-	 * Agrega al arreglo de recomendaci�n los servicios dependientes elegidos por el
-	 * cliente
+	 * Agrega al arreglo de recomendaci�n los servicios dependientes elegidos por
+	 * el cliente
 	 * 
-	 * @param urlDelArchivoAConstruir Un URL que contiene la valoracion de los servicios especiales
-	 * con los pilares ("./docs/Servicios por sector CSV/ARCHIVO_SECTOR.csv")
+	 * @param urlDelArchivoAConstruir Un URL que contiene la valoracion de los
+	 *                                servicios especiales con los pilares
+	 *                                ("./docs/Servicios por sector
+	 *                                CSV/ARCHIVO_SECTOR.csv")
 	 * 
-	 * @param proveedor de los servicios elegido por el cliente
+	 * @param proveedor               de los servicios elegido por el cliente
 	 * 
 	 * @example Cliente tipo: Sector Ventas : serviciosDependientes[101,103]
-	 * proveedor[AWS,AZURE] (ESCOGIDO POR LOS PILARES)
+	 *          proveedor[AWS,AZURE] (ESCOGIDO POR LOS PILARES)
 	 * 
 	 * @example Cliente tipo: Tecnolog�a : serviciosDependientes[101,102,103]
-	 * proveedor[AWS,AWS,AZURE] (ESCOGIDO POR LOS PILARES)
+	 *          proveedor[AWS,AWS,AZURE] (ESCOGIDO POR LOS PILARES)
 	 */
 
-	public void incluirServiciosDependientes( String urlDelArchivoAConstruir) throws Exception{
-
+	public void incluirServiciosDependientes(String urlDelArchivoAConstruir) throws Exception {
 
 		int cantidadDeServicios = -1;
 
 		for (int i = 0; i < listaDeProveedoresCloud.length; i++) {
-			
-			
+
 			// Recuperacion de informacion de pilares de los tres proveedores
-			listaDeProveedoresCloud[i] = new Proveedor(PROVEEDORES_CLOUD[i],
-					urlDelArchivoAConstruir, listaDeTiposDeServiciosADescartar);
+			listaDeProveedoresCloud[i] = new Proveedor(PROVEEDORES_CLOUD[i], urlDelArchivoAConstruir,
+					listaDeTiposDeServiciosADescartar);
 
 			cantidadDeServicios = listaDeProveedoresCloud[i].cantidadDeServicios();
 
@@ -231,19 +224,17 @@ public class SistemaDeRecomendacion {
 
 		}
 
+		// --------------------------------------------------------------------------------------------------------------------
 
-		//--------------------------------------------------------------------------------------------------------------------
-		
 		boolean servicioYaRecomendado = false;
 
 		Pilar[] topEleccionDePilares = cliente.getTopDePilaresDelCliente();
-		
-		int[][] matrizDePilaresDeServicios = tablaComparacionDeServiciosConPilares;
-		
-		for (int i = 0; i < matrizDePilaresDeServicios.length; i += 5) {
-			//			System.out.println(i + " Ojo ahi");
-			//			if(matrizDePilaresDeServicios[i][0].  )
 
+		int[][] matrizDePilaresDeServicios = tablaComparacionDeServiciosConPilares;
+
+		for (int i = 0; i < matrizDePilaresDeServicios.length; i += 5) {
+			// System.out.println(i + " Ojo ahi");
+			// if(matrizDePilaresDeServicios[i][0]. )
 
 			servicioYaRecomendado = false;
 //			int posicionCloudRecomendado = -1;
@@ -254,101 +245,94 @@ public class SistemaDeRecomendacion {
 
 			// String nombreDePilar = "";
 
-
-			//HACER QUE LEA LAS ETIQUETAS !! DESDE EL ARCHIVO
-			for (int j = 0; j < ServicioCloud.PILARES_DE_CRITERIOS_DE_SELECCION.length && !servicioYaRecomendado; j++)
-			{
+			// HACER QUE LEA LAS ETIQUETAS !! DESDE EL ARCHIVO
+			for (int j = 0; j < ServicioCloud.PILARES_DE_CRITERIOS_DE_SELECCION.length && !servicioYaRecomendado; j++) {
 //				cantidadDeProveedoresQueCuentanConElPilar = 0;
 //				posicionCloudRecomendado = -1;
 
-
-
 				if (topEleccionDePilares[indiceDeTop].getNombreDelPilar()
 						.equals(ServicioCloud.PILARES_DE_CRITERIOS_DE_SELECCION[j])) {
-					
+
 //					String[] proveedoresQueCuentanConElPilar = new String[PROVEEDORES_CLOUD.length];
 					for (int k = 0; k < PROVEEDORES_CLOUD.length; k++) {
 
 						// Se cuenta cuantos proveedores tienen el pilar buscado actualmente del top
 
 						if (matrizDePilaresDeServicios[i + j][k] == ServicioCloud.SERVICIO_GENERAL) {
-							
+
 							for (int l = 0; l < PROVEEDORES_CLOUD.length; l++) {
-								
-								if(matrizDePilaresDeServicios[i + j][l] == ServicioCloud.SERVICIO_GENERAL)
-								{
-									
-								
-								listaDeServiciosRecomendados.add(new ServicioCloud(
-										listaDeProveedoresCloud[l].getListaDeServicios().get(i / 5)
-										.getTipoDeServicio(),
-										listaDeProveedoresCloud[l].getListaDeServicios().get(i / 5)
-										.getNombreDeServicio(),
-										listaDeProveedoresCloud[l].getListaDeServicios().get(i / 5)
-										.getPilares()[0].getValorDelPilar(),
-										listaDeProveedoresCloud[l].getListaDeServicios().get(i / 5)
-										.getPilares()[1].getValorDelPilar(),
-										listaDeProveedoresCloud[l].getListaDeServicios().get(i / 5)
-										.getPilares()[2].getValorDelPilar(),
-										listaDeProveedoresCloud[l].getListaDeServicios().get(i / 5)
-										.getPilares()[3].getValorDelPilar(),
-										listaDeProveedoresCloud[l].getListaDeServicios().get(i / 5)
-										.getPilares()[4].getValorDelPilar()));
-								servicioYaRecomendado = true;
-								indiceDeTop = 0;
+
+								if (matrizDePilaresDeServicios[i + j][l] == ServicioCloud.SERVICIO_GENERAL) {
+
+									listaDeServiciosRecomendados.add(new ServicioCloud(
+											listaDeProveedoresCloud[l].getListaDeServicios().get(i / 5)
+													.getTipoDeServicio(),
+											listaDeProveedoresCloud[l].getListaDeServicios().get(i / 5)
+													.getNombreDeServicio(),
+											listaDeProveedoresCloud[l].getListaDeServicios().get(i / 5).getPilares()[0]
+													.getValorDelPilar(),
+											listaDeProveedoresCloud[l].getListaDeServicios().get(i / 5).getPilares()[1]
+													.getValorDelPilar(),
+											listaDeProveedoresCloud[l].getListaDeServicios().get(i / 5).getPilares()[2]
+													.getValorDelPilar(),
+											listaDeProveedoresCloud[l].getListaDeServicios().get(i / 5).getPilares()[3]
+													.getValorDelPilar(),
+											listaDeProveedoresCloud[l].getListaDeServicios().get(i / 5).getPilares()[4]
+													.getValorDelPilar()));
+									servicioYaRecomendado = true;
+									indiceDeTop = 0;
 								}
 //								break;
-								
+
 							}
-							
+
 							break;
-							
+
 //							cantidadDeProveedoresQueCuentanConElPilar++;
 //							posicionCloudRecomendado = k;
-						}else if (matrizDePilaresDeServicios[i + j][k] == ServicioCloud.DEPENDIENTE_DE_COMPUTE_SERVICES 
-								|| matrizDePilaresDeServicios[i + j][k] == ServicioCloud.DEPENDIENTE_DE_CONTAINER_SUPPORT) {
-							
-							if(k== posicionDeProveedorDeComputoSeleccionado)
-							{
-								
+						} else if (matrizDePilaresDeServicios[i + j][k] == ServicioCloud.DEPENDIENTE_DE_COMPUTE_SERVICES
+								|| matrizDePilaresDeServicios[i
+										+ j][k] == ServicioCloud.DEPENDIENTE_DE_CONTAINER_SUPPORT) {
+
+							if (k == posicionDeProveedorDeComputoSeleccionado) {
 
 								listaDeServiciosRecomendados.add(new ServicioCloud(
-										listaDeProveedoresCloud[posicionDeProveedorDeComputoSeleccionado].getListaDeServicios().get(i / 5)
-										.getTipoDeServicio(),
-										listaDeProveedoresCloud[posicionDeProveedorDeComputoSeleccionado].getListaDeServicios().get(i / 5)
-										.getNombreDeServicio(),
-										listaDeProveedoresCloud[posicionDeProveedorDeComputoSeleccionado].getListaDeServicios().get(i / 5)
-										.getPilares()[0].getValorDelPilar(),
-										listaDeProveedoresCloud[posicionDeProveedorDeComputoSeleccionado].getListaDeServicios().get(i / 5)
-										.getPilares()[1].getValorDelPilar(),
-										listaDeProveedoresCloud[posicionDeProveedorDeComputoSeleccionado].getListaDeServicios().get(i / 5)
-										.getPilares()[2].getValorDelPilar(),
-										listaDeProveedoresCloud[posicionDeProveedorDeComputoSeleccionado].getListaDeServicios().get(i / 5)
-										.getPilares()[3].getValorDelPilar(),
-										listaDeProveedoresCloud[posicionDeProveedorDeComputoSeleccionado].getListaDeServicios().get(i / 5)
-										.getPilares()[4].getValorDelPilar()));
+										listaDeProveedoresCloud[posicionDeProveedorDeComputoSeleccionado]
+												.getListaDeServicios().get(i / 5).getTipoDeServicio(),
+										listaDeProveedoresCloud[posicionDeProveedorDeComputoSeleccionado]
+												.getListaDeServicios().get(i / 5).getNombreDeServicio(),
+										listaDeProveedoresCloud[posicionDeProveedorDeComputoSeleccionado]
+												.getListaDeServicios().get(i / 5).getPilares()[0].getValorDelPilar(),
+										listaDeProveedoresCloud[posicionDeProveedorDeComputoSeleccionado]
+												.getListaDeServicios().get(i / 5).getPilares()[1].getValorDelPilar(),
+										listaDeProveedoresCloud[posicionDeProveedorDeComputoSeleccionado]
+												.getListaDeServicios().get(i / 5).getPilares()[2].getValorDelPilar(),
+										listaDeProveedoresCloud[posicionDeProveedorDeComputoSeleccionado]
+												.getListaDeServicios().get(i / 5).getPilares()[3].getValorDelPilar(),
+										listaDeProveedoresCloud[posicionDeProveedorDeComputoSeleccionado]
+												.getListaDeServicios().get(i / 5).getPilares()[4].getValorDelPilar()));
 							}
-								servicioYaRecomendado = true;
-								indiceDeTop = 0;
-								break;
+							servicioYaRecomendado = true;
+							indiceDeTop = 0;
+							break;
 
-						}else if (matrizDePilaresDeServicios[i + j][k] == ServicioCloud.DEPENDIENTE_DE_DATABASE) {							
+						} else if (matrizDePilaresDeServicios[i + j][k] == ServicioCloud.DEPENDIENTE_DE_DATABASE) {
 
 							listaDeServiciosRecomendados.add(new ServicioCloud(
-									listaDeProveedoresCloud[posicionDeProveedorDeBaseDeDatosSeleccionado].getListaDeServicios().get(i / 5)
-									.getTipoDeServicio(),
-									listaDeProveedoresCloud[posicionDeProveedorDeBaseDeDatosSeleccionado].getListaDeServicios().get(i / 5)
-									.getNombreDeServicio(),
-									listaDeProveedoresCloud[posicionDeProveedorDeBaseDeDatosSeleccionado].getListaDeServicios().get(i / 5)
-									.getPilares()[0].getValorDelPilar(),
-									listaDeProveedoresCloud[posicionDeProveedorDeBaseDeDatosSeleccionado].getListaDeServicios().get(i / 5)
-									.getPilares()[1].getValorDelPilar(),
-									listaDeProveedoresCloud[posicionDeProveedorDeBaseDeDatosSeleccionado].getListaDeServicios().get(i / 5)
-									.getPilares()[2].getValorDelPilar(),
-									listaDeProveedoresCloud[posicionDeProveedorDeBaseDeDatosSeleccionado].getListaDeServicios().get(i / 5)
-									.getPilares()[3].getValorDelPilar(),
-									listaDeProveedoresCloud[posicionDeProveedorDeBaseDeDatosSeleccionado].getListaDeServicios().get(i / 5)
-									.getPilares()[4].getValorDelPilar()));
+									listaDeProveedoresCloud[posicionDeProveedorDeBaseDeDatosSeleccionado]
+											.getListaDeServicios().get(i / 5).getTipoDeServicio(),
+									listaDeProveedoresCloud[posicionDeProveedorDeBaseDeDatosSeleccionado]
+											.getListaDeServicios().get(i / 5).getNombreDeServicio(),
+									listaDeProveedoresCloud[posicionDeProveedorDeBaseDeDatosSeleccionado]
+											.getListaDeServicios().get(i / 5).getPilares()[0].getValorDelPilar(),
+									listaDeProveedoresCloud[posicionDeProveedorDeBaseDeDatosSeleccionado]
+											.getListaDeServicios().get(i / 5).getPilares()[1].getValorDelPilar(),
+									listaDeProveedoresCloud[posicionDeProveedorDeBaseDeDatosSeleccionado]
+											.getListaDeServicios().get(i / 5).getPilares()[2].getValorDelPilar(),
+									listaDeProveedoresCloud[posicionDeProveedorDeBaseDeDatosSeleccionado]
+											.getListaDeServicios().get(i / 5).getPilares()[3].getValorDelPilar(),
+									listaDeProveedoresCloud[posicionDeProveedorDeBaseDeDatosSeleccionado]
+											.getListaDeServicios().get(i / 5).getPilares()[4].getValorDelPilar()));
 							servicioYaRecomendado = true;
 							indiceDeTop = 0;
 							break;
@@ -358,29 +342,19 @@ public class SistemaDeRecomendacion {
 
 					}
 
-
-
 				}
-
 
 			}
 
-
 		}
-		
-		
 
 	}
 
 	public String asignarSectorCliente() {
 		String sector = "";
 
-
-
-
 		return sector;
 	}
-
 
 	public Proveedor[] getProveedoresCloud() {
 		return listaDeProveedoresCloud;
@@ -405,11 +379,11 @@ public class SistemaDeRecomendacion {
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
-	
-	
 
 	/**
-	 * En este punto deberia tener un parametro que le pase el URL del archivo, dependiendo del tipo de negocio del usuario
+	 * En este punto deberia tener un parametro que le pase el URL del archivo,
+	 * dependiendo del tipo de negocio del usuario
+	 * 
 	 * @throws Exception
 	 */
 	public void construirTablaDeComparacionDeServicios(String urlDelArchivoAConstruir) throws Exception {
@@ -417,8 +391,8 @@ public class SistemaDeRecomendacion {
 
 		for (int i = 0; i < listaDeProveedoresCloud.length; i++) {
 			// Recuperacion de informacion de pilares de los tres proveedores
-			listaDeProveedoresCloud[i] = new Proveedor(PROVEEDORES_CLOUD[i],
-					urlDelArchivoAConstruir, listaDeTiposDeServiciosADescartar);
+			listaDeProveedoresCloud[i] = new Proveedor(PROVEEDORES_CLOUD[i], urlDelArchivoAConstruir,
+					listaDeTiposDeServiciosADescartar);
 
 			cantidadDeServicios = listaDeProveedoresCloud[i].cantidadDeServicios();
 
@@ -450,16 +424,14 @@ public class SistemaDeRecomendacion {
 
 	// /** Algoritmos*/
 
-
 	public void seleccionRecomendadaDeServiciosCloud(int[][] matrizDePilaresDeServicios) {
 		boolean servicioYaRecomendado = false;
 
 		Pilar[] topEleccionDePilares = cliente.getTopDePilaresDelCliente();
 
 		for (int i = 0; i < matrizDePilaresDeServicios.length; i += 5) {
-			//			System.out.println(i + " Ojo ahi");
-			//			if(matrizDePilaresDeServicios[i][0].  )
-
+			// System.out.println(i + " Ojo ahi");
+			// if(matrizDePilaresDeServicios[i][0]. )
 
 			servicioYaRecomendado = false;
 			int posicionCloudRecomendado = -1;
@@ -470,14 +442,10 @@ public class SistemaDeRecomendacion {
 
 			// String nombreDePilar = "";
 
-
-			//HACER QUE LEA LAS ETIQUETAS !! DESDE EL ARCHIVO
-			for (int j = 0; j < ServicioCloud.PILARES_DE_CRITERIOS_DE_SELECCION.length && !servicioYaRecomendado; j++)
-			{
+			// HACER QUE LEA LAS ETIQUETAS !! DESDE EL ARCHIVO
+			for (int j = 0; j < ServicioCloud.PILARES_DE_CRITERIOS_DE_SELECCION.length && !servicioYaRecomendado; j++) {
 				cantidadDeProveedoresQueCuentanConElPilar = 0;
 				posicionCloudRecomendado = -1;
-
-
 
 				if (topEleccionDePilares[indiceDeTop].getNombreDelPilar()
 						.equals(ServicioCloud.PILARES_DE_CRITERIOS_DE_SELECCION[j])) {
@@ -493,68 +461,64 @@ public class SistemaDeRecomendacion {
 					}
 
 					if (cantidadDeProveedoresQueCuentanConElPilar == 1) {
-						
 
 						listaDeServiciosRecomendados.add(new ServicioCloud(
 								listaDeProveedoresCloud[posicionCloudRecomendado].getListaDeServicios().get(i / 5)
-								.getTipoDeServicio(),
+										.getTipoDeServicio(),
 								listaDeProveedoresCloud[posicionCloudRecomendado].getListaDeServicios().get(i / 5)
-								.getNombreDeServicio(),
+										.getNombreDeServicio(),
 								listaDeProveedoresCloud[posicionCloudRecomendado].getListaDeServicios().get(i / 5)
-								.getPilares()[0].getValorDelPilar(),
+										.getPilares()[0].getValorDelPilar(),
 								listaDeProveedoresCloud[posicionCloudRecomendado].getListaDeServicios().get(i / 5)
-								.getPilares()[1].getValorDelPilar(),
+										.getPilares()[1].getValorDelPilar(),
 								listaDeProveedoresCloud[posicionCloudRecomendado].getListaDeServicios().get(i / 5)
-								.getPilares()[2].getValorDelPilar(),
+										.getPilares()[2].getValorDelPilar(),
 								listaDeProveedoresCloud[posicionCloudRecomendado].getListaDeServicios().get(i / 5)
-								.getPilares()[3].getValorDelPilar(),
+										.getPilares()[3].getValorDelPilar(),
 								listaDeProveedoresCloud[posicionCloudRecomendado].getListaDeServicios().get(i / 5)
-								.getPilares()[4].getValorDelPilar()));
-						
-						for (int j2 = 0; j2 < topEleccionDePilares.length 
-								&& listaDeProveedoresCloud[posicionCloudRecomendado].getListaDeServicios().get(i / 5).getTipoDeServicio().equals(
-										cliente.getServiciosSeleccionados()[0].getTipoDeServicio()); j2++) {
+										.getPilares()[4].getValorDelPilar()));
+
+						for (int j2 = 0; j2 < topEleccionDePilares.length
+								&& listaDeProveedoresCloud[posicionCloudRecomendado].getListaDeServicios().get(i / 5)
+										.getTipoDeServicio()
+										.equals(cliente.getServiciosSeleccionados()[0].getTipoDeServicio()); j2++) {
 							posicionDeProveedorDeBaseDeDatosSeleccionado = posicionCloudRecomendado;
-							
+
 						}
-						
-						for (int j2 = 0; j2 < topEleccionDePilares.length 
-								&& listaDeProveedoresCloud[posicionCloudRecomendado].getListaDeServicios().get(i / 5).getTipoDeServicio().equals(
-										cliente.getServiciosSeleccionados()[1].getTipoDeServicio()); j2++) {
-							posicionDeProveedorDeComputoSeleccionado = posicionCloudRecomendado;
-							
+						if (cliente.getSector().equals(Preguntas.NEGOCIOS_TECNOLOGIA)) {
+
+						} else {
+							for (int j2 = 0; j2 < topEleccionDePilares.length
+									&& listaDeProveedoresCloud[posicionCloudRecomendado].getListaDeServicios()
+											.get(i / 5).getTipoDeServicio()
+											.equals(cliente.getServiciosSeleccionados()[1].getTipoDeServicio()); j2++) {
+								posicionDeProveedorDeComputoSeleccionado = posicionCloudRecomendado;
+							}
 						}
-						
+
 						servicioYaRecomendado = true;
 						indiceDeTop = 0;
 						break;
 					} else {
 
-
 						indiceDeTop++;
-						j= -1;
+						j = -1;
 
-						//						// servicios especiales: 100,101,102,103
+						// // servicios especiales: 100,101,102,103
 					}
-
 
 				}
 
-
 			}
-
 
 		}
 
-
 	}
 
-
-	
 	public Preguntas getPreguntasParaLaRecomendacion() {
 		return preguntasParaLaRecomendacion;
 	}
-	
+
 	public void setPreguntasParaLaRecomendacion(Preguntas preguntasParaLaRecomendacion) {
 		this.preguntasParaLaRecomendacion = preguntasParaLaRecomendacion;
 	}
@@ -566,7 +530,6 @@ public class SistemaDeRecomendacion {
 	public void setListaDeServiciosRecomendados(ArrayList<ServicioCloud> listaDeServiciosRecomendados) {
 		this.listaDeServiciosRecomendados = listaDeServiciosRecomendados;
 	}
-
 
 //	public static void main(String[] args) {
 //
@@ -599,7 +562,5 @@ public class SistemaDeRecomendacion {
 //		}
 //
 //	}
-
-
 
 }
